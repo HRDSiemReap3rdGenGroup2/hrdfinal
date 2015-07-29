@@ -54,10 +54,10 @@
 			<div class="span4 offset4">
 				<div class="signin">
 					<h1 class="center-align-text">Login</h1>
-					<form action="index.html" class="signin-wrapper" method="post">
+					<form action="login" class="signin-wrapper" method="post">
 						<div class="content">
-							<input class="input input-block-level" placeholder="Email" type="email" value="" required> 
-							<input class="input input-block-level" placeholder="Password" type="password" required>
+							<input autocomplete="off" class="input input-block-level" placeholder="Username" type="text" value="" required name="username"> 
+							<input class="input input-block-level" placeholder="Password" type="password" required name="password">
 						</div>
 						<div class="actions">
 							<input class="btn btn-info pull-right" type="submit" value="Login"> <span class="checkbox-wrapper"> 
