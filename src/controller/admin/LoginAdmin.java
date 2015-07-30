@@ -33,8 +33,8 @@ public class LoginAdmin extends HttpServlet {
 		String email=req.getParameter("username");
 		String password= req.getParameter("password");
 		if(email.equalsIgnoreCase("admin") && password.equalsIgnoreCase("123")){
+			req.getSession().setAttribute("admin", "admin");
 			resp.sendRedirect("dashboard");
-			req.getSession().setAttribute("user", "admin");
 		}
 	}
 	
