@@ -37,4 +37,51 @@ public class CategoryDAO {
 		}
 		return list;
 	}
+	public boolean addCategory(Category cate) throws SQLException{
+		try{
+			String sql="INSERT INTO tbcategory values(?,?,?,?,?)";
+			PreparedStatement p=con.prepareStatement(sql);
+			p.setInt(1, cate.getCat_id());
+			p.setString(2, cate.getCat_code());
+			p.setInt(3, cate.getParent_id());
+			p.setString(4, cate.getCat_name());
+			p.setString(5, cate.getCat_desc());
+			if(p.executeUpdate()>0)return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return false;
+	}
+	public boolean updateCategory(Category cate) throws SQLException{
+		try{
+			String sql="UPDATE tbcategory SET cat_code=?, parent_id=?, cat_name=?, cat_desc=? WHERE cat_id=?";
+			PreparedStatement p=con.prepareStatement(sql);
+			p.setString(1, cate.getCat_code());
+			p.setInt(2, cate.getParent_id());
+			p.setString(3, cate.getCat_name());
+			p.setString(4, cate.getCat_desc());
+			p.setInt(5, cate.getCat_id());
+			if(p.executeUpdate()>0)return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return false;
+	}
+	public boolean deleteCategroy(int cate_id) throws SQLException{
+		try{
+			String sql="DELETE FROM tbcategory WHERE cat_id=?";
+			PreparedStatement p=con.prepareStatement(sql);
+			p.setInt(1, cate_id);
+			if(p.executeUpdate()>0)return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return false;
+	}
 }

@@ -25,25 +25,23 @@ public class LoginUser extends HttpServlet {
 			throws ServletException, IOException {
 		doProcess(req, resp);
 	}
-	private void doProcess(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		String email=req.getParameter("username");
+	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try{
+		String username=req.getParameter("username");
 		String password= req.getParameter("password");
-		if(email==null)email="";
+		if(username==null)username="";
 		if(password==null)password="";
-		if(email.equalsIgnoreCase("admin") && password.equalsIgnoreCase("123")){
-			System.out.println("admin");
-			req.getSession().setAttribute("user", "admin");
-			resp.sendRedirect(req.getContextPath());
-		}
-		else if(email.equalsIgnoreCase("jonh") && password.equalsIgnoreCase("123")){
-			System.out.println("jonh");
-			req.getSession().setAttribute("user", "jonh");
+		if(new model.dao.UserDAO().login(username, password)){
+			req.getSession().setAttribute("user", username);
 			resp.sendRedirect(req.getContextPath());
 		}
 		else{
-			System.out.println("hello");
-			resp.sendRedirect("login.jsp");
+			req.getSession().setAttribute("logstatus", "failed");
+			resp.sendRedirect(req.getContextPath());
+		}
+		}catch(Exception e){
+			e.printStackTrace();
+			resp.sendRedirect(req.getContextPath());
 		}
 	}
 }

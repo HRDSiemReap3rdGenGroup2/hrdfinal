@@ -34,17 +34,16 @@ public class Filter implements javax.servlet.Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		((HttpServletResponse) response).setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+		((HttpServletResponse) response).setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+		((HttpServletResponse) response).setDateHeader("Expires", 0); //Causes the proxy cache to see the page as "stale"
+		((HttpServletResponse) response).setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
 		HttpSession session = ((HttpServletRequest)request).getSession();
 		if(session.getAttribute("user")==null){
 			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath());
 		}
-		else if(session.getAttribute("user").equals("admin")){
-			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath()+"/adminlogin.jsp");
-		}	
-		else if(session.getAttribute("admin")!=null){
+		else{
 			chain.doFilter(request, response);
-		}else{
-			((HttpServletResponse)response).sendRedirect(((HttpServletRequest)request).getContextPath());
 		}
 	}
 

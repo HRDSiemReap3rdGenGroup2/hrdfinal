@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,5 +37,22 @@ public class UserDAO {
 			if(con!=null)con.close();
 		}
 		return list;
+	}
+	public boolean login(String username, String password) throws SQLException {
+		try{
+			String sql="{call login(?,?)}";
+			CallableStatement c=con.prepareCall(sql);
+			c.setString(1, username);
+			c.setString(2, password);
+			ResultSet rs=c.executeQuery();
+			rs.next();
+			if(rs.getInt(1)==1)return true;
+			else return false;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return false;
 	}
 }

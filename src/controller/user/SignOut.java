@@ -19,8 +19,7 @@ public class SignOut extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session =req.getSession();
-		session.setAttribute("user", null);
-		session.setAttribute("admin", null);
+		session.removeAttribute("user");
 		resp.sendRedirect(req.getContextPath());
 	}
 
