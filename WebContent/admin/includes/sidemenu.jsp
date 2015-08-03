@@ -13,8 +13,8 @@
 					<span class="fs1" aria-hidden="true" data-icon="&#xe004;"></span>
 				</div> News
 		</a></li>
-		<li class=""><a
-			href="index.html">
+		<li id="user"><a
+			href="user.jsp">
 				<div class="icon">
 					<span class="fs1" aria-hidden="true" data-icon="&#xe073;"></span>
 				</div> Users
