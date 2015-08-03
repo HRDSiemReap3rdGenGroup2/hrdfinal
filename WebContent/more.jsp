@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -59,66 +61,7 @@
     <div class="controller2">
 
         <!-- Header -->
-        <header id="header">
-            <div class="container">
-                
-                <!--login|signup-->
-                <div class="column" style="margin-bottom:0">
-                    <div class="login">
-                        <span>សួស្តី, </span><a href="login.html"><span>Rath Phearun</span></a><span>
-                    </div>
-                </div>
-                <!--/login|signup-->
-                
-                <div class="column">
-                    <div class="logo" style="margin-top:0">
-                        <a href="index.html"><img style="background-color:#4f9d51;padding-left:30px; padding-right:30px" width="200" src="img/khmeracademy.png" alt="KhmerAcademy News" /></a>
-                    </div>
-                    
-                    <div class="search">    
-                        
-                        <form action="" method="post">
-                            <input type="text" value="Search." onblur="if(this.value=='') this.value='Search.';" onfocus="if(this.value=='Search.') this.value='';" class="ft"/>
-                            <input type="submit" value="" class="fs">
-                        </form>
-                       
-                    </div>
-                    <div class="languages">
-                            <div id="google_translate_element"></div><script type="text/javascript">
-                            function googleTranslateElementInit() {
-                              new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ja,km,ko,lo,ms,my,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-                            }
-                            </script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                    </div>
-                    
-                    
-                    <!-- Nav -->
-                    <nav id="nav">
-                        <ul class="sf-menu">
-                            <li class="current"><a href="index.html">ទំព័រដើម</a></li>
-                            <li>
-                            	<a href="#">ការងារ</a>
-                                <ul>
-                                    <li><i class="icon-right-open"></i><a href="leftsidebar.html">IT</a></li>
-                                    <li><i class="icon-right-open"></i><a href="reviews.html">Accountant</a></li>
-                                    <li><i class="icon-right-open"></i><a href="single.html">Single News.</a></li>
-                                    <li><i class="icon-right-open"></i><a href="features.html">Features.</a></li>
-                                    <li><i class="icon-right-open"></i><a href="contact.html">Contact.</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="reviews.html">សុខភាព</a></li>
-                            <li><a href="reviews.html">កម្សាន្ត</a></li>
-                            <li><a href="reviews.html">នយោបាយ</a></li>
-                            <li><a href="reviews.html">កីទ្បា</a></li>
-                            <li><a href="reviews.html">បច្ចេវិទ្យា</a></li>
-                            <li><a href="more.html">ផ្សេងទៀត</a></li>
-                        </ul>
-                        
-                    </nav>
-                    <!-- /Nav -->
-                </div>
-            </div>
-        </header>
+        <jsp:include page="includes/header.jsp"></jsp:include>
         <!-- /Header -->
         
         <!-- Content -->
@@ -161,7 +104,7 @@
                             <div class="news-row">
                                 <div class="items">
                                    <img src="img/thumnail/thumnail.jpg" />
-                                    <a href="single.html"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
+                                    <a href="single.jsp"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
                                     <p class="publish-date">Mon, 12 May 2015</p>    
                                     <p>ហេតុការណ៍​គ្រោះថ្នាក់​កាលពី​យប់មិញ​ដែល​ត្រូវ​បាន​សារព័ត៌មាន​ក្នុង​ស្រុក​ចុះផ្សាយ​ព្រោងព្រាត​ថា​អ្នក​បង្កហេតុ​គឺ​​ស្រី​ស្អាត បេនីយុំាង និង​លោក អេន ឌី បើក​ឡាន​ប៉ះ...</p>
                                 </div>  
@@ -169,7 +112,7 @@
                             <div class="news-row">
                                 <div class="items">
                                    <img src="img/fer.jpg" />
-                                    <a href="single.html"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
+                                    <a href="single.jsp"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
                                     <p class="publish-date">Mon, 12 May 2015</p>    
                                     <p>ហេតុការណ៍​គ្រោះថ្នាក់​កាលពី​យប់មិញ​ដែល​ត្រូវ​បាន​សារព័ត៌មាន​ក្នុង​ស្រុក​ចុះផ្សាយ​ព្រោងព្រាត​ថា​អ្នក​បង្កហេតុ​គឺ​​ស្រី​ស្អាត បេនីយុំាង និង​លោក អេន ឌី បើក​ឡាន​ប៉ះ...</p>
                                 </div>  
@@ -177,7 +120,7 @@
                             <div class="news-row">
                                 <div class="items">
                                    <img src="img/fer.jpg" />
-                                    <a href="single.html"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
+                                    <a href="single.jsp"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
                                     <p class="publish-date">Mon, 12 May 2015</p>    
                                     <p>ហេតុការណ៍​គ្រោះថ្នាក់​កាលពី​យប់មិញ​ដែល​ត្រូវ​បាន​សារព័ត៌មាន​ក្នុង​ស្រុក​ចុះផ្សាយ​ព្រោងព្រាត​ថា​អ្នក​បង្កហេតុ​គឺ​​ស្រី​ស្អាត បេនីយុំាង និង​លោក អេន ឌី បើក​ឡាន​ប៉ះ...</p>
                                 </div>  
@@ -185,7 +128,7 @@
                             <div class="news-row">
                                 <div class="items">
                                    <img src="img/fer.jpg" />
-                                    <a href="single.html"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
+                                    <a href="single.jsp"><h5>ស្រី​ស្អាត បេនីយុំាង និង អេនឌី បកស្រាយ​រឿង​គ្រោះថ្នាក់​ចរាចរណ៍​យប់មិញ</h5></a>
                                     <p class="publish-date">Mon, 12 May 2015</p>    
                                     <p>ហេតុការណ៍​គ្រោះថ្នាក់​កាលពី​យប់មិញ​ដែល​ត្រូវ​បាន​សារព័ត៌មាន​ក្នុង​ស្រុក​ចុះផ្សាយ​ព្រោងព្រាត​ថា​អ្នក​បង្កហេតុ​គឺ​​ស្រី​ស្អាត បេនីយុំាង និង​លោក អេន ឌី បើក​ឡាន​ប៉ះ...</p>
                         </div>  
@@ -217,38 +160,7 @@
         <!-- / Content -->
         
         <!-- Footer -->
-        <footer id="footer">
-            <div class="container">
-                <div class="column-one-third">
-                    <h5 class="line"><span>ទំនាក់ទំនង</span></h5>
-                    <div class="flickrfeed">
-                       <p>លេខទូរស័ព្ទ : +855 98 490 268</p>
-                       <p>អុីម៉ែល : rathphearun123@gmail.com</p>
-                       <p>អស័យដ្ឋាន : Phnom Penh, Cambodia</p>
-                       <p>ទំនាក់ទំនង : <a href="contact.html">ពត៌មានលម្អិត</a></p>
-                    </div>
-                </div>
-                
-                <div class="column-one-third">
-                    <h5 class="line"><span>ប្រភេទពត៌មាន</span></h5>
-                    <ul class="footnav">
-                    	<li><a href="#"><i class="icon-right-open"></i> កម្សាន្ត</a></li>
-                        <li><a href="#"><i class="icon-right-open"></i> សុខភាព</a></li>
-                        <li><a href="#"><i class="icon-right-open"></i> ការងារ</a></li>
-                        <li><a href="#"><i class="icon-right-open"></i> បច្ចេកវិទ្យា</a></li>
-                        <li><a href="#"><i class="icon-right-open"></i> កីទ្បា</a></li>
-                        <li><a href="#"><i class="icon-right-open"></i> នយោបាយ</a></li>
-                        
-                    </ul>
-                </div>
-                
-                <div class="column-one-third">
-                    <h5 class="line"><span>អំពីយើង</span></h5>
-                    <p>Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste rhon cus sem purus eu sapien. Lorem ipsum dolor sit amet adipcising elit. Elit norem simuls tortor lorem adipcising purus mosteu dsapien egestas.</p>
-                </div>
-                <p class="copyright">Copyright 2015. All Rights Reserved</p>
-            </div>
-        </footer>
+        <jsp:include page="includes/footer.jsp"></jsp:include>
         <!-- / Footer -->
     
     </div>

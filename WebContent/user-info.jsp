@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <h5 class="user-profile"><span>General User Setting</span></h5>
 <table class="table">
     <tr>
