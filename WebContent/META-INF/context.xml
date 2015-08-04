@@ -1,5 +1,5 @@
 <Context>
-		<Resource name="postgresDB"
+		<Resource name="KANEWSDB"
 		auth="Container"
 		type="javax.sql.DataSource"
 		maxActive="15"
@@ -7,5 +7,5 @@
 		username="postgres"
 		password="123"
 		driverClassName="org.postgresql.Driver"
-		url="jdbc:postgresql://localhost:5432/kanews"/>
+		url="jdbc:postgresql://localhost:5432/KANEWS"/>
 </Context>

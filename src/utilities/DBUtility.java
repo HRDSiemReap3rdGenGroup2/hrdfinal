@@ -11,7 +11,7 @@ public class DBUtility {
 		Context c;
 		try {
 			c = new InitialContext();
-			DataSource ds = (DataSource) c.lookup("java:comp/env/postgresDB");
+			DataSource ds = (DataSource) c.lookup("java:comp/env/KANEWSDB");
 			return ds.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();

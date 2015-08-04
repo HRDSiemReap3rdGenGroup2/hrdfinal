@@ -6,10 +6,14 @@
                 <!--login|signup|languages-->
                 <div class="column" style="margin-bottom:0">
                     <div class="login">
-                        <a href="login.jsp"><span>ចូល</span></a><span> | </span><a href="login.jsp"><span>ចុះឈ្មោះ</span></a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <div class="languages">
+                        <div class="languages" style="float:right;">
                             <a href="#"><span>ខ្មែរ</span></a><span> | </span><a href="#">ENG</a>
                         </div>
+	                    <div style="float:right;">
+	                        <a href="login.jsp"><span>ចូល</span></a><span> | </span><a href="login.jsp"><span>ចុះឈ្មោះ</span></a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	                    </div>
+	                    <div id="google_translate_element" style="float:right;margin-right:10px;"></div>
+                        <div style="clear:both"></div>
                     </div>
                 </div>
                 <!--/login|signup|languages-->
@@ -31,18 +35,23 @@
                     <!-- Nav -->
                     <nav id="nav">
                         <ul class="sf-menu">
-                            <li class="current"><a href="index.jsp">ទំព័រដើម</a></li>
-                            <li><a href="job.jsp">ការងារ</a></li>
-                            <li><a href="category.jsp">សុខភាព</a></li>
-                            <li><a href="category.jsp">កម្សាន្ត</a></li>
-                            <li><a href="category.jsp">នយោបាយ</a></li>
-                            <li><a href="category.jsp">កីទ្បា</a></li>
-                            <li><a href="category.jsp">បច្ចេវិទ្យា</a></li>
-                            <li><a href="more.jsp">ផ្សេងទៀត</a></li>
+                            <li id="index1"><a href="home">ទំព័រដើម</a></li>
+                            <li id="job"><a href="job.jsp">ការងារ</a></li>
+                            <li id="health"><a href="health">សុខភាព</a></li>
+                            <li id="entertainment"><a href="entertainment">កម្សាន្ត</a></li>
+                            <li id="politic"><a href="politic">នយោបាយ</a></li>
+                            <li id="sport"><a href="sport">កីទ្បា</a></li>
+                            <li id="tech"><a href="tech">បច្ចេវិទ្យា</a></li>
+                            <li id="other"><a href="more.jsp">ផ្សេងទៀត</a></li>
                         </ul>
                         
                     </nav>
                     <!-- /Nav -->
                 </div>
             </div>
+            <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </header>
