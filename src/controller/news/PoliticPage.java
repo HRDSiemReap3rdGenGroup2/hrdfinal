@@ -39,10 +39,10 @@ public class PoliticPage extends HttpServlet{
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
 			//list=new NewsDAO().getNewsList("B020503", 6);
-			list=new NewsDAO().getNewsList("B030302", 6);
+			list=new NewsDAO().getNewsList("B020103", 6);
 			req.setAttribute("list", list);
-			req.setAttribute("title", "កម្សាន្ត");
-			req.setAttribute("title_id", "entertainment");
+			req.setAttribute("title", "នយោបាយ");
+			req.setAttribute("title_id", "politic");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

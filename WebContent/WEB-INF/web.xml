@@ -52,6 +52,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>politic</servlet-name>
+  	<servlet-class>controller.news.PoliticPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>politic</servlet-name>
+  	<url-pattern>/politic</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>usersignout</servlet-name>
   	<servlet-class>controller.user.SignOut</servlet-class>
   </servlet>
