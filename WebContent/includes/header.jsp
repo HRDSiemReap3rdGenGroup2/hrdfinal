@@ -33,11 +33,11 @@
                         <ul class="sf-menu">
                             <li class="current"><a href="index.jsp">ទំព័រដើម</a></li>
                             <li><a href="job.jsp">ការងារ</a></li>
-                            <li><a href="reviews.jsp">សុខភាព</a></li>
-                            <li><a href="reviews.jsp">កម្សាន្ត</a></li>
-                            <li><a href="reviews.jsp">នយោបាយ</a></li>
-                            <li><a href="reviews.jsp">កីទ្បា</a></li>
-                            <li><a href="reviews.jsp">បច្ចេវិទ្យា</a></li>
+                            <li><a href="category.jsp">សុខភាព</a></li>
+                            <li><a href="category.jsp">កម្សាន្ត</a></li>
+                            <li><a href="category.jsp">នយោបាយ</a></li>
+                            <li><a href="category.jsp">កីទ្បា</a></li>
+                            <li><a href="category.jsp">បច្ចេវិទ្យា</a></li>
                             <li><a href="more.jsp">ផ្សេងទៀត</a></li>
                         </ul>
                         
