@@ -64,9 +64,10 @@ body{
 }
 .search{
 	background:#fafafa;
-	width:230px;
+	//width:230px;
+	width:364px;
 	float:right;
-	margin-top:30px;
+	margin-top:20px;
 }
 .search .ft{
 	background:none;

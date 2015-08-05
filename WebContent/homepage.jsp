@@ -72,7 +72,7 @@
                         <ul class="slides">
                            <c:forEach items="${list }" var="row">
 	                        	<li>
-	                                <img src="${row.news_img }" alt="MyPassion"/>
+	                                <img src="${row.news_img }" alt="MyPassion" style="height:372px;"/>
 	                                <p class="flex-caption"><a href="news?id=${row.news_id}">${row.news_title }</a>${row.news_desc }</p>
 	                            </li>
                         	</c:forEach>
@@ -251,8 +251,6 @@
 	</div>
 </div>
 <!-- / Body Wrapper -->
-
-
 <!-- SCRIPTS -->
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/easing.min.js"></script>
@@ -266,6 +264,7 @@
 <script type="text/javascript" src="js/timeago.js"></script>
 <script type="text/javascript" src="js/jflickrfeed.min.js"></script>
 <script type="text/javascript" src="js/mobilemenu.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
 
 <!--[if lt IE 9]> <script type="text/javascript" src="js/html5.js"></script> <![endif]-->
 <script type="text/javascript" src="js/mypassion.js"></script>

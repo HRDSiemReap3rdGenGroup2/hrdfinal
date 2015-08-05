@@ -61,6 +61,24 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>sport</servlet-name>
+  	<servlet-class>controller.news.SportPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>sport</servlet-name>
+  	<url-pattern>/sport</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>tech</servlet-name>
+  	<servlet-class>controller.news.TechPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>tech</servlet-name>
+  	<url-pattern>/tech</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>usersignout</servlet-name>
   	<servlet-class>controller.user.SignOut</servlet-class>
   </servlet>

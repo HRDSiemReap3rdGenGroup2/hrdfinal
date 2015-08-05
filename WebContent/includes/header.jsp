@@ -23,15 +23,30 @@
                         <a href="index.jsp"><img style="background-color:#4f9d51;padding-left:30px; padding-right:30px" width="200" src="img/khmeracademy.png" alt="KhmerAcademy News" /></a>
                     </div>
                     
-                    <div class="search">    
-                        
+                    <!-- <div class="search">    
                         <form action="" method="post">
                             <input type="text" placeholder="ស្វែងរក..." class="ft"/>
                             <input type="submit" value="" class="fs">
                         </form>
-                       
+                    </div> -->
+					<div class="search advance-search" style="float:right;">
+						<form id="ui_element" class="sb_wrapper">
+	                                <p>
+	                                    <span class="sb_down"></span>
+	                                    <input class="sb_input" type="text"/>
+	                                    <input class="sb_search" type="submit" value=""/>
+	                                </p>
+	                                <ul class="sb_dropdown" style="display:none;">
+	                                    <li class="sb_filter">Filter your search</li>
+	                                    <li><input type="checkbox"/><label for="all"><strong>គ្រប់ប្រភេទ</strong></label></li>
+	                                    <li><input type="checkbox"/><label for="Automotive">កម្សាន្ត</label></li>
+	                                    <li><input type="checkbox"/><label for="Baby">ការងារ</label></li>
+	                                    <li><input type="checkbox"/><label for="Beauty">សុខភាព</label></li>
+	                                    <li><input type="checkbox"/><label for="Books">នយោបាយ</label></li>
+	                                    <li><input type="checkbox"/><label for="Cell">កីទ្បា</label></li>
+	                                </ul>
+	                    </form>
                     </div>
-                    
                     <!-- Nav -->
                     <nav id="nav">
                         <ul class="sf-menu">
@@ -41,7 +56,7 @@
                             <li id="entertainment"><a href="entertainment">កម្សាន្ត</a></li>
                             <li id="politic"><a href="politic">នយោបាយ</a></li>
                             <li id="sport"><a href="sport">កីទ្បា</a></li>
-                            <li id="tech"><a href="tech">បច្ចេវិទ្យា</a></li>
+                            <li id="tech"><a href="tech">បច្ចេកវិទ្យា</a></li>
                             <li id="other"><a href="more.jsp">ផ្សេងទៀត</a></li>
                         </ul>
                         

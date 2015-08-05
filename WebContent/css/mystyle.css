@@ -67,6 +67,7 @@ h5{
 	padding:0;
 	position: absolute;
 	width:372px;
+	z-index:1000;
 }
 .sb_wrapper input[type="text"],
 ul.sb_dropdown{
@@ -112,13 +113,12 @@ span.sb_up,
 span.sb_down{
 	position:absolute;
 	top:3px;
-	left:0px;
+	left:1px;
 	width:14px;
-	height:41px;
+	height:37px;
 	background-color:#f2f2f2;
 	background-position:center center;
 	background-repeat: no-repeat;
-	z-index:10;
 	border:1px solid #fff;
 }
 span.sb_up{
@@ -129,8 +129,8 @@ span.sb_down{
 }
 input.sb_search{
 	background:#4F9D51 url(../img/search.png) no-repeat center center;
-	height:43px;
-	width:50px;
+	height:38px;
+	width:42px;
 	float:left;
 	border:none;
 	margin:3px 0px;
