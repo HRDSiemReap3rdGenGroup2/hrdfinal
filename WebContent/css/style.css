@@ -55,6 +55,11 @@ body{
 	float:left;
 	position:relative;
 	margin-bottom:0px;
+	/* background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f0f0f0)); Safari 4-5, Chrome 1-9 
+	background: -webkit-linear-gradient(top, #BA1111, white);Safari 5.1, Chrome 10+  
+	background: -moz-linear-gradient(top, #fff, #f0f0f0); Firefox 3.6+ 
+	background: -ms-linear-gradient(top, #fff, #f0f0f0); IE 10 
+	background: -o-linear-gradient(top, #fff, #f0f0f0);Opera 11.10+  */
 }
 .logo{
 	float:left;
