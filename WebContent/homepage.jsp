@@ -73,7 +73,7 @@
                            <c:forEach items="${list }" var="row">
 	                        	<li>
 	                                <img src="${row.news_img }" alt="MyPassion" style="height:372px;"/>
-	                                <p class="flex-caption"><a href="news?id=${row.news_id}">${row.news_title }</a>${row.news_desc }</p>
+	                                <p class="flex-caption"><a href="news?id=${row.news_id}" target="_blank">${row.news_title }</a>${row.news_desc }</p>
 	                            </li>
                         	</c:forEach>
                         </ul>
@@ -116,10 +116,14 @@
                         	<c:set var="list" value="${requestScope.popularnews }"></c:set>
                         	<c:forEach items="${list }" var="row">
                         		<li>
-                        			<a href="news?id=${row.news_id}"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
                                     <p>
                                         <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
-                                        <a href="news?id=${row.news_id}">${fn:substring(row.news_title,0,60)}..</a>
+                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
+	                                	<div>
+	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<button style="float:right">Save</button>
+	                                	</div>	
                                     </p>
                         		</li>
                         	</c:forEach>
@@ -137,16 +141,19 @@
                         	<c:set var="list" value="${requestScope.B020503 }"></c:set>
                             <c:forEach items="${list }" var="row">
                         		<li>
-                        			<a href="news?id=${row.news_id}"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
                                     <p>
                                         <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
-                                        <a href="news?id=${row.news_id}">${fn:substring(row.news_title,0,60)}..</a>
+                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,70)}..</a>
+	                                	<div>
+	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<button style="float:right">Save</button>
+	                                	</div>		
                                     </p>
                         		</li>
                         	</c:forEach>
                             </ul>
                         </div>
-                        
                     </div>
                     <!-- /Health News -->  
                     
@@ -173,10 +180,14 @@
                         	<ul class="block" id="carousel">
                         		<c:forEach items="${list }" var="row">
                         		<li>
-                        			<a href="news?id=${row.news_id}"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
                                     <p>
                                     	<span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
-                                        <a href="news?id=${row.news_id}">${fn:substring(row.news_title,0,60)}..</a>
+                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
+	                                	<div>
+	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<button style="float:right">Save</button>
+	                                	</div>		
                                     </p>
                         		</li>
                         		</c:forEach>
@@ -192,22 +203,25 @@
                 <div class="column-one-third">
                     <!-- Hot News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span>កម្សាន្ត</span></h5>
+                    	<h5 class="line"><span>កម្សាន្ត​</span></h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
-	                        	<c:set var="list" value="${requestScope.B030302 }"></c:set>
-	                            <c:forEach items="${list }" var="row">
-	                        		<li>
-	                        			<a href="news?id=${row.news_id}"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
-	                                    <p>
-	                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
-	                                        <a href="news?id=${row.news_id}">${fn:substring(row.news_title,0,60)}..</a>
-	                                    </p>
-	                        		</li>
-	                        	</c:forEach>
+                        	<c:set var="list" value="${requestScope.B030302 }"></c:set>
+                            <c:forEach items="${list }" var="row">
+                        		<li>
+                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+                                    <p>
+                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
+                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
+	                                	<div style="position:relative;bottom:0px;width:100%">
+	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<button style="float:right">Save</button>
+	                                	</div>		
+                                    </p>
+                        		</li>
+                        	</c:forEach>
                             </ul>
                         </div>
-                        
                     </div>
                     <!-- /Hot News --> 
                     
@@ -219,10 +233,14 @@
                                 <c:set var="list" value="${requestScope.B010105 }"></c:set>
 	                            <c:forEach items="${list }" var="row">
 	                        		<li>
-	                        			<a href="news?id=${row.news_id}"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+	                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
 	                                    <p>
 	                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
-	                                        <a href="news?id=${row.news_id}">${fn:substring(row.news_title,0,60)}..</a>
+	                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
+	                                	<div>
+	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<button style="float:right">Save</button>
+	                                	</div>		
 	                                    </p>
 	                        		</li>
 	                        	</c:forEach>
