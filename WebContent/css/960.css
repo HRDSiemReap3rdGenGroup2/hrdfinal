@@ -85,6 +85,7 @@
     .column-two-third       { width:492px; }
     .column-three-fourth    { width:556px; }
 	iframe, .sidebar img{max-width:236px;}
+	
 }
 
 
@@ -107,6 +108,8 @@
         text-align: center; 
         margin-bottom: 10px;
     }
+    
+    
     
 }
 

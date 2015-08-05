@@ -60,7 +60,8 @@
             	<!-- Main Content -->
                 
                 <div class="breadcrumbs column">
-                    <h2>${requestScope.title }</h2>
+                    <h2 style="display:inline">${requestScope.title }</h2>
+                    <button style="float:right;padding:10px;background-color:#cc181e">Subscribe</button>
                 </div>
                 
                 <div class="main-content">
@@ -70,10 +71,11 @@
                     	<c:forEach items="${list }" var="x">
 	                    	<div class="news-row column-two-third">
 	                            <div class="items">
-	                               <img src="${x.news_img }" style="width:248px;height:148px;"/>
+	                               <img src="${x.news_img }" style=""/>
 	                                <a href="single.jsp"><h5>${x.news_title }</h5></a>
 	                                <p class="publish-date">Mon, 12 May 2015</p>    
 	                                <p>${fn:substring(x.news_desc,0,120) }..</p>
+	                                <div><span>Viewed:123</span><button style="float:right">Save</button></div>
 	                            </div>  
 	                        </div>
                     	</c:forEach>

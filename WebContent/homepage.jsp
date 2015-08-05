@@ -72,7 +72,7 @@
                         <ul class="slides">
                            <c:forEach items="${list }" var="row">
 	                        	<li>
-	                                <img src="${row.news_img }" alt="MyPassion" style="width:540px;height:372px;"/>
+	                                <img src="${row.news_img }" alt="MyPassion"/>
 	                                <p class="flex-caption"><a href="news?id=${row.news_id}">${row.news_title }</a>${row.news_desc }</p>
 	                            </li>
                         	</c:forEach>
