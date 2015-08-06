@@ -188,7 +188,7 @@
 <script type="text/javascript" src="js/myscript.js"></script>
 
 <!--[if lt IE 9]> <script type="text/javascript" src="js/html5.js"></script> <![endif]-->
-<script type="text/javascript" src="js/mypassion.js"></script>
+<!-- <script type="text/javascript" src="js/mypassion.js"></script> -->
 <script>
 	$("#${requestScope.title_id}").addClass("current");
 </script>
