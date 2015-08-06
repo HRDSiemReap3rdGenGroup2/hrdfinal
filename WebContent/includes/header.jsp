@@ -58,6 +58,7 @@
                             <li id="sport"><a href="sport">កីទ្បា</a></li>
                             <li id="tech"><a href="tech">បច្ចេកវិទ្យា</a></li>
                             <li id="other"><a href="more.jsp">ផ្សេងទៀត</a></li>
+                            <li id="other"><a href="statistic.jsp">ស្ថិតិ</a></li>
                         </ul>
                         
                     </nav>
