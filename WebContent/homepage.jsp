@@ -135,10 +135,10 @@
                     
                     <!-- Health News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span>សុខភាព​</span></h5>
+                    	<h5 class="line"><span>ព័ត៌មានបច្ចេកវិទ្យា​</span></h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
-                        	<c:set var="list" value="${requestScope.B020503 }"></c:set>
+                        	<c:set var="list" value="${requestScope.B010105 }"></c:set>
                             <c:forEach items="${list }" var="row">
                         		<li>
                         			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
@@ -228,10 +228,10 @@
                     
                     <!-- Hot News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span>ព័ត៌មានបច្ចេកវិទ្យា</span></h5>
+                    	<h5 class="line"><span>សុខភាព</span></h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
-                                <c:set var="list" value="${requestScope.B010105 }"></c:set>
+                                <c:set var="list" value="${requestScope.B020503 }"></c:set>
 	                            <c:forEach items="${list }" var="row">
 	                        		<li>
 	                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>

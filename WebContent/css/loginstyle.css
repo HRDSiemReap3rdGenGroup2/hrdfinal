@@ -1,28 +1,27 @@
 /*--login----*/
 
-*, *:before, *:after {
+.form-area:before, .form-area:after, .form-area * {
   box-sizing: border-box;
 }
 
-html {
+/* .form-area{
   overflow-y: scroll;
-}
+} */
 
-body {
+.form-area{
   background: #c1bdba;
   font-family: sans-serif;
 }
 
-a {
+.form-area a {
   text-decoration: none;
   color: #1ab188;
   -webkit-transition: .5s ease;
           transition: .5s ease;
 }
-a:hover {
+.form-area a:hover {
   color: #179b77;
 }
-
 .form {
   background-color: white;
   padding: 20px;
@@ -33,20 +32,20 @@ a:hover {
   box-shadow: 0 2px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
-.tab-group {
+.form-area .tab-group {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px 0;
+  margin:0 0 20px 0;
 }
-.tab-group:after {
+.form-area .tab-group:after {
   content: "";
   display: table;
   clear: both;
 }
-.tab-group li a {
+.form-area .tab-group li a {
   display: block;
   text-decoration: none;
-  padding: 15px;
+  padding: 15px 15px;
   background: rgba(160, 179, 176, 0.25);
   color: #a0b3b0;
   font-size: 14px;
@@ -57,60 +56,61 @@ a:hover {
   -webkit-transition: .5s ease;
           transition: .5s ease;
 }
-.tab-group li a:hover {
+.form-area .tab-group li a:hover {
   background-color: darkseagreen;
   color: #ffffff;
 }
-.tab-group .active a {
+.form-area .tab-group .active a {
   background: #4F9D51;
   color: #ffffff;
 }
 
-.tab-content > div:last-child {
+.form-area .tab-content > div:last-child {
   display: none;
 }
 
-h1 {
+.form-area h1 {
   text-align: center;
   color: black;
   font-weight: 300;
   margin-bottom: 12px;
 }
 
-label {
+.form-area label {
   position: absolute;
   -webkit-transform: translateY(6px);
       -ms-transform: translateY(6px);
           transform: translateY(6px);
   left: 13px;
   color: rgba(255, 255, 255, 0.5);
+  color:red;
   -webkit-transition: all 0.25s ease;
           transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
   font-size: 14px;
 }
-label .req {
+.form-area label .req {
   margin: 2px;
   color: #1ab188;
 }
 
-label.active {
+.form-area label.active {
   -webkit-transform: translateY(50px);
       -ms-transform: translateY(50px);
           transform: translateY(50px);
   left: 2px;
   font-size: 14px;
 }
-label.active .req {
+.form-area label.active .req {
   opacity: 0;
 }
 
-label.highlight {
+.form-area label.highlight {
   color: black;
 }
 
-#signup input, textarea, #login input, textarea {
+.form-area #signup input,.form-area  textarea,.form-area  #login input,.form-area  textarea {
   font-size: 20px;
   display: block;
   width: 100%;
@@ -124,36 +124,36 @@ label.highlight {
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
           transition: border-color .25s ease, box-shadow .25s ease;
 }
-input:focus, textarea:focus {
+.form-area input:focus,.form-area  textarea:focus {
   outline: 0;
   border-color: #1ab188;
 }
 
-textarea {
+.form-area textarea {
   border: 2px solid #a0b3b0;
   resize: vertical;
 }
 
-.field-wrap {
+.form-area .field-wrap {
   position: relative;
   margin-bottom: 40px;
 }
 
-.top-row:after {
+.form-area .top-row:after {
   content: "";
   display: table;
   clear: both;
 }
-.top-row > div {
+.form-area .top-row > div {
   float: left;
   width: 48%;
   margin-right: 4%;
 }
-.top-row > div:last-child {
+.form-area .top-row > div:last-child {
   margin: 0;
 }
 
-.button {
+.form-area .button {
   border: 0;
   outline: none;
   border-radius: 0;
@@ -168,16 +168,16 @@ textarea {
           transition: all 0.5s ease;
   -webkit-appearance: none;
 }
-.button:hover, .button:focus {
+.form-area .button:hover, .button:focus {
   background: #709D70;
 }
 
-.button-block {
+.form-area .button-block {
   display: block;
   width: 100%;
 }
 
-.forgot {
+.form-area .forgot {
   margin-top: -20px;
   text-align: right;
 }

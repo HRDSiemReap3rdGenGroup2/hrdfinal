@@ -56,6 +56,7 @@
                     <div class="column-two-third">
                         <h5 class="line"><span>ចូលប្រើប្រាស់</span></h5>
                         <!--form login+sign up-->
+                        <div class="form-area">
                         <div class="form">
                               <ul class="tab-group">
                                 <li class="tab active"><a href="#signup">Sign Up</a></li>
@@ -113,6 +114,7 @@
                                   </form>
                                 </div>
                               </div>
+                        </div>
                         </div>
                         <!--/form login+sign up--> 
                     </div>    
@@ -203,7 +205,6 @@
 <script type="text/javascript" src="js/mobilemenu.js"></script>
 
 <!--[if lt IE 9]> <script type="text/javascript" src="js/html5.js"></script> <![endif]-->
-<script type="text/javascript" src="js/mypassion.js"></script>
-
+<!-- <script type="text/javascript" src="js/mypassion.js"></script> -->
 </body>
 </html>
