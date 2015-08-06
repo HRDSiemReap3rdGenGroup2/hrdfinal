@@ -135,7 +135,7 @@
                     
                     <!-- Health News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span>ព័ត៌មានបច្ចេកវិទ្យា​</span></h5>
+                    	<h5 class="line"><span><a href="tech">ព័ត៌មានបច្ចេកវិទ្យា​</a></span></h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
                         	<c:set var="list" value="${requestScope.B010105 }"></c:set>
@@ -160,8 +160,8 @@
                     <!-- Life Style -->
                     <div class="column-two-third">
                     	<h5 class="line">
-                        	<span>នយោបាយ</span>
-                            <div class="navbar">
+                        	<a href="politic">នយោបាយ</a>
+                            <div class="" style="position:absolute;top:0px;right:0px;">
                                 <a id="next1" class="next" href="#"><span></span></a>	
                                 <a id="prev1" class="prev" href="#"><span></span></a>
                             </div>
@@ -228,7 +228,7 @@
                     
                     <!-- Hot News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span>សុខភាព</span></h5>
+                    	<h5 class="line"><span><a href="health">សុខភាព</a></span></h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
                                 <c:set var="list" value="${requestScope.B020503 }"></c:set>

@@ -79,6 +79,33 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>job</servlet-name>
+	<jsp-file>/job.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>job</servlet-name>
+  	<url-pattern>/job</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>more</servlet-name>
+	<jsp-file>/more.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>more</servlet-name>
+  	<url-pattern>/more</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>contact</servlet-name>
+	<jsp-file>/contact.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>contact</servlet-name>
+  	<url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>usersignout</servlet-name>
   	<servlet-class>controller.user.SignOut</servlet-class>
   </servlet>

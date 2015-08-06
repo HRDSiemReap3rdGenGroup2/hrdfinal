@@ -109,46 +109,20 @@
                             <h5 class="line"><span>ពត៌មានពេញនិយម</span></h5>
                             <div class="outertight">
                                 <ul class="block">
-                                    <li>
-                                        <a href="#"><img src="img/trash/5.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:80%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/6.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:100%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/7.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:70%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/8.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:60%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/8.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:60%;"></span></span>
-                                    </li>
+		                            <c:set var="list" value="${requestScope.popularnews }"></c:set>
+		                            <c:forEach items="${list }" var="row">
+		                        		<li>
+		                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+		                                    <p>
+		                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
+		                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
+			                                	<div>
+			                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+			                                		<button style="float:right">Save</button>
+			                                	</div>	
+		                                    </p>
+		                        		</li>
+		                        	</c:forEach>
                                 </ul>
                             </div>
                         </div>
