@@ -38,10 +38,7 @@
 			<h5 class="line">
 				<span>អំពីយើង</span>
 			</h5>
-			<p>Blandit rutrum, erat et egestas ultricies, dolor tortor
-				egestas enim, quiste rhon cus sem purus eu sapien. Lorem ipsum dolor
-				sit amet adipcising elit. Elit norem simuls tortor lorem adipcising
-				purus mosteu dsapien egestas.</p>
+			<p>Khmer Academy គឺជា E-Learning Platform ដំបូងគេ​ដើម្បី​ចែក​រំលែក​ចំណេះដឹង នៅកម្ពុជា។ វា​ត្រូវ​បាន​បង្កើត​ដោយ​មជ្ឍមណ្ឌល​កូរ៉េ សហ្វវែរ អេចអឌី នៅ​ក្នុង​ឆ្នាំ ២០១៥។ គ្រប់​អត្ថបទ​ទាំងអស់​ជា​ភាសាខ្មែរ ដែល​ធ្វើឱ្យ​ងាយ​យល់ ម្យ៉ាងវិញទៀត​គ្រប់ Content ទាំងអស់​គឺ​ទាក់ទង​នឹង​ IT ហើយ​យើង​នឹងគ្រោង​បន្ថែម​ប្រភេទ​អត្ថបទ​ផ្សេងៗទៀត។ បេសកកម្មរបស់​យើង គឺជួយ​បង្កើន​ការអប់រំ នៅ​កម្ពុជាជាមួយ វិស័យ IT ។ Khmer Academy នឹង​ក្លាយ​ទៅជា Platform ដែល​ផ្ដល់​ការអប់រំ និង​ចែករំលែកចំណេះដឹង​គ្រប់ប្រភេទ​នៅ​លើ​អ៊ីនធឺណិត។ </p>
 		</div>
 		<p class="copyright">Copyright 2015. All Rights Reserved</p>
 	</div>
