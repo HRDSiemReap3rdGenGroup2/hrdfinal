@@ -264,3 +264,24 @@ h3, h2{
   max-width: 100%;
   height: auto;
 }
+/* when the screen-width smaller than 768px */
+@media ( max-width :768px) {
+	.search{
+		margin: -20px 0px 10px 0;
+		width: 300px;
+	}
+	.sb_wrapper input[type="text"]{
+		width: 227px;
+	}
+	ul.sb_dropdown{
+		    width: 288px;
+	}
+	ul.sb_dropdown li.sb_filter {
+		width: 273px;
+	}
+}
+@media (max-width: 479px){
+	.search{
+		margin: -20px 0px 10px 0;
+	}
+}
