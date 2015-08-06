@@ -30,20 +30,20 @@
                         </form>
                     </div> -->
 					<div class="search advance-search" style="float:right;" id="search-box">
-						<form id="ui_element" class="sb_wrapper">
+						<form id="ui_element" class="sb_wrapper" action="results" method="get">
 	                                <p>
 	                                    <span class="sb_down"></span>
-	                                    <input class="sb_input" type="text"/>
+	                                    <input class="sb_input" type="text" placeholder="ស្វែងរកពត៏មាន..." name="s_query"/>
 	                                    <input class="sb_search" type="submit" value=""/>
 	                                </p>
 	                                <ul class="sb_dropdown" style="display:none;">
 	                                    <li class="sb_filter">Filter your search</li>
 	                                    <li><input type="checkbox" id="all"/><label for="all"><strong>គ្រប់ប្រភេទ</strong></label></li>
-	                                    <li><input type="checkbox" id="entertainment"/><label for="entertainment">កម្សាន្ត</label></li>
-	                                    <li><input type="checkbox" id="tech"/><label for="tech">បច្ចេកវិទ្យា</label></li>
-	                                    <li><input type="checkbox" id="health"/><label for="health">សុខភាព</label></li>
-	                                    <li><input type="checkbox" id="politic"/><label for="politic">នយោបាយ</label></li>
-	                                    <li><input type="checkbox" id="sport"/><label for="sport">កីទ្បា</label></li>
+	                                    <li><input type="checkbox" name="c_e" id="entertainment" value="entertainment"/><label for="entertainment">កម្សាន្ត</label></li>
+	                                    <li><input type="checkbox" name="c_t" id="tech" value="tech"/><label for="tech">បច្ចេកវិទ្យា</label></li>
+	                                    <li><input type="checkbox" name="c_h" id="health" value="health"/><label for="health">សុខភាព</label></li>
+	                                    <li><input type="checkbox" name="c_p" id="politic" value="politic"/><label for="politic">នយោបាយ</label></li>
+	                                    <li><input type="checkbox" name="c_s" id="sport" value="sport"/><label for="sport">កីទ្បា</label></li>
 	                                </ul>
 	                    </form>
                     </div>

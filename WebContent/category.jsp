@@ -72,7 +72,7 @@
 	                    	<div class="news-row column-two-third">
 	                            <div class="items">
 	                               <img src="${x.news_img }" style="height:170px"/>
-	                                <a href="single.jsp"><h5>${x.news_title }</h5></a>
+	                                <a href="${x.news_path}" target="_blank"><h5>${x.news_title }</h5></a>
 	                                <p class="publish-date">Mon, 12 May 2015</p>    
 	                                <p>${fn:substring(x.news_desc,0,120) }..</p>
 	                                <div><span>Viewed:123</span><button style="float:right">Save</button></div>

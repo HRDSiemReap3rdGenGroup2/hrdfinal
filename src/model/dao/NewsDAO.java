@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.dto.News;
 import utilities.DBUtility;
@@ -131,5 +132,49 @@ public class NewsDAO {
 			if(con!=null)con.close();
 		}
 		return "";
+	}
+	public ArrayList<News> search(String s_query, List<String> category) throws SQLException {
+		ArrayList<News> list=new ArrayList<News>();
+		try{
+			String sql="";
+			if(category.size()>1){
+				sql+="and cat_code in (";
+				for(int i=0;i<category.size()-1;i++){
+					sql+=category.get(i).toString()+",";
+				}
+				sql+=category.get(category.size()-1).toString();
+				sql+=")";
+			}
+			else if(category.size()==1){
+				sql+="and cat_code in (";
+				for(int i=0;i<category.size();i++){
+					sql+=category.get(i).toString();
+				}
+				sql+=")";
+			}
+			else{
+				sql="select * from tbnews where lower(news_title) like '%' || lower(?) || '%'";
+			}
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setString(1, s_query);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()){
+				News e= new News();
+				e.setNews_id(rs.getInt("news_id"));
+				e.setCat_code(rs.getString("cat_code"));
+				e.setNews_title(rs.getString("news_title"));
+				e.setNews_date(rs.getString("news_date"));
+				e.setNews_img(rs.getString("news_img"));
+				e.setNews_path(rs.getString("news_path"));
+				e.setUser_info_code(rs.getString("user_info_code"));
+				e.setNews_desc(rs.getString("news_desc"));
+				list.add(e);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return list;
 	}
 }

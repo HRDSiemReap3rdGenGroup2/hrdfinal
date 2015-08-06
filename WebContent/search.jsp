@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -14,7 +16,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>News - Responsive HTML5 and CSS3 template</title>
+<title>Result | AKNEWS</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 
@@ -39,7 +41,6 @@
 </head>
 
 <body>
-
 <!-- Body Wrapper -->
 <div class="body-wrapper">
 	<div class="controller">
@@ -59,57 +60,22 @@
                 </div>
                 
                 <div class="main-content">
-                    <div class="column-two-third">
-                        <div class="advance-search">
-                            <form id="ui_element" class="sb_wrapper">
-                                <p>
-                                    <span class="sb_down"></span>
-                                    <input class="sb_input" type="text"/>
-                                    <input class="sb_search" type="submit" value=""/>
-                                </p>
-                                <ul class="sb_dropdown" style="display:none;">
-                                    <li class="sb_filter">Filter your search</li>
-                                    <li><input type="checkbox"/><label for="all"><strong>គ្រប់ប្រភេទ</strong></label></li>
-                                    <li><input type="checkbox"/><label for="Automotive">កម្សាន្ត</label></li>
-                                    <li><input type="checkbox"/><label for="Baby">ការងារ</label></li>
-                                    <li><input type="checkbox"/><label for="Beauty">សុខភាព</label></li>
-                                    <li><input type="checkbox"/><label for="Books">នយោបាយ</label></li>
-                                    <li><input type="checkbox"/><label for="Cell">កីទ្បា</label></li>
-                                </ul>
-                            </form>    
-                        </div>
-                    </div>
+                   
                     
                     <!--list news-->
                     <div class="wrap-news">
-                        <div class="news-row column-two-third">
-                            <div class="items">
-                               <img src="img/fer.jpg" />
-                                <a href="single.jsp"><h5>What is Lorem Ipsum?</h5></a>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,pe specimen book. It but also the leap into electronic typesetting, releas...</p>
-                            </div>  
-                        </div>
-                        <div class="news-row column-two-third">
-                            <div class="items">
-                               <img src="img/fer.jpg" />
-                                <a href="single.jsp"><h5>Lorem Ipsum</h5></a>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,pe specimen book. It but also the leap into electronic typesetting, releas...</p>
-                            </div>  
-                        </div>
-                        <div class="news-row column-two-third">
-                            <div class="items">
-                               <img src="img/fer.jpg" />
-                                <a href="single.jsp"><h5>Lorem Ipsum</h5></a>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,pe specimen book. It but also the leap into electronic typesetting, releas...</p>
-                            </div>  
-                        </div>
-                        <div class="news-row column-two-third">
-                            <div class="items">
-                               <img src="img/fer.jpg" />
-                                <a href="single.jsp"><h5>Lorem Ipsum</h5></a>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,pe specimen book. It but also the leap into electronic typesetting, releas...</p>
-                            </div>  
-                        </div>
+						<c:set var="result" value="${requestScope.result }"></c:set>
+								<c:forEach items="${result}" var="row">
+									<div class="news-row column-two-third">
+			                            <div class="items">
+			                               <img src="${row.news_img }" />
+			                                <a href="${row.news_path }" target="_blank">
+			                                	<h5>${row.news_title }</h5>
+			                                </a>
+			                                <p>${row.news_desc }</p>
+			                            </div>  
+			                        </div>
+								</c:forEach>
                     </div>
                     
                     <div class="pager" style="float:right">
@@ -135,46 +101,20 @@
                             <h5 class="line"><span>ពត៌មានពេញនិយម</span></h5>
                             <div class="outertight">
                                 <ul class="block">
-                                    <li>
-                                        <a href="#"><img src="img/trash/5.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:80%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/6.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:100%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/7.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:70%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/8.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:60%;"></span></span>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="img/trash/8.png" alt="MyPassion" class="alignleft" /></a>
-                                        <p>
-                                            <span>26 May, 2013.</span>
-                                            <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                        </p>
-                                        <span class="rating"><span style="width:60%;"></span></span>
-                                    </li>
+                                <c:set var="list" value="${requestScope.popularnews }"></c:set>
+                                	<c:forEach items="${list }" var="row">
+		                        		<li>
+		                        			<a href="news?id=${row.news_id}" target="_blank"><img src="${row.news_img}" alt="${row.news_title}" class="alignleft" width="140" height="86"/></a>
+		                                    <p>
+		                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
+		                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
+			                                	<div>
+			                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+			                                		<button style="float:right">Save</button>
+			                                	</div>	
+		                                    </p>
+		                        		</li>
+		                        	</c:forEach>
                                 </ul>
                             </div>
                         </div>
