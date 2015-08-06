@@ -194,6 +194,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <!-- /Life Style -->
                     
                 </div>
@@ -203,7 +204,7 @@
                 <div class="column-one-third">
                     <!-- Hot News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span>កម្សាន្ត​</span></h5>
+                    	<h5 class="line"><span><a href="entertainment">កម្សាន្ត</a>​</span></h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
                         	<c:set var="list" value="${requestScope.B030302 }"></c:set>
