@@ -254,7 +254,7 @@
                     
                     <div class="sidebar">
                     	<h5 class="line"><span>Facebook.</span></h5>
-                        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-width="300" data-height="298" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/KhmerAcademy.Org" data-width="300" data-height="298" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/KhmerAcademy.Org"><a href="https://www.facebook.com/KhmerAcademy.Org">Khmer Academy</a></blockquote></div></div>
                     </div>
                 </div>
                 <!-- /Left Sidebar -->
