@@ -20,7 +20,7 @@
                 
                 <div class="column">
                     <div class="logo" style="margin-top:0">
-                        <a href="index.jsp"><img style="background-color:#4f9d51;padding-left:30px; padding-right:30px" width="200" src="img/khmeracademy.png" alt="KhmerAcademy News" /></a>
+                        <a href="home"><img style="background-color:#4f9d51;padding-left:30px; padding-right:30px" width="200" src="img/khmeracademy.png" alt="KhmerAcademy News" /></a>
                     </div>
                     
                     <!-- <div class="search">    
@@ -51,13 +51,13 @@
                     <nav id="nav">
                         <ul class="sf-menu">
                             <li id="index1"><a href="home">ទំព័រដើម</a></li>
-                            <li id="job"><a href="job.jsp">ការងារ</a></li>
+                            <li id="job"><a href="job">ការងារ</a></li>
                             <li id="health"><a href="health">សុខភាព</a></li>
                             <li id="entertainment"><a href="entertainment">កម្សាន្ត</a></li>
                             <li id="politic"><a href="politic">នយោបាយ</a></li>
                             <li id="sport"><a href="sport">កីទ្បា</a></li>
                             <li id="tech"><a href="tech">បច្ចេកវិទ្យា</a></li>
-                            <li id="other"><a href="more.jsp">ផ្សេងទៀត</a></li>
+                            <li id="other"><a href="more">ផ្សេងទៀត</a></li>
                             <li id="other"><a href="statistic.jsp">ស្ថិតិ</a></li>
                         </ul>
                         

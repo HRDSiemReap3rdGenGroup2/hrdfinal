@@ -106,6 +106,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>statistic</servlet-name>
+	<jsp-file>/statistic.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>statistic</servlet-name>
+  	<url-pattern>/statistic</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>usersignout</servlet-name>
   	<servlet-class>controller.user.SignOut</servlet-class>
   </servlet>
