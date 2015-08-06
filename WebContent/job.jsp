@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>News - Responsive HTML5 and CSS3 template</title>
+<title>Jobs | AKNEWS</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 

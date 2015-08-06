@@ -15,7 +15,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Contact Us</title>
+<title>Contact Us | AKNEWS</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 
@@ -98,7 +98,7 @@
 	                            </div>
 	                            <div class="form">
 	                                <label>Message*</label>
-	                                <textarea name="message" style="width:180%;color:#000;"></textarea>
+	                                <textarea name="message" style="width:278px;color:#000;"></textarea>
 	                            </div>
 	                            <div class="form2">
 	                                <!--<input type="submit" class="send-message" value="Send Message" />-->

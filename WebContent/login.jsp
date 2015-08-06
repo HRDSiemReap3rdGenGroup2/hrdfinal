@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>KhmerAcademy News</title>
+<title>All Khmer News</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 
@@ -93,7 +93,7 @@
                                         <label>Confirm Password<span class="req">*</span></label>
                                         <input type="password"required autocomplete="off"/>
                                       </div>
-                                      <button type="submit" class="button button-block"/>Sign Up</button>
+                                      <button type="submit" class="button button-block">Sign Up</button>
                                   </form>
                                 </div>
 
@@ -110,7 +110,7 @@
                                          <input type="password"required autocomplete="off"/>
                                       </div>
                                       <p class="forgot"><a href="#">Forgot Password?</a></p>
-                                      <button class="button button-block"/>Log In</button>
+                                      <button class="button button-block">Log In</button>
                                   </form>
                                 </div>
                               </div>

@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>News - Responsive HTML5 and CSS3 template</title>
+<title>TOP NEWS | AKNEWS</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 
@@ -66,7 +66,7 @@
         
         <!-- Content -->
         <section id="content">
-            <div class="container" style="margin-top:22px">
+            <div class="container" style="">
                 
                 
                 <!--main-content-->
@@ -77,6 +77,17 @@
                         <h5 class="user-profile"><span>ស្ថិតិ</span></h5>
                         <!--/category-header-->
                         
+                        
+                        <!-- job list -->
+                        <div style="margin-top:10px;">
+                        	<h3 style="display:inline;margin-right:20px">Top News</h3>
+                        	<select style="border:1px solid #DBDBDB;padding:3px">
+                        		<option>5</option>
+                        		<option>10</option>
+                        		<option>15</option>
+                        	</select>
+                        </div><!-- /.div -->
+                        <div style="position:relative;right:-15px;">
                         <select style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
                             <option>All Media</option>
                             <option>Sabay</option>
@@ -95,15 +106,6 @@
                             <option>Weekly</option>
                             <option>Monthly</option>
                         </select>
-                        <!-- job list -->
-                        
-                        <div>
-                        	<h3 style="display:inline;margin-right:20px">Top News</h3>
-                        	<select style="border:1px solid #DBDBDB;padding:3px">
-                        		<option>5</option>
-                        		<option>10</option>
-                        		<option>15</option>
-                        	</select>
                         </div>
                         <table class="table">
                             <tr>

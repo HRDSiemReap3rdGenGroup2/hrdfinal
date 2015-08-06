@@ -16,7 +16,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>${requestScope.title } | KANEWS</title>
+<title>${requestScope.title } | AKNEWS</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 

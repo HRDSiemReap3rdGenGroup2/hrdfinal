@@ -18,7 +18,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>KhmerAcademy News</title>
+<title>All Khmer News</title>
 
 <link rel="shortcut icon" href="img/sms-4.ico" />
 
@@ -110,7 +110,13 @@
                 	
                     <!-- Popular News -->
                 	<div class="column-one-third">
-                    	<h5 class="line"><span>ពត៌មានពេញនិយម</span></h5>
+                    	<h5 class="line"><span>ពត៌មានពេញនិយម</span>
+                    		<select style="float: right;margin-top: 5px;margin-left: 10px;">
+							  <option>Daily</option>
+							  <option>Weekly</option>
+							  <option>Monthly</option>
+							</select>
+                    	</h5>
                         <div class="outertight">
                         	<ul class="block">
                         	<c:set var="list" value="${requestScope.popularnews }"></c:set>
@@ -135,7 +141,12 @@
                     
                     <!-- Health News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span><a href="tech">ព័ត៌មានបច្ចេកវិទ្យា​</a></span></h5>
+                    	<h5 class="line"><span><a href="tech">ព័ត៌មានបច្ចេកវិទ្យា​</a></span>
+                    	<select style="float:right;margin-top:5px;margin-left: 10px;">
+							  <option>Latest</option>
+							  <option>Top View</option>
+							</select>
+                    	</h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
                         	<c:set var="list" value="${requestScope.B010105 }"></c:set>
@@ -160,7 +171,11 @@
                     <!-- Life Style -->
                     <div class="column-two-third">
                     	<h5 class="line">
-                        	<a href="politic">នយោបាយ</a>
+                        	<span><a href="politic">នយោបាយ</a></span>
+                        	<select style="margin-left: 10px;">
+							  <option>Latest</option>
+							  <option>Top View</option>
+							</select>
                             <div class="" style="position:absolute;top:0px;right:0px;">
                                 <a id="next1" class="next" href="#"><span></span></a>	
                                 <a id="prev1" class="prev" href="#"><span></span></a>
@@ -204,7 +219,12 @@
                 <div class="column-one-third">
                     <!-- Hot News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span><a href="entertainment">កម្សាន្ត</a>​</span></h5>
+                    	<h5 class="line"><span><a href="entertainment">កម្សាន្ត</a>​</span>
+                    		<select style="float: right;margin-top: 5px;margin-left: 10px;">
+							  <option>Latest</option>
+							  <option>Top View</option>
+							</select>
+                    	</h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
                         	<c:set var="list" value="${requestScope.B030302 }"></c:set>
@@ -228,7 +248,12 @@
                     
                     <!-- Hot News -->
                     <div class="column-one-third">
-                    	<h5 class="line"><span><a href="health">សុខភាព</a></span></h5>
+                    	<h5 class="line"><span><a href="health">សុខភាព</a></span>
+                    		<select style="float: right;margin-top: 5px;margin-left: 10px;">
+							  <option>Latest</option>
+							  <option>Top View</option>
+							</select>
+                    	</h5>
                         <div class="outertight m-r-no">
                         	<ul class="block">
                                 <c:set var="list" value="${requestScope.B020503 }"></c:set>

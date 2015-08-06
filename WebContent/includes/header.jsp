@@ -38,12 +38,12 @@
 	                                </p>
 	                                <ul class="sb_dropdown" style="display:none;">
 	                                    <li class="sb_filter">Filter your search</li>
-	                                    <li><input type="checkbox"/><label for="all"><strong>គ្រប់ប្រភេទ</strong></label></li>
-	                                    <li><input type="checkbox"/><label for="Automotive">កម្សាន្ត</label></li>
-	                                    <li><input type="checkbox"/><label for="Baby">ការងារ</label></li>
-	                                    <li><input type="checkbox"/><label for="Beauty">សុខភាព</label></li>
-	                                    <li><input type="checkbox"/><label for="Books">នយោបាយ</label></li>
-	                                    <li><input type="checkbox"/><label for="Cell">កីទ្បា</label></li>
+	                                    <li><input type="checkbox" id="all"/><label for="all"><strong>គ្រប់ប្រភេទ</strong></label></li>
+	                                    <li><input type="checkbox" id="entertainment"/><label for="entertainment">កម្សាន្ត</label></li>
+	                                    <li><input type="checkbox" id="tech"/><label for="tech">បច្ចេកវិទ្យា</label></li>
+	                                    <li><input type="checkbox" id="health"/><label for="health">សុខភាព</label></li>
+	                                    <li><input type="checkbox" id="politic"/><label for="politic">នយោបាយ</label></li>
+	                                    <li><input type="checkbox" id="sport"/><label for="sport">កីទ្បា</label></li>
 	                                </ul>
 	                    </form>
                     </div>
@@ -51,14 +51,14 @@
                     <nav id="nav">
                         <ul class="sf-menu">
                             <li id="index1"><a href="home">ទំព័រដើម</a></li>
-                            <li id="job"><a href="job">ការងារ</a></li>
-                            <li id="health"><a href="health">សុខភាព</a></li>
-                            <li id="entertainment"><a href="entertainment">កម្សាន្ត</a></li>
                             <li id="politic"><a href="politic">នយោបាយ</a></li>
-                            <li id="sport"><a href="sport">កីទ្បា</a></li>
                             <li id="tech"><a href="tech">បច្ចេកវិទ្យា</a></li>
-                            <li id="other"><a href="more">ផ្សេងទៀត</a></li>
+                            <li id="entertainment"><a href="entertainment">កម្សាន្ត</a></li>
+                            <li id="job"><a href="job">ការងារ</a></li>
+                            <li id="sport"><a href="sport">កីទ្បា</a></li>
+                            <li id="health"><a href="health">សុខភាព</a></li>
                             <li id="statistic"><a href="statistic">ស្ថិតិ</a></li>
+                            <li id="other"><a href="more">ផ្សេងទៀត</a></li>
                         </ul>
                         
                     </nav>
