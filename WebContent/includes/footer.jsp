@@ -23,13 +23,13 @@
 				<span>ប្រភេទពត៌មាន</span>
 			</h5>
 			<ul class="footnav">
-				<li><a href="#"><i class="icon-right-open"></i> កម្សាន្ត</a></li>
-				<li><a href="#"><i class="icon-right-open"></i> សុខភាព</a></li>
-				<li><a href="#"><i class="icon-right-open"></i> ការងារ</a></li>
-				<li><a href="#"><i class="icon-right-open"></i>
+				<li><a href="entertainment"><i class="icon-right-open"></i> កម្សាន្ត</a></li>
+				<li><a href="health"><i class="icon-right-open"></i> សុខភាព</a></li>
+				<li><a href="job"><i class="icon-right-open"></i> ការងារ</a></li>
+				<li><a href="tech"><i class="icon-right-open"></i>
 						បច្ចេកវិទ្យា</a></li>
-				<li><a href="#"><i class="icon-right-open"></i> កីទ្បា</a></li>
-				<li><a href="#"><i class="icon-right-open"></i> នយោបាយ</a></li>
+				<li><a href="sport"><i class="icon-right-open"></i> កីទ្បា</a></li>
+				<li><a href="politic"><i class="icon-right-open"></i> នយោបាយ</a></li>
 
 			</ul>
 		</div>
