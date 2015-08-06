@@ -692,8 +692,6 @@ ul.children li li li ul.children{
 .comment-form, .contact-form{
 	clear:both;
 	width:100%;
-	margin-top:20px;
-	padding-top:20px;
 	float:left;
 }
 .comment-form form{
