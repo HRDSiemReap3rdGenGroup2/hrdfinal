@@ -29,7 +29,7 @@
                             <input type="submit" value="" class="fs">
                         </form>
                     </div> -->
-					<div class="search advance-search" style="float:right;">
+					<div class="search advance-search" style="float:right;" id="search-box">
 						<form id="ui_element" class="sb_wrapper">
 	                                <p>
 	                                    <span class="sb_down"></span>
