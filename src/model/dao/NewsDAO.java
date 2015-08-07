@@ -79,7 +79,7 @@ public class NewsDAO {
 	public ArrayList<News> getPopNews() throws SQLException{
 		ArrayList<News> list=new ArrayList<News>();
 		try{
-			String sql="SELECT * FROM tbnews WHERE cat_code='B010505' ORDER BY news_id ASC LIMIT 4 OFFSET 0";
+			String sql="SELECT * FROM tbnews ORDER BY hit_count DESC LIMIT 4 OFFSET 0";
 			PreparedStatement p = con.prepareStatement(sql);
 			ResultSet rs = p.executeQuery();
 			while(rs.next()){

@@ -53,66 +53,65 @@
             <div class="container">
             	<!-- Main Content -->
                 <div class="main-content">
-                    <div class="column-two-third">
-                        <h5 class="line"><span>ចូលប្រើប្រាស់</span></h5>
+                    <div class="column">
+                    	<h5 class="line"><span>ចូលប្រើប្រាស់</span></h5>
                         <!--form login+sign up-->
                         <div class="form-area">
-                        <div class="form">
+                        <div class="form" style="float:none">
                               <ul class="tab-group">
-                                <li class="tab active"><a href="#signup">Sign Up</a></li>
-                                <li class="tab"><a href="#login">Log In</a></li>
+                                <li class="tab active"><a href="#login">Log In</a></li>
+                                <li class="tab"><a href="#signup">Sign Up</a></li>
                               </ul>
 
                               <div class="tab-content">
-                                <div id="signup">   
-                                  <h1>Sign Up for Free</h1>
-                                  <form action="/" method="post">
-
-									  <div class="field-wrap">
-										<label>Username<span class="req">*</span></label> <input
-											type="email" required autocomplete="off" />
-									  </div>
-									  <div class="field-wrap">
-										<label>School<span class="req">*</span></label> <input
-											type="email" required autocomplete="off" />
-									  </div>
-									  <div class="field-wrap">
-										<label>Department<span class="req">*</span></label> <input
-											type="email" required autocomplete="off" />
-									  </div>
-									  <div class="field-wrap">
-                                        <label>Email Address<span class="req">*</span></label>
-                                        <input type="email"required autocomplete="off"/>
-                                      </div>
-
-                                      <div class="field-wrap">
-                                        <label>Password<span class="req">*</span></label>
-                                        <input type="password"required autocomplete="off"/>
-                                      </div>
-                                      <div class="field-wrap">
-                                        <label>Confirm Password<span class="req">*</span></label>
-                                        <input type="password"required autocomplete="off"/>
-                                      </div>
-                                      <button type="submit" class="button button-block">Sign Up</button>
-                                  </form>
-                                </div>
-
-                                <div id="login">   
-                                  <h1>Welcome Back!</h1>
-                                  <form action="/" method="post">
-                                      <div class="field-wrap">
-                                          <label>Email Address<span class="req">*</span></label>
-                                          <input type="email"required autocomplete="off"/>
-                                      </div>
-
-                                      <div class="field-wrap">
-                                         <label>Password<span class="req">*</span></label>
-                                         <input type="password"required autocomplete="off"/>
-                                      </div>
-                                      <p class="forgot"><a href="#">Forgot Password?</a></p>
-                                      <button class="button button-block">Log In</button>
-                                  </form>
-                                </div>
+	                              <div id="login">   
+	                                  <h1>Welcome Back!</h1>
+	                                  <form action="/" method="post">
+	                                      <div class="field-wrap">
+	                                          <label>Email Address<span class="req">*</span></label>
+	                                          <input type="email"required autocomplete="off"/>
+	                                      </div>
+	
+	                                      <div class="field-wrap">
+	                                         <label>Password<span class="req">*</span></label>
+	                                         <input type="password"required autocomplete="off"/>
+	                                      </div>
+	                                      <p class="forgot"><a href="#">Forgot Password?</a></p>
+	                                      <button class="button button-block">Log In</button>
+	                                  </form>
+	                                </div>
+	                                <div id="signup">   
+	                                  <h1>Sign Up for Free</h1>
+	                                  <form action="/" method="post">
+	
+										  <div class="field-wrap">
+											<label>Username<span class="req">*</span></label> <input
+												type="email" required autocomplete="off" />
+										  </div>
+										  <div class="field-wrap">
+											<label>School<span class="req">*</span></label> <input
+												type="email" required autocomplete="off" />
+										  </div>
+										  <div class="field-wrap">
+											<label>Department<span class="req">*</span></label> <input
+												type="email" required autocomplete="off" />
+										  </div>
+										  <div class="field-wrap">
+	                                        <label>Email Address<span class="req">*</span></label>
+	                                        <input type="email"required autocomplete="off"/>
+	                                      </div>
+	
+	                                      <div class="field-wrap">
+	                                        <label>Password<span class="req">*</span></label>
+	                                        <input type="password"required autocomplete="off"/>
+	                                      </div>
+	                                      <div class="field-wrap">
+	                                        <label>Confirm Password<span class="req">*</span></label>
+	                                        <input type="password"required autocomplete="off"/>
+	                                      </div>
+	                                      <button type="submit" class="button button-block">Sign Up</button>
+	                                  </form>
+	                                </div>
                               </div>
                         </div>
                         </div>
@@ -120,61 +119,6 @@
                     </div>    
                 </div>
                 <!-- /Main Content -->
-                
-                <!-- Left Sidebar -->
-                <div class="column-one-third">
-                    <!-- Popular News -->
-                    <div class="sidebar">
-                        <h5 class="line"><span>ពត៌មានពេញនិយម</span></h5>
-                        <div class="outertight">
-                            <ul class="block">
-                                <li>
-                                    <a href="#"><img src="img/trash/5.png" alt="MyPassion" class="alignleft" /></a>
-                                    <p>
-                                        <span>26 May, 2013.</span>
-                                        <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                    </p>
-                                    <span class="rating"><span style="width:80%;"></span></span>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="img/trash/6.png" alt="MyPassion" class="alignleft" /></a>
-                                    <p>
-                                        <span>26 May, 2013.</span>
-                                        <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                    </p>
-                                    <span class="rating"><span style="width:100%;"></span></span>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="img/trash/7.png" alt="MyPassion" class="alignleft" /></a>
-                                    <p>
-                                        <span>26 May, 2013.</span>
-                                        <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                    </p>
-                                    <span class="rating"><span style="width:70%;"></span></span>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="img/trash/8.png" alt="MyPassion" class="alignleft" /></a>
-                                    <p>
-                                        <span>26 May, 2013.</span>
-                                        <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                    </p>
-                                    <span class="rating"><span style="width:60%;"></span></span>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="img/trash/8.png" alt="MyPassion" class="alignleft" /></a>
-                                    <p>
-                                        <span>26 May, 2013.</span>
-                                        <a href="#">Blandit Rutrum, Erat et Sagittis.</a>
-                                    </p>
-                                    <span class="rating"><span style="width:60%;"></span></span>
-                                </li>
-                            </ul>
-                        </div>
-</div>
-                    <!-- /Popular News -->
-                </div>
-                <!-- /Left Sidebar -->
-        
             </div>    
         </section>
         <!-- / Content -->

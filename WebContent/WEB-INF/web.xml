@@ -124,6 +124,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>getmodulename</servlet-name>
+  	<servlet-class>controller.module.GetModuleName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>getmodulename</servlet-name>
+  	<url-pattern>/getmodulename</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>usersignout</servlet-name>
   	<servlet-class>controller.user.SignOut</servlet-class>
   </servlet>

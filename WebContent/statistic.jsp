@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -54,7 +55,6 @@
 </head>
 
 <body>
-
 <!-- Body Wrapper -->
 <div class="body-wrapper">
 	<div class="controller">
@@ -81,30 +81,23 @@
                         <!-- job list -->
                         <div style="margin-top:10px;">
                         	<h3 style="display:inline;margin-right:20px">Top News</h3>
-                        	<select style="border:1px solid #DBDBDB;padding:3px">
+                        	<select id="number" style="border:1px solid #DBDBDB;padding:3px">
                         		<option>5</option>
                         		<option>10</option>
-                        		<option>15</option>
+                        		<option>25</option>
                         	</select>
                         </div><!-- /.div -->
                         <div style="position:relative;right:-15px;">
-                        <select style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
-                            <option>All Media</option>
-                            <option>Sabay</option>
-                            <option>Khmer-note</option>
-                            <option>Yolprom</option>
+                        <select id="media" style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
+                            <option value="%">All Media</option>
                         </select>
-                        <select style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
+                        <select id="category" style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
                             <option>All Category</option>
-                            <option>Entertainment</option>
-                            <option>Politic</option>
-                            <option>Sport</option>
                         </select>
-                        <select style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
-                            <option>Time</option>
-                            <option>Daily</option>
-                            <option>Weekly</option>
-                            <option>Monthly</option>
+                        <select id="time" style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
+                            <option>Today</option>
+                            <option>This Week</option>
+                            <option>This Month</option>
                         </select>
                         </div>
                         <table class="table">
@@ -114,46 +107,13 @@
                                 <th>Category</th>
                                 <th>Source</th>
                                 <th>Views</th>
-                            </tr> 
-                            <tr>
-                                <td>1</td>
-                                <td><a href="#">ជន​អនាថា​ចំណាយ​ពេល​អង្គុយ​ដល់​យប់​ជ្រៅ​ដើម្បី​ជួយ​រក​កូន​ស្រី​ឲ្យ​បុរស​ម្នាក់...</a></td>
-                                <td>កម្សាន្ត</td>
-                                <td>សប្បាយ</td>
-                                <td>12321</td>
-                                
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><a href="#">បន្លំ​ជា​​ខ្មោច​ដើម្បី​បន្លាច​អ្នក​បើក​ឡាន ​​លទ្ធផល​ផ្ទុយ​ការ​រំពឹង​ទុក...</a></td>
-                                <td>កម្សាន្ត</td>
-                                <td>សប្បាយ</td>
-                                <td>12321</td>
-                                
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><a href="#">​សៀវ ឡុងនី រក​ឃើញ​ម្ចាស់​បេះដូង​ជា​តារា​ល្បី​កូរ៉េ Song Seung Hun...</a></td>
-                                <td>កម្សាន្ត</td>
-                                <td>សប្បាយ</td>
-                                <td>12321</td>
-                                
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><a href="#">Barca ឈ្នះ​ Roma ៣-០ ខណៈ​ Messi ​ជល់​ក្បាល និង​ច្របាច់​ក​គេ...</a></td>
-                                <td>កម្សាន្ត</td>
-                                <td>សប្បាយ</td>
-                                <td>12321</td>
-                                
-                            </tr>
+                            </tr>                 
                             <tr>
                                 <td>5</td>
                                 <td><a href="#">មើល​វីដេអូ​នេះ អ្នក​នឹង​ដឹង​ថា​​រឿង​ហូលីវូដ​​មួយ​ៗ​កាត់​ត​​សាហាវ​ប៉ុណ្ណា...</a></td>
                                 <td>កម្សាន្ត</td>
                                 <td>សប្បាយ</td>
                                 <td>12321</td>
-                                
                             </tr>
                             
                             
@@ -197,6 +157,29 @@
 <script type="text/javascript" src="js/mypassion.js"></script>
 <script>
 	$("#statistic").addClass("current");
+	
+	//list media
+	$.post("getmodulename",function(data){
+		var str="";
+		for(var i=0;i<data.length;i++){
+			str+="<option value='"+data[i].module_type+"'>"
+				+data[i].module_type
+				+"</option>";
+		}	
+		$("#media").append(str);
+	});
+	//list category
+	//list 
+	/* $.post("getTopNews",{
+		n:$().val(),
+		media:$().val(),
+		
+	},function(data){
+		
+	}); */
+	function listData(data){
+		
+	}
 </script>
 </body>
 </html>

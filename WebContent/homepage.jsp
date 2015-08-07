@@ -84,18 +84,18 @@
                 	<div class="badg">
                     	<p><a href="#">ថ្មីបំផុត</a></p>
                     </div>
-                    <a href="#"><img src="${list[0].news_img }" alt="${row.news_img }" style="width:380px;height:217px;"/></a>
-                    <p class="caption"><a href="news?id=${list[0].news_id}">${list[0].news_title }</a></p>
+                    <a href="news?id=${list[0].news_id}" target="_blank"><img src="${list[0].news_img }" alt="${row.news_img }" style="width:380px;height:217px;"/></a>
+                    <p class="caption"><a href="news?id=${list[0].news_id}" target="_blank">${list[0].news_title }</a></p>
                 </div>
                 
                 <div class="slider3">
-                	<a href="#"><img src="${list[1].news_img }" alt="${row.news_img }" style="width:180px;height:135px;"/></a>
-                    <p class="caption"><a href="news?id=${list[1].news_id}">${list[1].news_title }</a></p>
+                	<a href="news?id=${list[1].news_id}" target="_blank"><img src="${list[1].news_img }" alt="${row.news_img }" style="width:180px;height:135px;"/></a>
+                    <p class="caption"><a href="news?id=${list[1].news_id}" target="_blank">${list[1].news_title }</a></p>
                 </div>   
                 
                 <div class="slider3">
-                	<a href="#"><img src="${list[2].news_img }" alt="${row.news_img }" style="width:180px;height:135px;"/></a>
-                    <p class="caption"><a href="news?id=${list[2].news_id}">${list[2].news_title }</a></p>
+                	<a href="news?id=${list[2].news_id}" target="_blank"><img src="${list[2].news_img }" alt="${row.news_img }" style="width:180px;height:135px;"/></a>
+                    <p class="caption"><a href="news?id=${list[2].news_id}" target="_blank">${list[2].news_title }</a></p>
                 </div>
                 
             </div>    
