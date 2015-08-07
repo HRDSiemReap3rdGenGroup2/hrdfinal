@@ -313,7 +313,7 @@
 <!--[if lt IE 9]> <script type="text/javascript" src="js/html5.js"></script> <![endif]-->
 <script type="text/javascript" src="js/mypassion.js"></script>
 <script>
-	$("#index1").addClass("current");
+	$("#index").addClass("current");
 </script>
 </body>
 </html>

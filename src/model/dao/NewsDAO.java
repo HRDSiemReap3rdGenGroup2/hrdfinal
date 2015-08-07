@@ -210,4 +210,31 @@ public class NewsDAO {
 		}
 		return false;
 	}
+	public ArrayList<News> filterNews(int n, String media, String category, String time) throws SQLException {
+		ArrayList<News> list=new ArrayList<News>();
+		try{
+			String sql="SELECT * FROM tbnews ORDER BY news_id DESC LIMIT 3 OFFSET 0";
+			PreparedStatement p = con.prepareStatement(sql);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()){
+				News e= new News();
+				e.setNews_id(rs.getInt("news_id"));
+				e.setCat_code(rs.getString("cat_code"));
+				e.setNews_title(rs.getString("news_title"));
+				e.setNews_date(rs.getString("news_date"));
+				e.setNews_img(rs.getString("news_img"));
+				e.setNews_path(rs.getString("news_path"));
+				e.setUser_info_code(rs.getString("user_info_code"));
+				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
+				list.add(e);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return list;
+	}
 }

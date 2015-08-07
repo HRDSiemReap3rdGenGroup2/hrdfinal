@@ -22,13 +22,6 @@
                     <div class="logo" style="margin-top:0">
                         <a href="home"><img style="background-color:#4f9d51;padding-left:30px; padding-right:30px" width="200" src="img/khmeracademy.png" alt="KhmerAcademy News" /></a>
                     </div>
-                    
-                    <!-- <div class="search">    
-                        <form action="" method="post">
-                            <input type="text" placeholder="ស្វែងរក..." class="ft"/>
-                            <input type="submit" value="" class="fs">
-                        </form>
-                    </div> -->
 					<div class="search advance-search" style="float:right;" id="search-box">
 						<form id="ui_element" class="sb_wrapper" action="results" method="post">
 	                                <p>
@@ -50,13 +43,13 @@
                     <!-- Nav -->
                     <nav id="nav">
                         <ul class="sf-menu">
-                            <li id="index1"><a href="home">ទំព័រដើម</a></li>
-                            <li id="politic"><a href="politic">នយោបាយ</a></li>
-                            <li id="tech"><a href="tech">បច្ចេកវិទ្យា</a></li>
-                            <li id="entertainment"><a href="entertainment">កម្សាន្ត</a></li>
+                            <li id="index"><a href="home">ទំព័រដើម</a></li>
+                            <li id="politic1"><a href="politic">នយោបាយ</a></li>
+                            <li id="tech1"><a href="tech">បច្ចេកវិទ្យា</a></li>
+                            <li id="entertainment1"><a href="entertainment">កម្សាន្ត</a></li>
                             <li id="job"><a href="job">ការងារ</a></li>
-                            <li id="sport"><a href="sport">កីទ្បា</a></li>
-                            <li id="health"><a href="health">សុខភាព</a></li>
+                            <li id="sport1"><a href="sport">កីទ្បា</a></li>
+                            <li id="health1"><a href="health">សុខភាព</a></li>
                             <li id="statistic"><a href="statistic">ស្ថិតិ</a></li>
                             <li id="other"><a href="more">ផ្សេងទៀត</a></li>
                         </ul>
@@ -71,13 +64,3 @@ function googleTranslateElementInit() {
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </header>
-<script>
-	/* $("#sb_search").click(function(){
-		alert($("#s_query").val());
-		$.post("results",{
-			s_query : $("#s_query").val()
-		} ,function(data){
-			alert(data);
-		});
-	}); */
-</script>

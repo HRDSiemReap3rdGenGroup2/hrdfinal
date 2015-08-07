@@ -14,7 +14,7 @@ public class ModuleDAO {
 	public ModuleDAO(){
 		con=new DBUtility().getConnection();
 	}
-	public ArrayList<Module> getAllModuleName() throws SQLException{
+	public ArrayList<Module> getAllModuleType() throws SQLException{
 		ArrayList<Module> list=new ArrayList<>();
 		try{
 			String sql="select DISTINCT module_type from tbmoduleinfo";
@@ -23,6 +23,24 @@ public class ModuleDAO {
 			while(rs.next()){
 				Module m=new Module();
 				m.setModule_type(rs.getString("module_type"));
+				list.add(m);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return list;
+	}
+	public ArrayList<Module> getAllModuleName() throws SQLException{
+		ArrayList<Module> list=new ArrayList<>();
+		try{
+			String sql="select DISTINCT module_name from tbmoduleinfo";
+			PreparedStatement p =con.prepareStatement(sql);
+			ResultSet rs=p.executeQuery();
+			while(rs.next()){
+				Module m=new Module();
+				m.setModule_name(rs.getString("module_name"));
 				list.add(m);
 			}
 		}catch(Exception e){

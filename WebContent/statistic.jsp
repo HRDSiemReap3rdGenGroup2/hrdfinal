@@ -92,12 +92,12 @@
                             <option value="%">All Media</option>
                         </select>
                         <select id="category" style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
-                            <option>All Category</option>
+                            <option value="%">All Category</option>
                         </select>
                         <select id="time" style="border:1px solid #DBDBDB; margin-left:0; margin-right:0;margin-top:10px; margin-bottom:10px; width:32%; font-family: 'Khmer OS Siemreap'">
-                            <option>Today</option>
-                            <option>This Week</option>
-                            <option>This Month</option>
+                            <option value="today">Today</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
                         </select>
                         </div>
                         <table class="table">
@@ -115,15 +115,10 @@
                                 <td>សប្បាយ</td>
                                 <td>12321</td>
                             </tr>
-                            
-                            
                         </table>
                         <!--/job list-->
-            
                     </div>
-              
                 <!--/main content-->
-                
             </div>    
         </section>
         <!-- / Content -->
@@ -157,29 +152,36 @@
 <script type="text/javascript" src="js/mypassion.js"></script>
 <script>
 	$("#statistic").addClass("current");
+	list();
 	
-	//list media
-	$.post("getmodulename",function(data){
-		var str="";
-		for(var i=0;i<data.length;i++){
-			str+="<option value='"+data[i].module_type+"'>"
-				+data[i].module_type
-				+"</option>";
-		}	
-		$("#media").append(str);
-	});
-	//list category
-	//list 
-	/* $.post("getTopNews",{
-		n:$().val(),
-		media:$().val(),
-		
+	$.post("gettopnews",{
+		n:$('#number :selected').text(),
+		media:$('#media :selected').val(),
+		category:$('#category :selected').val(),
+		time:$('#time :selected').val()
 	},function(data){
 		
-	}); */
-	function listData(data){
-		
-	}
+	}); 
+	function list(){
+		$.post("getmoduletype",function(data){
+			var str="";
+			for(var i=0;i<data.length;i++){
+				str+="<option value='"+data[i].module_type+"'>"
+					+data[i].module_type
+					+"</option>";
+			}	
+			$("#category").append(str);
+		});
+		$.post("getmodulename",function(data){
+			var str="";
+			for(var i=0;i<data.length;i++){
+				str+="<option value='"+data[i].module_name+"'>"
+					+data[i].module_name
+					+"</option>";
+			}	
+			$("#media").append(str);
+		});
+	};
 </script>
 </body>
 </html>

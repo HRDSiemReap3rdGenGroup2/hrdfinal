@@ -44,7 +44,7 @@ public class HealthPage extends HttpServlet {
 			list=new NewsDAO().getNewsList("B010201", 6);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "សុខភាព");
-			req.setAttribute("title_id", "health");
+			req.setAttribute("title_id", "health1");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

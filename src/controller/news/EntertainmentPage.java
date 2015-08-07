@@ -43,7 +43,7 @@ public class EntertainmentPage extends HttpServlet{
 			list=new NewsDAO().getNewsList("B030302", 6);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "កម្សាន្ត");
-			req.setAttribute("title_id", "entertainment");
+			req.setAttribute("title_id", "entertainment1");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

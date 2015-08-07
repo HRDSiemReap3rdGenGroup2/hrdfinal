@@ -133,6 +133,24 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>getmoduletype</servlet-name>
+  	<servlet-class>controller.module.GetModuleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>getmoduletype</servlet-name>
+  	<url-pattern>/getmoduletype</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>gettopnews</servlet-name>
+  	<servlet-class>controller.news.FilterNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>gettopnews</servlet-name>
+  	<url-pattern>/gettopnews</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>usersignout</servlet-name>
   	<servlet-class>controller.user.SignOut</servlet-class>
   </servlet>

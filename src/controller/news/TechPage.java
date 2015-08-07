@@ -42,7 +42,7 @@ public class TechPage extends HttpServlet{
 			list=new NewsDAO().getNewsList("B020105", 6);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "បច្ចេកវិទ្យា");
-			req.setAttribute("title_id", "tech");
+			req.setAttribute("title_id", "tech1");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -42,7 +42,7 @@ public class PoliticPage extends HttpServlet{
 			list=new NewsDAO().getNewsList("B020103", 6);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "នយោបាយ");
-			req.setAttribute("title_id", "politic");
+			req.setAttribute("title_id", "politic1");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();

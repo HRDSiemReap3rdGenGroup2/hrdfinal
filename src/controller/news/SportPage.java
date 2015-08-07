@@ -42,7 +42,7 @@ public class SportPage extends HttpServlet{
 			list=new NewsDAO().getNewsList("B020201", 6);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "កីឡា");
-			req.setAttribute("title_id", "sport");
+			req.setAttribute("title_id", "sport1");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();
