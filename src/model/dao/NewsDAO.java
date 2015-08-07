@@ -15,6 +15,10 @@ public class NewsDAO {
 	public NewsDAO(){
 		con=new DBUtility().getConnection();
 	}
+	public boolean insertNews(){
+		//insert into tbnews (date_insert) values (now())
+		return false;
+	}
 	public ArrayList<News> getNewsList(String category) throws SQLException{
 		ArrayList<News> list=new ArrayList<News>();
 		try{
@@ -32,6 +36,8 @@ public class NewsDAO {
 				e.setNews_path(rs.getString("news_path"));
 				e.setUser_info_code(rs.getString("user_info_code"));
 				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
 				list.add(e);
 			}
 		}catch(Exception e){
@@ -59,6 +65,8 @@ public class NewsDAO {
 				e.setNews_path(rs.getString("news_path"));
 				e.setUser_info_code(rs.getString("user_info_code"));
 				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
 				list.add(e);
 			}
 		}catch(Exception e){
@@ -84,6 +92,8 @@ public class NewsDAO {
 				e.setNews_path(rs.getString("news_path"));
 				e.setUser_info_code(rs.getString("user_info_code"));
 				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
 				list.add(e);
 			}
 		}catch(Exception e){
@@ -109,6 +119,8 @@ public class NewsDAO {
 				e.setNews_path(rs.getString("news_path"));
 				e.setUser_info_code(rs.getString("user_info_code"));
 				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
 				list.add(e);
 			}
 		}catch(Exception e){
@@ -136,24 +148,23 @@ public class NewsDAO {
 	public ArrayList<News> search(String s_query, List<String> category) throws SQLException {
 		ArrayList<News> list=new ArrayList<News>();
 		try{
-			String sql="";
+			String sql="select * from tbnews where lower(news_title) like '%' || lower(?) || '%'";
 			if(category.size()>1){
-				sql+="and cat_code in (";
+				sql+=" and cat_code in (";
 				for(int i=0;i<category.size()-1;i++){
-					sql+=category.get(i).toString()+",";
+					sql+="'"+category.get(i).toString()+"',";
 				}
-				sql+=category.get(category.size()-1).toString();
+				sql+="'"+category.get(category.size()-1).toString()+"'";
 				sql+=")";
 			}
 			else if(category.size()==1){
-				sql+="and cat_code in (";
+				sql+=" and cat_code in (";
 				for(int i=0;i<category.size();i++){
-					sql+=category.get(i).toString();
+					sql+="'"+category.get(i).toString()+"'";
 				}
 				sql+=")";
 			}
 			else{
-				sql="select * from tbnews where lower(news_title) like '%' || lower(?) || '%'";
 			}
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setString(1, s_query);
@@ -168,6 +179,8 @@ public class NewsDAO {
 				e.setNews_path(rs.getString("news_path"));
 				e.setUser_info_code(rs.getString("user_info_code"));
 				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
 				list.add(e);
 			}
 		}catch(Exception e){
@@ -176,5 +189,25 @@ public class NewsDAO {
 			if(con!=null)con.close();
 		}
 		return list;
+	}
+	/**
+	 * set news's hit_count=hit_count+1 where news_id=id
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	public boolean read(int id) throws SQLException {
+		try{
+			String sql="UPDATE tbnews SET hit_count=hit_count+1 WHERE news_id=?";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setInt(1, id);
+			if(p.executeUpdate()>0)
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return false;
 	}
 }

@@ -40,6 +40,7 @@ public class ReadNews extends HttpServlet{
 		int id=Integer.parseInt(req.getParameter("id"));
 		try {
 			String news_path=new NewsDAO().getNewsPath(id);
+			new NewsDAO().read(id);//increase number of hit count of this news by 1
 			req.setAttribute("url", news_path);
 			RequestDispatcher rd= req.getRequestDispatcher("/news1.jsp");
 

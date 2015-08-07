@@ -30,11 +30,11 @@
                         </form>
                     </div> -->
 					<div class="search advance-search" style="float:right;" id="search-box">
-						<form id="ui_element" class="sb_wrapper" action="results" method="get">
+						<form id="ui_element" class="sb_wrapper" action="results" method="post">
 	                                <p>
 	                                    <span class="sb_down"></span>
-	                                    <input class="sb_input" type="text" placeholder="ស្វែងរកពត៏មាន..." name="s_query"/>
-	                                    <input class="sb_search" type="submit" value=""/>
+	                                    <input class="sb_input" type="text" placeholder="ស្វែងរកពត៏មាន..." name="s_query" id="s_query" />
+	                                    <input class="sb_search" type="submit" value="" id="sb_search"/>
 	                                </p>
 	                                <ul class="sb_dropdown" style="display:none;">
 	                                    <li class="sb_filter">Filter your search</li>
@@ -71,3 +71,13 @@ function googleTranslateElementInit() {
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </header>
+<script>
+	/* $("#sb_search").click(function(){
+		alert($("#s_query").val());
+		$.post("results",{
+			s_query : $("#s_query").val()
+		} ,function(data){
+			alert(data);
+		});
+	}); */
+</script>

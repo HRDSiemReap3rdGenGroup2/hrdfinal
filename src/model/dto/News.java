@@ -1,6 +1,7 @@
 package model.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class News implements Serializable{
 	/**
@@ -15,6 +16,8 @@ public class News implements Serializable{
 	private String news_path;
 	private String news_img;
 	private String news_date;
+	private Date date_insert;
+	private int hit_count;
 	/**
 	 * @return the news_id
 	 */
@@ -110,6 +113,18 @@ public class News implements Serializable{
 	 */
 	public void setNews_date(String news_date) {
 		this.news_date = news_date;
+	}
+	public Date getDate_insert() {
+		return date_insert;
+	}
+	public void setDate_insert(Date date_insert) {
+		this.date_insert = date_insert;
+	}
+	public int getHit_count() {
+		return hit_count;
+	}
+	public void setHit_count(int hit_count) {
+		this.hit_count = hit_count;
 	}
 	
 }

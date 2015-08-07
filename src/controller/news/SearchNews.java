@@ -53,14 +53,10 @@ public class SearchNews extends HttpServlet {
 			
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
-			req.setCharacterEncoding("UTF-8");
 			String s_query="";
 			s_query= req.getParameter("s_query");
-			System.out.println(s_query);
+			req.setAttribute("s_query", s_query);
 			list=new NewsDAO().search(s_query, category);
-			for(int i=0;i<list.size();i++){
-				System.out.println(i+ " "+list.get(i).getNews_title());
-			}
 			req.setAttribute("result", list);
 		}catch(Exception e){
 			e.printStackTrace();

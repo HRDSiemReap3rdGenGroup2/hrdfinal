@@ -72,7 +72,7 @@
                         <ul class="slides">
                            <c:forEach items="${list }" var="row">
 	                        	<li>
-	                                <img src="${row.news_img }" alt="MyPassion" style="height:372px;"/>
+	                                <img src="${row.news_img }" alt="${row.news_img }" style="height:372px;"/>
 	                                <p class="flex-caption"><a href="news?id=${row.news_id}" target="_blank">${row.news_title }</a>${row.news_desc }</p>
 	                            </li>
                         	</c:forEach>
@@ -84,17 +84,17 @@
                 	<div class="badg">
                     	<p><a href="#">ថ្មីបំផុត</a></p>
                     </div>
-                    <a href="#"><img src="${list[0].news_img }" alt="MyPassion" style="width:380px;height:217px;"/></a>
+                    <a href="#"><img src="${list[0].news_img }" alt="${row.news_img }" style="width:380px;height:217px;"/></a>
                     <p class="caption"><a href="news?id=${list[0].news_id}">${list[0].news_title }</a></p>
                 </div>
                 
                 <div class="slider3">
-                	<a href="#"><img src="${list[1].news_img }" alt="MyPassion" style="width:180px;height:135px;"/></a>
+                	<a href="#"><img src="${list[1].news_img }" alt="${row.news_img }" style="width:180px;height:135px;"/></a>
                     <p class="caption"><a href="news?id=${list[1].news_id}">${list[1].news_title }</a></p>
                 </div>   
                 
                 <div class="slider3">
-                	<a href="#"><img src="${list[2].news_img }" alt="MyPassion" style="width:180px;height:135px;"/></a>
+                	<a href="#"><img src="${list[2].news_img }" alt="${row.news_img }" style="width:180px;height:135px;"/></a>
                     <p class="caption"><a href="news?id=${list[2].news_id}">${list[2].news_title }</a></p>
                 </div>
                 
@@ -127,7 +127,7 @@
                                         <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
-	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
 	                                		<button style="float:right">Save</button>
 	                                	</div>	
                                     </p>
@@ -157,7 +157,7 @@
                                         <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,70)}..</a>
 	                                	<div>
-	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
 	                                		<button style="float:right">Save</button>
 	                                	</div>		
                                     </p>
@@ -200,7 +200,7 @@
                                     	<span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
-	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
 	                                		<button style="float:right">Save</button>
 	                                	</div>		
                                     </p>
@@ -235,7 +235,7 @@
                                         <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div style="position:relative;bottom:0px;width:100%">
-	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
 	                                		<button style="float:right">Save</button>
 	                                	</div>		
                                     </p>
@@ -264,7 +264,7 @@
 	                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
 	                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
-	                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
 	                                		<button style="float:right">Save</button>
 	                                	</div>		
 	                                    </p>

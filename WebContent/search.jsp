@@ -36,7 +36,7 @@
 <link rel="stylesheet" type="text/css" href="css/devices/479.css" media="only screen and (min-width: 200px) and (max-width: 479px)" />
 <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 <!--[if lt IE 9]> <script type="text/javascript" src="js/customM.js"></script> <![endif]-->
-
+<script type="text/javascript" src="js/jquery.js"></script>
 
 </head>
 
@@ -56,7 +56,7 @@
             	<!-- Main Content -->
                 
                 <div class="breadcrumbs column">
-                	<h2>ស្វែងរកពត៌មាន</h2>
+                	<h2>ស្វែងរកពត៌មាន...  <span>"${requestScope.s_query}"</span></h2>
                 </div>
                 
                 <div class="main-content">
@@ -72,7 +72,7 @@
 			                                <a href="${row.news_path }" target="_blank">
 			                                	<h5>${row.news_title }</h5>
 			                                </a>
-			                                <p>${row.news_desc }</p>
+			                                <p>${fn:substring(row.news_desc,0,100) }</p>
 			                            </div>  
 			                        </div>
 								</c:forEach>
@@ -139,7 +139,7 @@
 
 
 <!-- SCRIPTS -->
-<script type="text/javascript" src="js/jquery.js"></script>
+
 <script type="text/javascript" src="js/myscript.js"></script>
 <script type="text/javascript" src="js/easing.min.js"></script>
 <script type="text/javascript" src="js/1.8.2.min.js"></script>
