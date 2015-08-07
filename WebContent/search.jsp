@@ -69,7 +69,7 @@
 									<div class="news-row column-two-third">
 			                            <div class="items">
 			                               <img src="${row.news_img }" />
-			                                <a href="${row.news_path }" target="_blank">
+			                                <a href="news?id=${row.news_id }" target="_blank">
 			                                	<h5>${row.news_title }</h5>
 			                                </a>
 			                                <p>${fn:substring(row.news_desc,0,100) }</p>
