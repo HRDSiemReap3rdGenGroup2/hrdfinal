@@ -4,7 +4,7 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>News Admin</span></a>
+                        <a href="index.jsp" class="site_title"><i class="fa fa-paw"></i> <span>News Admin</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -30,35 +30,33 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="index.html">Dashboard</a>
+                                        <li><a href="index.jsp">Dashboard</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> News <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="form.html">Add News</a></li>
-                                        <li><a href="listnews.html">List News</a></li>
-                                        <li><a href="form_advanced.html">Category</a></li>
+                                        <li><a href="form.jsp">Add News</a></li>
+                                        <li><a href="listnews.jsp">List News</a></li>
+                                        <li><a href="listcategory.jsp">Category</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-desktop"></i> User <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="adduser.html">Add User</a></li>
-                                        <li><a href="listuser.html">List User</a></li>
+                                        <li><a href="adduser.jsp">Add User</a></li>
+                                        <li><a href="listuser.jsp">List User</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-desktop"></i> Menu <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="arrangmenu.html">Main Menu</a></li>
-                                        
-                                        
+                                        <li><a href="arrangmenu.jsp">Main Menu</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-table"></i> Job <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="tables.html">Add Job</a></li>
-                                        <li><a href="tables_dynamic.html">List Job</a></li>
-                                        <li><a href="tables_dynamic.html">Category</a></li>
+                                        <li><a href="#">Add Job</a></li>
+                                        <li><a href="#">List Job</a></li>
+                                        <li><a href="#">Category</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -112,7 +110,7 @@
                                     <li>
                                         <a href="javascript:;">Help</a>
                                     </li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    <li><a href="login.jsp"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                     </li>
                                 </ul>
                             </li>
@@ -182,7 +180,7 @@
                                     <li>
                                         <div class="text-center">
                                             <a>
-                                                <strong><a href="inbox.html">See All Alerts</strong>
+                                                <strong><a href="inbox.jsp">See All Alerts</strong>
                                                 <i class="fa fa-angle-right"></i>
                                             </a>
                                         </div>
