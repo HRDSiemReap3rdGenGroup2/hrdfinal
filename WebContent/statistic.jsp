@@ -100,21 +100,7 @@
                             <option value="monthly">Monthly</option>
                         </select>
                         </div>
-                        <table class="table">
-                            <tr>
-                                <th>Rank</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Source</th>
-                                <th>Views</th>
-                            </tr>                 
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#">មើល​វីដេអូ​នេះ អ្នក​នឹង​ដឹង​ថា​​រឿង​ហូលីវូដ​​មួយ​ៗ​កាត់​ត​​សាហាវ​ប៉ុណ្ណា...</a></td>
-                                <td>កម្សាន្ត</td>
-                                <td>សប្បាយ</td>
-                                <td>12321</td>
-                            </tr>
+                        <table class="table" id="tbl">
                         </table>
                         <!--/job list-->
                     </div>
@@ -153,15 +139,46 @@
 <script>
 	$("#statistic").addClass("current");
 	list();
+	listpopnews();
+	$("#media").change(function(){
+		listpopnews();
+	});
+	$("#number").change(function(){
+		listpopnews();
+	});
+	$("#category").change(function(){
+		listpopnews();
+	});
+	$("#time").change(function(){
+		listpopnews();
+	});
+	function listpopnews(){
+		$.post("gettopnews",{
+			n:$('#number :selected').text(),
+			media:$('#media :selected').val(),
+			category:$('#category :selected').val(),
+			time:$('#time :selected').val()
+		},function(data){
+			var str="<tr>"
+                	+"<th>Rank</th>"
+                	+"<th>Title</th>"
+                	+"<th>Category</th>"
+                	+"<th>Source</th>"
+                	+"<th>Views</th>"
+                	+"</tr>";
+			for(var i=0;i<data.length;i++){
+				str+="<tr>"
+	            	+"<td>"+(i+1)+"</td>"
+	            	+"<td><a href='#'>"+data[i].news_title+"</a></td>"
+	            	+"<td>"+$('#category :selected').text()+"</td>"
+	            	+"<td>"+$('#media :selected').text()+"</td>"
+	            	+"<td>"+data[i].hit_count+"</td>"
+	        		+"</tr>";
+			}
+			$("#tbl").html(str);
+		}); 
+	}
 	
-	$.post("gettopnews",{
-		n:$('#number :selected').text(),
-		media:$('#media :selected').val(),
-		category:$('#category :selected').val(),
-		time:$('#time :selected').val()
-	},function(data){
-		
-	}); 
 	function list(){
 		$.post("getmoduletype",function(data){
 			var str="";

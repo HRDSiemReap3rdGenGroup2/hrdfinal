@@ -212,9 +212,23 @@ public class NewsDAO {
 	}
 	public ArrayList<News> filterNews(int n, String media, String category, String time) throws SQLException {
 		ArrayList<News> list=new ArrayList<News>();
+		int t=1;
+		if(time=="daily")t=1;
+		if(time=="weekly")t=7;
+		if(time=="monthly")t=30;
 		try{
-			String sql="SELECT * FROM tbnews ORDER BY news_id DESC LIMIT 3 OFFSET 0";
+			String sql="select * from tbnews n "
+						+"INNER JOIN tbmoduleinfo m on m.module_code=n.cat_code "
+						+"WHERE m.module_name like ? and "
+						+"m.module_type like ? and " 
+						+"n.date_insert BETWEEN (date(now()) - ?) and date(now()) "
+						+"ORDER BY n.hit_count DESC "
+						+"LIMIT ? OFFSET 0";
 			PreparedStatement p = con.prepareStatement(sql);
+			p.setString(1, media);
+			p.setString(2, category);
+			p.setInt(3, t);
+			p.setInt(4,n);
 			ResultSet rs = p.executeQuery();
 			while(rs.next()){
 				News e= new News();

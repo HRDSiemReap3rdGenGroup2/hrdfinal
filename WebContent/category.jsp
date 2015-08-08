@@ -73,9 +73,9 @@
 	                            <div class="items">
 	                               <img src="${x.news_img }" style="height:170px"/>
 	                                <a href="${x.news_path}" target="_blank"><h5>${x.news_title }</h5></a>
-	                                <p class="publish-date">Mon, 12 May 2015</p>    
+	                                <p class="publish-date">${x.news_date }</p>    
 	                                <p>${fn:substring(x.news_desc,0,120) }..</p>
-	                                <div><span>Viewed:123</span><button style="float:right">Save</button></div>
+	                                <div><span style="color:#999">Viewed:${x.hit_count}</span><button style="float:right">Save</button></div>
 	                            </div>  
 	                        </div>
                     	</c:forEach>
@@ -117,7 +117,7 @@
 		                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
 		                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 			                                	<div>
-			                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
+			                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
 			                                		<button style="float:right">Save</button>
 			                                	</div>	
 		                                    </p>
