@@ -72,7 +72,7 @@
 	                    	<div class="news-row column-two-third">
 	                            <div class="items">
 	                               <img src="${x.news_img }" style="height:170px"/>
-	                                <a href="${x.news_path}" target="_blank"><h5>${x.news_title }</h5></a>
+	                                <a href="news?id=${x.news_id}" target="_blank"><h5>${x.news_title }</h5></a>
 	                                <p class="publish-date">${x.news_date }</p>    
 	                                <p>${fn:substring(x.news_desc,0,120) }..</p>
 	                                <div><span style="color:#999">Viewed:${x.hit_count}</span>

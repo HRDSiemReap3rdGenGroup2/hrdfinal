@@ -9,6 +9,9 @@ public class User {
 	private String email;
 	private String gender;
 	private int subscribe;
+	private String phone;
+	private String department;
+	private String school;
 	
 	public String getEmail() {
 		return email;
@@ -57,6 +60,24 @@ public class User {
 	}
 	public void setUser_type_id(int user_type_id) {
 		this.user_type_id = user_type_id;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public String getSchool() {
+		return school;
+	}
+	public void setSchool(String school) {
+		this.school = school;
 	}
 	
 }

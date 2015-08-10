@@ -3,7 +3,6 @@ package controller.news;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,10 +41,11 @@ public class ReadNews extends HttpServlet{
 			String news_path=new NewsDAO().getNewsPath(id);
 			new NewsDAO().read(id);//increase number of hit count of this news by 1
 			req.setAttribute("url", news_path);
-			RequestDispatcher rd= req.getRequestDispatcher("/news1.jsp");
+			resp.sendRedirect(news_path);
+			//RequestDispatcher rd= req.getRequestDispatcher("/news1.jsp");
 
-			resp.setCharacterEncoding("UTF-8");
-			rd.forward(req, resp);
+			//resp.setCharacterEncoding("UTF-8");
+			//rd.forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

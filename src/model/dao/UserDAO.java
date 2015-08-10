@@ -39,16 +39,17 @@ public class UserDAO {
 	}
 	public User login(String username, String password) throws SQLException {
 		try{
-			String sql="select * from tbuser where user_name=? and user_pass=?";
+			String sql="select * from tbuser where email=? and user_pass=?";
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setString(1, username);
 			p.setString(2, password);
 			ResultSet rs=p.executeQuery();
-			rs.next();
+			if(rs.next()){
 			User u =new User();
 			u.setUser_id(rs.getInt("user_id"));
-			u.setUser_name(username);
+			u.setUser_name(rs.getString("user_name"));
 			return u;
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
@@ -57,11 +58,17 @@ public class UserDAO {
 		return null;
 	}
 	
-	public boolean addUser(User user) throws Exception{
+	public boolean addUser(User u) throws Exception{
 		try{
-			String sql="INSERT INTO tbuser() VALUES()";
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			if(pstmt.executeUpdate()>0)
+			String sql="INSERT INTO tbuser(user_id, user_type,  user_name,user_pass, email, gender,department, school) VALUES(nextval('seq_user_id'),'2',?,?,?,?,?,?)";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setString(1, u.getUser_name());
+			p.setString(2, u.getUser_pass());
+			p.setString(3, u.getEmail());
+			p.setString(4, u.getGender());
+			p.setString(5, u.getDepartment());
+			p.setString(6, u.getSchool());
+			if(p.executeUpdate()>0)
 				return true;
 			
 		}catch(Exception ex){
@@ -71,8 +78,6 @@ public class UserDAO {
 			if(con!=null)
 				con.close();
 		}
-		
-		
 		return false;
 	}
 }

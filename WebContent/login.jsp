@@ -73,7 +73,7 @@
 	                                  <form action="user/login" method="post">
 	                                      <div class="field-wrap">
 	                                          <label>Email Address<span class="req">*</span></label>
-	                                          <input type="text"required autocomplete="off" name="email"/>
+	                                          <input type="email"required autocomplete="off" name="email"/>
 	                                      </div>
 	
 	                                      <div class="field-wrap">
@@ -86,32 +86,41 @@
 	                                </div>
 	                                <div id="signup">   
 	                                  <h1>Sign Up for Free</h1>
-	                                  <form action="/" method="post">
+	                                  <form action="user/signup" method="post">
 	
 										  <div class="field-wrap">
 											<label>Username<span class="req">*</span></label> <input
-												type="email" required autocomplete="off" />
+												type="text" required autocomplete="off" name="username"/>
 										  </div>
 										  <div class="field-wrap">
 											<label>School<span class="req">*</span></label> <input
-												type="email" required autocomplete="off" />
+												type="text" required autocomplete="off" name="school"/>
 										  </div>
 										  <div class="field-wrap">
 											<label>Department<span class="req">*</span></label> <input
-												type="email" required autocomplete="off" />
+												type="text" required autocomplete="off" name="department"/>
 										  </div>
 										  <div class="field-wrap">
 	                                        <label>Email Address<span class="req">*</span></label>
-	                                        <input type="email"required autocomplete="off"/>
+	                                        <input type="email"required autocomplete="off" name="email"/>
 	                                      </div>
 	
 	                                      <div class="field-wrap">
 	                                        <label>Password<span class="req">*</span></label>
-	                                        <input type="password"required autocomplete="off"/>
+	                                        <input type="password"required autocomplete="off" name="password"/>
 	                                      </div>
 	                                      <div class="field-wrap">
 	                                        <label>Confirm Password<span class="req">*</span></label>
-	                                        <input type="password"required autocomplete="off"/>
+	                                        <input type="password"required autocomplete="off" name="confirmpassword"/>
+	                                      </div>
+	                                      <div class="field-wrap">
+	                                      	<div class="gender-combo">
+											    <select name="gender">
+											        <option selected> Select Gender </option>
+											        <option value="1">Male</option>
+											        <option value="2">Female</option>
+											    </select>
+										    </div>
 	                                      </div>
 	                                      <button type="submit" class="button button-block">Sign Up</button>
 	                                  </form>

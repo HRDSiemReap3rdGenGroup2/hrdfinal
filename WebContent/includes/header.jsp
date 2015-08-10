@@ -15,7 +15,7 @@
 	                        <c:set var="user" value="${sessionScope.user }"></c:set>
 	                        <c:choose>
 	                        	<c:when test="${user==null || user=='' }">
-			                        <a href="login.jsp"><span>ចូល</span></a><span> | </span><a href="login.jsp"><span>ចុះឈ្មោះ</span></a>
+			                        <a href="login"><span>ចូល</span></a><span> | </span><a href="login"><span>ចុះឈ្មោះ</span></a>
 	                        	</c:when>
 	                        	<c:otherwise>
 									<a href="user.jsp"><span>${user }</span></a><span> | </span>
