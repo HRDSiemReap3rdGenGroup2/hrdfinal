@@ -2,6 +2,7 @@ package controller.news;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.NewsDAO;
+import model.dao.SaveListDAO;
+import model.dto.SaveList;
 
 public class SportPage extends HttpServlet{
 	/**
@@ -38,6 +41,13 @@ public class SportPage extends HttpServlet{
 			resp.setIntHeader("Refresh", 60*5);
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
+			
+			//user
+			if(req.getSession().getAttribute("user")!=null && (req.getSession().getAttribute("user")!="")){
+				int user_id=(int) req.getSession().getAttribute("user_id");
+				ArrayList<SaveList> user_savedlist=new SaveListDAO().getAllSavedNews(user_id);
+				req.setAttribute("user_savedlist", user_savedlist);
+			}
 			
 			//paging  
 			int pagenumber=new NewsDAO().getTotalPage("B010201",6);

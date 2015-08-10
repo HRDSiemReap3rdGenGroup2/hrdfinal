@@ -2,6 +2,7 @@ package controller.news;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.NewsDAO;
+import model.dao.SaveListDAO;
+import model.dto.SaveList;
 
 public class EntertainmentPage extends HttpServlet{
 
@@ -48,6 +51,14 @@ public class EntertainmentPage extends HttpServlet{
 			else{current_page=Integer.parseInt(req.getParameter("page"));}
 			if(current_page>pagenumber)current_page=pagenumber;
 			req.setAttribute("current_page", current_page);
+			
+			//user
+			if(req.getSession().getAttribute("user")!=null && (req.getSession().getAttribute("user")!="")){
+				int user_id=(int) req.getSession().getAttribute("user_id");
+				ArrayList<SaveList> user_savedlist=new SaveListDAO().getAllSavedNews(user_id);
+				req.setAttribute("user_savedlist", user_savedlist);
+			}
+			
 			
 			//list=new NewsDAO().getNewsList("B020503", 6);
 			list=new NewsDAO().getNewsList("B030302", 6, current_page);

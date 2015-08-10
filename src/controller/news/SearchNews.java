@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.ModuleDAO;
 import model.dao.NewsDAO;
+import model.dao.SaveListDAO;
+import model.dto.SaveList;
 
 public class SearchNews extends HttpServlet {
 
@@ -68,9 +70,16 @@ public class SearchNews extends HttpServlet {
 			//resp.setCharacterEncoding("utf-8");
 			//String buf= new Gson().toJson(list);
 			//resp.getWriter().write(buf);
+			
+			if(req.getSession().getAttribute("user")!=null || (req.getSession().getAttribute("user")!="")){
+				int user_id=(int) req.getSession().getAttribute("user_id");
+				ArrayList<SaveList> user_savedlist=new SaveListDAO().getAllSavedNews(user_id);
+				req.setAttribute("user_savedlist", user_savedlist);
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
 		req.getRequestDispatcher("search.jsp").forward(req, resp);
 	}
 }//end class
