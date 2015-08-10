@@ -45,7 +45,6 @@ public class FilterNews extends HttpServlet {
 			String media=req.getParameter("media");
 			String category=req.getParameter("category");
 			String time=req.getParameter("time");
-			
 			list = new NewsDAO().filterNews(n,media,category,time);
 			resp.setContentType("application/json");
 			resp.setCharacterEncoding("utf-8");

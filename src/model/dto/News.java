@@ -4,6 +4,18 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class News implements Serializable{
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "News [news_id=" + news_id + ", cat_code=" + cat_code
+				+ ", user_info_code=" + user_info_code + ", news_title="
+				+ news_title + ", news_desc=" + news_desc + ", news_path="
+				+ news_path + ", news_img=" + news_img + ", news_date="
+				+ news_date + ", date_insert=" + date_insert + ", hit_count="
+				+ hit_count + "]";
+	}
 	/**
 	 * 
 	 */

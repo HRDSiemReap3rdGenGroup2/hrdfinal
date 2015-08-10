@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="css/devices/479.css" media="only screen and (min-width: 200px) and (max-width: 479px)" />
 <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 <!--[if lt IE 9]> <script type="text/javascript" src="js/customM.js"></script> <![endif]-->
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 
 </head>
 
@@ -75,7 +75,6 @@
 	                                          <label>Email Address<span class="req">*</span></label>
 	                                          <input type="email"required autocomplete="off" name="email"/>
 	                                      </div>
-	
 	                                      <div class="field-wrap">
 	                                         <label>Password<span class="req">*</span></label>
 	                                         <input type="password"required autocomplete="off" name="password"/>
@@ -84,10 +83,11 @@
 	                                      <button type="submit" class="button button-block">Log In</button>
 	                                  </form>
 	                                </div>
-	                                <div id="signup">   
-	                                  <h1>Sign Up for Free</h1>
-	                                  <form action="user/signup" method="post">
-	
+                                <div id="signup">   
+                                  <h1>Sign Up for Free</h1>
+                                   <div ng-app="app">
+								  	<div ng-controller="homeCtrl">
+	                                  <form action="user/signup" method="post" name="signupForm">
 										  <div class="field-wrap">
 											<label>Username<span class="req">*</span></label> <input
 												type="text" required autocomplete="off" name="username"/>
@@ -104,25 +104,30 @@
 	                                        <label>Email Address<span class="req">*</span></label>
 	                                        <input type="email"required autocomplete="off" name="email"/>
 	                                      </div>
-	
-	                                      <div class="field-wrap">
-	                                        <label>Password<span class="req">*</span></label>
-	                                        <input type="password"required autocomplete="off" name="password"/>
+	                                      
+	                                      <div class="field-wrap" ng-class="{'has-error':formData.password.$invalid && !formData.password.$pristine}">
+	                                       <!--  <label>Password<span class="req">*</span></label> -->
+	                                        <input type="password" id="password" name="password" ng-model="formData.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="password" required />
+	                                        <p ng-show="signupForm.password.$error.required" class="error">*</p>
+										        <p ng-show="signupForm.password.$error.minlength" class="error">
+										          Passwords must be between 8 and 20 characters.</p>
+										        <p ng-show="signupForm.password.$error.pattern" class="error">
+										          Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</p>
+	                                      </div>
+	                                      <div class="field-wrap" ng-class="{'has-error':formData.password_c.$invalid && !formData.password_c.$pristine}">
+	                                        <!-- <label>Confirm Password<span class="req">*</span></label> -->
+	                                        <input type="password" id="password_c" name="password_c" ng-model="formData.password_c" placeholder="confirm password" valid-password-c="formData.password" required />
+	                                        <p ng-show="signupForm.password_c.$error.noMatch" class="error">Passwords do not match.</span>
+										          <p ng-show="signupForm.password_c.$error.required" class="error">*</p>
 	                                      </div>
 	                                      <div class="field-wrap">
-	                                        <label>Confirm Password<span class="req">*</span></label>
-	                                        <input type="password"required autocomplete="off" name="confirmpassword"/>
-	                                      </div>
-	                                      <div class="field-wrap">
-	                                      	<div class="gender-combo">
 											    <select name="gender">
 											        <option selected> Select Gender </option>
 											        <option value="1">Male</option>
 											        <option value="2">Female</option>
 											    </select>
-										    </div>
 	                                      </div>
-	                                      <button type="submit" class="button button-block">Sign Up</button>
+	                                      <button onclick="signup()" class="button button-block">Sign Up</button>
 	                                  </form>
 	                                </div>
                               </div>
@@ -163,5 +168,37 @@
 
 <!--[if lt IE 9]> <script type="text/javascript" src="js/html5.js"></script> <![endif]-->
 <!-- <script type="text/javascript" src="js/mypassion.js"></script> -->
+<script>
+var app = angular.module('app', []);
+app.directive('validPasswordC', function() {
+  return {
+    require: 'ngModel',
+    scope: {
+
+      reference: '=validPasswordC'
+
+    },
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$parsers.unshift(function(viewValue, $scope) {
+
+        var noMatch = viewValue != scope.reference
+        ctrl.$setValidity('noMatch', !noMatch)
+      });
+
+      scope.$watch("reference", function(value) {;
+        ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
+
+      });
+    }
+  }
+});
+
+app.controller('homeCtrl', function($scope) {
+
+
+
+
+});
+</script>
 </body>
 </html>

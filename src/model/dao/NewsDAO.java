@@ -212,8 +212,9 @@ public class NewsDAO {
 	}
 	public ArrayList<News> filterNews(int n, String media, String category, String time) throws SQLException {
 		ArrayList<News> list=new ArrayList<News>();
+		System.out.println(media+" "+category+"  "+time+" "+n);
 		int t=1;
-		if(time=="daily")t=1;
+		if(time=="today")t=1;
 		if(time=="weekly")t=7;
 		if(time=="monthly")t=30;
 		try{
