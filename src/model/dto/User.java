@@ -6,6 +6,28 @@ public class User {
 	private String user_pass;
 	private String user_type;
 	private int user_type_id;
+	private String email;
+	private String gender;
+	private int subscribe;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getSubscribe() {
+		return subscribe;
+	}
+	public void setSubscribe(int subscribe) {
+		this.subscribe = subscribe;
+	}
 	public int getUser_id() {
 		return user_id;
 	}
