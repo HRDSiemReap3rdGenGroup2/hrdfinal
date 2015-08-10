@@ -58,10 +58,12 @@ public class UserDAO {
 		return null;
 	}
 	
-	public boolean addUser(User u) throws Exception{
+	public boolean addUser(User user) throws Exception{
 		try{
+			
 			String sql="INSERT INTO tbuser(user_id, user_type,  user_name,user_pass, email, gender,department, school) VALUES(nextval('seq_user_id'),'2',?,?,?,?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
+			User u=new User();
 			p.setString(1, u.getUser_name());
 			p.setString(2, u.getUser_pass());
 			p.setString(3, u.getEmail());
@@ -78,6 +80,7 @@ public class UserDAO {
 			if(con!=null)
 				con.close();
 		}
+
 		return false;
 	}
 }
