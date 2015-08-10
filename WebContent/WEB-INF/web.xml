@@ -1,178 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Final Project</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-  	<servlet-name>userlogin</servlet-name>
-  	<servlet-class>controller.user.LoginUser</servlet-class>
+    <servlet-name>userlogin</servlet-name>
+    <servlet-class>controller.user.LoginUser</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>userlogin</servlet-name>
-  	<url-pattern>/user/login</url-pattern>
+    <servlet-name>userlogin</servlet-name>
+    <url-pattern>/user/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>home</servlet-name>
+    <servlet-class>controller.news.GetAllNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>news</servlet-name>
+    <servlet-class>controller.news.ReadNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>news</servlet-name>
+    <url-pattern>/news</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>health</servlet-name>
+    <servlet-class>controller.news.HealthPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>health</servlet-name>
+    <url-pattern>/health</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>entertainment</servlet-name>
+    <servlet-class>controller.news.EntertainmentPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>entertainment</servlet-name>
+    <url-pattern>/entertainment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>politic</servlet-name>
+    <servlet-class>controller.news.PoliticPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>politic</servlet-name>
+    <url-pattern>/politic</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>sport</servlet-name>
+    <servlet-class>controller.news.SportPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sport</servlet-name>
+    <url-pattern>/sport</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>tech</servlet-name>
+    <servlet-class>controller.news.TechPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tech</servlet-name>
+    <url-pattern>/tech</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>job</servlet-name>
+    <jsp-file>/job.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>job</servlet-name>
+    <url-pattern>/job</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>more</servlet-name>
+    <jsp-file>/more.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>more</servlet-name>
+    <url-pattern>/more</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>contact</servlet-name>
+    <jsp-file>/contact.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>contact</servlet-name>
+    <url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>search</servlet-name>
+    <servlet-class>controller.news.SearchNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>search</servlet-name>
+    <url-pattern>/results</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>statistic</servlet-name>
+    <jsp-file>/statistic.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>statistic</servlet-name>
+    <url-pattern>/statistic</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getmodulename</servlet-name>
+    <servlet-class>controller.module.GetModuleName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getmodulename</servlet-name>
+    <url-pattern>/getmodulename</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getmoduletype</servlet-name>
+    <servlet-class>controller.module.GetModuleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getmoduletype</servlet-name>
+    <url-pattern>/getmoduletype</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>gettopnews</servlet-name>
+    <servlet-class>controller.news.FilterNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gettopnews</servlet-name>
+    <url-pattern>/gettopnews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>usersignout</servlet-name>
+    <servlet-class>controller.user.SignOut</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>usersignout</servlet-name>
+    <url-pattern>/user/signout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>fixedmenu</servlet-name>
+    <servlet-class>controller.admin.menu.FixedMenu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fixedmenu</servlet-name>
+    <url-pattern>/admin/html/pages/fixedmenu</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updatemenu</servlet-name>
+    <servlet-class>controller.admin.menu.UpdateMenu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatemenu</servlet-name>
+    <url-pattern>/admin/html/pages/updatemenu</url-pattern>
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>home</servlet-name>
-  	<servlet-class>controller.news.GetAllNews</servlet-class>
+    <servlet-name>formuser</servlet-name>
+    <servlet-class>controller.admin.user.FormUser</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>home</servlet-name>
-  	<url-pattern>/home</url-pattern>
+    <servlet-name>formuser</servlet-name>
+    <url-pattern>/admin/html/pages/formuser</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>news</servlet-name>
-  	<servlet-class>controller.news.ReadNews</servlet-class>
+    <servlet-name>adduser</servlet-name>
+    <servlet-class>controller.admin.user.AddUser</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>news</servlet-name>
-  	<url-pattern>/news</url-pattern>
+    <servlet-name>adduser</servlet-name>
+    <url-pattern>/admin/html/pages/adduser</url-pattern>
   </servlet-mapping>
   
-  <servlet>
-  	<servlet-name>health</servlet-name>
-  	<servlet-class>controller.news.HealthPage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>health</servlet-name>
-  	<url-pattern>/health</url-pattern>
-  </servlet-mapping>
   
-  <servlet>
-  	<servlet-name>entertainment</servlet-name>
-  	<servlet-class>controller.news.EntertainmentPage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>entertainment</servlet-name>
-  	<url-pattern>/entertainment</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>politic</servlet-name>
-  	<servlet-class>controller.news.PoliticPage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>politic</servlet-name>
-  	<url-pattern>/politic</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>sport</servlet-name>
-  	<servlet-class>controller.news.SportPage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>sport</servlet-name>
-  	<url-pattern>/sport</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>tech</servlet-name>
-  	<servlet-class>controller.news.TechPage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>tech</servlet-name>
-  	<url-pattern>/tech</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>job</servlet-name>
-	<jsp-file>/job.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>job</servlet-name>
-  	<url-pattern>/job</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>more</servlet-name>
-	<jsp-file>/more.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>more</servlet-name>
-  	<url-pattern>/more</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>contact</servlet-name>
-	<jsp-file>/contact.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>contact</servlet-name>
-  	<url-pattern>/contact</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>search</servlet-name>
-  	<servlet-class>controller.news.SearchNews</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>search</servlet-name>
-  	<url-pattern>/results</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>statistic</servlet-name>
-	<jsp-file>/statistic.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>statistic</servlet-name>
-  	<url-pattern>/statistic</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>getmodulename</servlet-name>
-  	<servlet-class>controller.module.GetModuleName</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>getmodulename</servlet-name>
-  	<url-pattern>/getmodulename</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>getmoduletype</servlet-name>
-  	<servlet-class>controller.module.GetModuleType</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>getmoduletype</servlet-name>
-  	<url-pattern>/getmoduletype</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>gettopnews</servlet-name>
-  	<servlet-class>controller.news.FilterNews</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>gettopnews</servlet-name>
-  	<url-pattern>/gettopnews</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>usersignout</servlet-name>
-  	<servlet-class>controller.user.SignOut</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>usersignout</servlet-name>
-  	<url-pattern>/user/signout</url-pattern>
-  </servlet-mapping>
-  
-  <!-- 
-  <filter>
-  	<filter-name>adminfilter</filter-name>
-  	<filter-class>controller.admin.Filter</filter-class>
-  </filter>
-  <filter-mapping>
-  	<filter-name>adminfilter</filter-name>
-  	<url-pattern>/admin/*</url-pattern>
-  </filter-mapping>
-   -->
-  
- <!--<error-page>
-  	<error-code>404</error-code>
-  	<location>/404.jsp</location>
-  </error-page>
-  -->
 </web-app>
