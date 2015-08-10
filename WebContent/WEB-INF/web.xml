@@ -176,14 +176,13 @@
     <url-pattern>/admin/html/pages/fixedmenu</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>getmodulecode</servlet-name>
-  	<servlet-class>controller.module.GetModuleCode</servlet-class>
+    <servlet-name>getmodulecode</servlet-name>
+    <servlet-class>controller.module.GetModuleCode</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>getmodulecode</servlet-name>
-  	<url-pattern>/getmodulecode</url-pattern>
+    <servlet-name>getmodulecode</servlet-name>
+    <url-pattern>/getmodulecode</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>updatemenu</servlet-name>
     <servlet-class>controller.admin.menu.UpdateMenu</servlet-class>
@@ -194,23 +193,21 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>getresults</servlet-name>
-  	<servlet-class>controller.news.GetResult</servlet-class>
+    <servlet-name>getresults</servlet-name>
+    <servlet-class>controller.news.GetResult</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>getresults</servlet-name>
-  	<url-pattern>/getresults</url-pattern>
+    <servlet-name>getresults</servlet-name>
+    <url-pattern>/getresults</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>getpagination</servlet-name>
-  	<servlet-class>controller.news.Pagination</servlet-class>
+    <servlet-name>getpagination</servlet-name>
+    <servlet-class>controller.news.Pagination</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>getpagination</servlet-name>
-  	<url-pattern>/getpagination</url-pattern>
+    <servlet-name>getpagination</servlet-name>
+    <url-pattern>/getpagination</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>formuser</servlet-name>
     <servlet-class>controller.admin.user.FormUser</servlet-class>
@@ -227,6 +224,44 @@
     <servlet-name>adduser</servlet-name>
     <url-pattern>/admin/html/pages/adduser</url-pattern>
   </servlet-mapping>
-  
-  
+  <servlet>
+    <servlet-name>formmodule</servlet-name>
+    <servlet-class>controller.admin.module.FormModule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>formmodule</servlet-name>
+    <url-pattern>/admin/html/pages/formmodule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addmodule</servlet-name>
+    <servlet-class>controller.admin.module.AddModule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addmodule</servlet-name>
+    <url-pattern>/admin/html/pages/addmodule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addnews</servlet-name>
+    <servlet-class>controller.admin.news.AddNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addnews</servlet-name>
+    <url-pattern>/admin/html/pages/addnews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>formnews</servlet-name>
+    <servlet-class>controller.admin.news.FormNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>formnews</servlet-name>
+    <url-pattern>/admin/html/pages/formnews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>formnews1</servlet-name>
+    <servlet-class>controller.admin.news.FormNews1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>formnews1</servlet-name>
+    <url-pattern>/admin/html/pages/addnews1</url-pattern>
+  </servlet-mapping>
 </web-app>
