@@ -68,6 +68,36 @@ public class ModuleDAO {
 		}
 		return list;
 	}
+	public boolean addModule(Module module) throws SQLException{
+		try{
+			String sql="INSERT INTO tbmoduleinfo VALUES(nextval('seq_moduleinfo'),?,?,?,?)";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "ពត៌មាន");
+			pstmt.setString(2, module.getModule_name());
+			pstmt.setString(3, module.getModule_type());
+			pstmt.setString(4, getModuleCode());
+			
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return false;
+	}
+	private String getModuleCode() {
+		
+		// B040 + 102
+		return null;
+	}
+	public boolean validateType(String module_type) {
+		
+		return true;
+	}
+	
 	public ArrayList<String> getModuleCode(String module_type) throws SQLException {
 		ArrayList<String> list=new ArrayList<>();
 		try{
