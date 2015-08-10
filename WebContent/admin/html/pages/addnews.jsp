@@ -19,10 +19,13 @@
 		<link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/font-awesome.min.css?1422529194" />
 		<link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
 		
-		<link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/summernote/summernote.css?1425218701" />
-		
         <link type="text/css" rel="stylesheet" href="../../assets/css/theme-default/libs/bootstrap-datepicker/datepicker3.css?1424887858">
         
+    	<!-- include summernote css/js-->
+		<link href="../../assets/js/summernote/summernote.css" rel="stylesheet">
+		
+    		
+		
 		<!-- END STYLESHEETS -->
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,6 +38,10 @@
 			/*.form-control{
 				height:61px;
 			}*/
+			.note-editor{
+				border:none;
+			}
+			
 		</style>
 	</head>
 	<body class="menubar-hoverable header-fixed menubar-first full-content ">
@@ -63,35 +70,32 @@
                         <!-- BEGIN INTRO -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
-								<form class="form">
+								<div class="form">
 									<div class="card">
 										<div class="card-head style-primary">
 											<header>Add News</header>
 										</div>
 										<div class="card-body floating-label">
 											<div class="form-group">
-												<input class="form-control" id="Username2" type="text">
-												<label for="Username2">Khmer Title</label>
+												<input class="form-control" id="khmertitle" type="text">
+												<label for="khmertitle">Khmer Title</label>
 											</div>
                                             
                                             <div class="form-group">
-												<input class="form-control" id="Username2" type="text">
-												<label for="Username2">English Title</label>
+												<input class="form-control" id="englishtitle" type="text">
+												<label for="englishtitle">English Title</label>
 											</div>
                                             
                                             <div class="form-group floating-label">
+                                            	<label for="thumnail">Thumnail (285x170)</label>
 												<div class="input-group">
-													<div class="input-group-content">
-														<input class="form-control" id="groupbutton10" type="text">
-														<label for="groupbutton10">Thumnail (285x170)</label>
-													</div>
-													<div class="input-group-btn">
-														<button class="btn btn-default" type="button">Browse</button>
+													<div class="input-group-btn" style="margin-right:0px">
+														<input id="fileUpload" type="file" style="padding-left:0px" class="btn" value="Browse" accept="image/*"/>
 													</div>
 												</div>
 											</div>
                                             <div class="form-group floating-label">
-												<select id="select2" name="select2" class="form-control">
+												<select id="category" name="category" class="form-control">
 													<option value="">&nbsp;</option>
 													<option value="30">30</option>
 													<option value="40">40</option>
@@ -104,7 +108,7 @@
                                             <div class="form-group">
 												<div class="input-group date" id="demo-date">
 													<div class="input-group-content">
-														<input class="form-control" type="text">
+														<input class="form-control" name="publishdate" id="publishdate" type="text">
 														<label>Publish Date</label>
 													</div>
 													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -124,8 +128,8 @@
                                                             <!--BEGIN SUMMERNOTE  -->
                                                             <div class="card">
                                                                 <div class="card-body no-padding">
-                                                                    <div id="summernote">
-
+                                                                    <div id="summernote" class="summernote">
+																		<p>Hello</p>
                                                                     </div>
                                                                 </div><!--end .card-body -->
                                                             </div><!--end .card -->
@@ -161,15 +165,14 @@
                                         
 										<div class="card-actionbar">
 											<div class="card-actionbar-row">
-												<button type="submit" class="btn btn-flat btn-primary ink-reaction">SAVE</button>
+												<button id="btnsave" class="btn btn-flat btn-primary ink-reaction">SAVE</button>
 											</div>
 										</div>
 									</div><!--end .card -->
-								</form>
+								</div>
 							</div>
 						</div><!--end .row -->
 						<!-- END INTRO -->
-
 					</div>
 					
 				</section>
@@ -189,15 +192,12 @@
 		<!-- BEGIN JAVASCRIPT -->
 		<script src="../../assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
         <script src="../../assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
-		<script src="../../assets/js/core/demo/DemoFormComponents.js"></script>
-        
         <script src="../../assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 		<script src="../../assets/js/libs/bootstrap/bootstrap.js"></script>
 		<script src="../../assets/js/libs/spin.js/spin.min.js"></script>
 		<script src="../../assets/js/libs/autosize/jquery.autosize.min.js"></script>
 		<script src="../../assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
-		<script src="../../assets/js/libs/ckeditor/adapters/jquery.js"></script>
-		<script src="../../assets/js/libs/summernote/summernote.min.js"></script>
+		
 		<script src="../../assets/js/core/source/App.js"></script>
 		<script src="../../assets/js/core/source/AppNavigation.js"></script>
 		<script src="../../assets/js/core/source/AppOffcanvas.js"></script>
@@ -206,10 +206,44 @@
 		<script src="../../assets/js/core/source/AppNavSearch.js"></script>
 		<script src="../../assets/js/core/source/AppVendor.js"></script>
 		<script src="../../assets/js/core/demo/Demo.js"></script>
-		<script src="../../assets/js/core/demo/DemoFormEditors.js"></script>
-        
-        
-        
+		<script src="../../assets/js/core/demo/DemoFormComponents.js"></script>
+		<script src="../../assets/js/summernote/summernote.min.js"></script>
+		<!-- END JAVASCRIPT -->
+		
+		<script>
+			$(document).ready(function() {
+	  			$('#summernote').summernote();
+
+				$('#btnsave').click(function(){
+					var data1;
+				    data1 = new FormData();
+				    data1.append('file', $('#fileUpload')[0].files[0]);
+				    $.ajax({
+						url : "addnews",
+						type : "POST",
+						cache: false,
+						contentType: false,
+						processData: false,
+						data: data1,
+						success:function(data){
+							var path=data;
+							alert(path);
+							$.post('addnews1',
+									{ path:path,
+								      khmer:$('#khmertitle').val(),
+								 	  english:$('#khmertitle').val(),
+									  category:$('#category option:selected').val(),
+									  mydate:$("#publishdate").val()
+									},
+									function(data){
+							});
+						}
+					});   
+				});
+	    
+			});
+			
+		</script>
 		<!-- END JAVASCRIPT -->
 	</body>
 </html>

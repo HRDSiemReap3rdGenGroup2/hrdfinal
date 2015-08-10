@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -51,13 +52,13 @@
 						<!-- BEGIN INTRO -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
-								<form class="form">
+								<div class="form">
 									<div class="card">
 										<div class="card-head style-primary">
 											<header>Create Module</header>
 										</div>
 										<div class="card-body floating-label">
-											
+											<c:set value="${requestScope.source }" var="source"></c:set>
 											<div class="form-group floating-label">
 												<select id="select2" name="select2" class="form-control">
 													<option value="">&nbsp;</option>
@@ -66,29 +67,28 @@
 												<label for="select2">Type</label>
 											</div>
                                             <div class="form-group floating-label">
-												<select id="select2" name="select2" class="form-control">
+												<select id="module_name" name="select2" class="form-control">
 													<option value="">&nbsp;</option>
-													<option value="70">All Khmer News</option>
-                                                    <option value="70">សប្បាយ News</option>
-                                                    <option value="70">កោះសន្តិភាព</option>
-                                                    <option value="70">ដើមអម្ពិល</option>
+													<c:forEach var="item" items="${source }">
+														<option value='${item.module_name }'>${item.module_name}</option>
+													</c:forEach>
 												</select>
 												<label for="Username2">Mdeia</label>
 											</div>
                                             
 											<div class="form-group">
-												<input class="form-control" id="Username2" type="text">
+												<input class="form-control" id="module_type" type="text">
 												<label for="Username2">Category</label>
 											</div>
 											
 										</div><!--end .card-body -->
 										<div class="card-actionbar">
 											<div class="card-actionbar-row">
-												<button type="submit" class="btn btn-flat btn-primary ink-reaction">Create Module</button>
+												<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create Module</button>
 											</div>
 										</div>
 									</div><!--end .card -->
-								</form>
+								</div>
 							</div>
 						</div><!--end .row -->
 						<!-- END INTRO -->
@@ -125,6 +125,22 @@
 		<script src="../../assets/js/core/source/AppVendor.js"></script>
 		<script src="../../assets/js/core/demo/Demo.js"></script>
 		<!-- END JAVASCRIPT -->
+
+		<script>
+			$(document).ready(function(){
+				$('#btncreate').click(function(){
+					
+					$.post('addmodule',{
+						module_name:$('#module_name option:selected').val(),module_type:$('#module_type').val()
+						},
+						function(data){
+							alert('success');
+						}
+					);
+				});
+			});
+		
+		</script>
 
 	</body>
 </html>

@@ -51,7 +51,7 @@
 						<!-- BEGIN INTRO -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
-								<form class="form" action="adduser" method="post">
+								<div class="form">
 								
 									<div class="card">
 										<div class="card-head style-primary">
@@ -109,7 +109,7 @@
 											</div>
 										</div>
 									</div><!--end .card -->
-								 </form>
+								 </div>
 							</div>
 						</div><!--end .row -->
 						<!-- END INTRO -->
@@ -131,7 +131,7 @@
 		<!-- END BASE -->
 
 		<!-- BEGIN JAVASCRIPT -->
-		<script src="../../assets/js/libs/jquery/jquery-1.11.2.min.js"></script>
+		<script src="../../assets/js/libs/jquery/jquery-1.11.3.js"></script>
 		<script src="../../assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
 		<script src="../../assets/js/libs/bootstrap/bootstrap.js"></script>
 		<script src="../../assets/js/libs/spin.js/spin.min.js"></script>
@@ -152,26 +152,24 @@
 				
 				
 				$('#btncreate').click(function(){
+					
 					var username=$('#username').val();
 					var password=$('#password').val();
 					var usertype=$('#usertype').val();
 					var gender=$('input[type=radio]:checked').val();
-					if($('#subscribe').is(':checked')){
-						var subscribe=1;
-					}else
-						var subscribe=0;
+					var subscribe = 0;
+					var email = $('#email').val();
 					
-					$.post('adduser',
-							{	gender:gender,
-								username:username,
-								password:password,
-								email:email,
-								usertype:usertype,
-								subscribe:subscribe
-							},function(data){
-								alert('success!');
-							}
-					);
+					if($('#subscribe').is(':checked')){
+						subscribe=1;
+					}else
+						subscribe=0;
+					
+					$.post('adduser',{
+							email:email,username:username,password:password,usertype:usertype,gender:gender,subscribe:subscribe
+						},function(data){
+						alert('success');
+					});
 					
 				});
 			});
