@@ -251,4 +251,49 @@ public class NewsDAO {
 		}
 		return list;
 	}
+	public int getTotalPage(String category, int limit) throws SQLException {
+		try{
+			String sql="select count(*) from tbnews where cat_code=?";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setString(1, category);
+			ResultSet rs=p.executeQuery();
+			if(rs.next())return rs.getInt(1)/limit;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return 0;
+	}
+	public ArrayList<News> getNewsList(String category, int limit, int offset) throws SQLException {
+		ArrayList<News> list=new ArrayList<News>();
+		offset=limit*(offset-1);
+		try{
+			String sql="SELECT * FROM tbnews WHERE cat_code=? ORDER BY news_id DESC LIMIT ? OFFSET ?";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setString(1, category);
+			p.setInt(2, limit);
+			p.setInt(3, offset);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()){
+				News e= new News();
+				e.setNews_id(rs.getInt("news_id"));
+				e.setCat_code(rs.getString("cat_code"));
+				e.setNews_title(rs.getString("news_title"));
+				e.setNews_date(rs.getString("news_date"));
+				e.setNews_img(rs.getString("news_img"));
+				e.setNews_path(rs.getString("news_path"));
+				e.setUser_info_code(rs.getString("user_info_code"));
+				e.setNews_desc(rs.getString("news_desc"));
+				e.setDate_insert(rs.getDate("date_insert"));
+				e.setHit_count(rs.getInt("hit_count"));
+				list.add(e);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return list;
+	}
 }
