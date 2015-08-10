@@ -1,6 +1,5 @@
 package model.dao;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,22 +37,24 @@ public class UserDAO {
 		}
 		return list;
 	}
-	public boolean login(String username, String password) throws SQLException {
+	public User login(String username, String password) throws SQLException {
 		try{
-			String sql="{call login(?,?)}";
-			CallableStatement c=con.prepareCall(sql);
-			c.setString(1, username);
-			c.setString(2, password);
-			ResultSet rs=c.executeQuery();
+			String sql="select * from tbuser where user_name=? and user_pass=?";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setString(1, username);
+			p.setString(2, password);
+			ResultSet rs=p.executeQuery();
 			rs.next();
-			if(rs.getInt(1)==1)return true;
-			else return false;
+			User u =new User();
+			u.setUser_id(rs.getInt("user_id"));
+			u.setUser_name(username);
+			return u;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			if(con!=null)con.close();
 		}
-		return false;
+		return null;
 	}
 	
 	public boolean addUser(User user) throws Exception{
