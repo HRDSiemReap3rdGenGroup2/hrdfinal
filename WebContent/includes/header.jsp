@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <header id="header">
+<script src="js/jquery.js"></script>
+<% session.setAttribute("user", "admin"); %>
+
    <div class="container">
-                
                 <!--login|signup|languages-->
                 <div class="column" style="margin-bottom:0">
                     <div class="login">
@@ -10,33 +14,37 @@
                             <a href="#"><span>ខ្មែរ</span></a><span> | </span><a href="#">ENG</a>
                         </div>
 	                    <div style="float:right;">
-	                        <a href="login.jsp"><span>ចូល</span></a><span> | </span><a href="login.jsp"><span>ចុះឈ្មោះ</span></a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	                        <c:set var="user" value="${sessionScope.user }"></c:set>
+	                        <c:choose>
+	                        	<c:when test="${user==null || user=='' }">
+			                        <a href="login.jsp"><span>ចូល</span></a><span> | </span><a href="login.jsp"><span>ចុះឈ្មោះ</span></a>
+	                        	</c:when>
+	                        	<c:otherwise>
+									<a href="user.jsp"><span>${user }</span></a><span> | </span>
+			                        <a href="#"><span>ចេញ</span></a>
+	                        	</c:otherwise>
+	                        </c:choose>
+	                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 	                    </div>
 	                    <div id="google_translate_element" style="float:right;margin-right:10px;"></div>
                         <div style="clear:both"></div>
                     </div>
                 </div>
                 <!--/login|signup|languages-->
-                
                 <div class="column">
                     <div class="logo" style="margin-top:0">
                         <a href="home"><img style="background-color:#4f9d51;padding-left:30px; padding-right:30px" width="200" src="img/khmeracademy.png" alt="KhmerAcademy News" /></a>
                     </div>
 					<div class="search advance-search" style="float:right;" id="search-box">
 						<form id="ui_element" class="sb_wrapper" action="results" method="post">
-	                                <p>
+	                               	<p>
 	                                    <span class="sb_down"></span>
-	                                    <input class="sb_input" type="text" placeholder="ស្វែងរកពត៏មាន..." name="s_query" id="s_query" />
+	                                    <input class="sb_input" type="text" placeholder="ស្វែងរកពត៏មាន..." name="s_query" id="s_query" autocomplete="off"/>
 	                                    <input class="sb_search" type="submit" value="" id="sb_search"/>
 	                                </p>
-	                                <ul class="sb_dropdown" style="display:none;">
+	                                <ul class="sb_dropdown" style="display:none;" id="search-list">
 	                                    <li class="sb_filter">Filter your search</li>
 	                                    <li><input type="checkbox" id="all"/><label for="all"><strong>គ្រប់ប្រភេទ</strong></label></li>
-	                                    <li><input type="checkbox" name="c_e" id="entertainment" value="entertainment"/><label for="entertainment">កម្សាន្ត</label></li>
-	                                    <li><input type="checkbox" name="c_t" id="tech" value="tech"/><label for="tech">បច្ចេកវិទ្យា</label></li>
-	                                    <li><input type="checkbox" name="c_h" id="health" value="health"/><label for="health">សុខភាព</label></li>
-	                                    <li><input type="checkbox" name="c_p" id="politic" value="politic"/><label for="politic">នយោបាយ</label></li>
-	                                    <li><input type="checkbox" name="c_s" id="sport" value="sport"/><label for="sport">កីទ្បា</label></li>
 	                                </ul>
 	                    </form>
                     </div>
@@ -53,7 +61,6 @@
                             <li id="statistic"><a href="statistic">ស្ថិតិ</a></li>
                             <li id="other"><a href="more">ផ្សេងទៀត</a></li>
                         </ul>
-                        
                     </nav>
                     <!-- /Nav -->
                 </div>
@@ -63,4 +70,16 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
 }
 </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+	$(document).ready(function(){
+		$.post("getmoduletype",function(data){
+			var str="";
+			for(var i=0;i<data.length;i++){
+				str+="<li style='overflow:hidden'><label><input type='checkbox' name='category"+(i+1)+"' value='"+data[i].module_type+"'/>"+data[i].module_type;
+				str+="</label></li>";
+			}
+			$("#search-list").append(str);
+		});
+	});
+</script>
 </header>
