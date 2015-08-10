@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Final Project</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
@@ -29,6 +29,16 @@
     <servlet-name>news</servlet-name>
     <url-pattern>/news</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>savenews</servlet-name>
+    <servlet-class>controller.news.SaveNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>savenews</servlet-name>
+    <url-pattern>/savenews</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>health</servlet-name>
     <servlet-class>controller.news.HealthPage</servlet-class>
@@ -166,6 +176,7 @@
     <servlet-name>updatemenu</servlet-name>
     <url-pattern>/admin/html/pages/updatemenu</url-pattern>
   </servlet-mapping>
+  
   <servlet>
   	<servlet-name>getresults</servlet-name>
   	<servlet-class>controller.news.GetResult</servlet-class>
@@ -200,20 +211,6 @@
     <servlet-name>adduser</servlet-name>
     <url-pattern>/admin/html/pages/adduser</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>formmodule</servlet-name>
-    <servlet-class>controller.admin.module.FormModule</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>formmodule</servlet-name>
-    <url-pattern>/admin/html/pages/formmodule</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>addmodule</servlet-name>
-    <servlet-class>controller.admin.module.AddModule</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>addmodule</servlet-name>
-    <url-pattern>/admin/html/pages/addmmodule</url-pattern>
-  </servlet-mapping>
+  
+  
 </web-app>
