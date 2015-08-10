@@ -150,12 +150,39 @@
     <url-pattern>/admin/html/pages/fixedmenu</url-pattern>
   </servlet-mapping>
   <servlet>
+  	<servlet-name>getmodulecode</servlet-name>
+  	<servlet-class>controller.module.GetModuleCode</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>getmodulecode</servlet-name>
+  	<url-pattern>/getmodulecode</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>updatemenu</servlet-name>
     <servlet-class>controller.admin.menu.UpdateMenu</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>updatemenu</servlet-name>
     <url-pattern>/admin/html/pages/updatemenu</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>getresults</servlet-name>
+  	<servlet-class>controller.news.GetResult</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>getresults</servlet-name>
+  	<url-pattern>/getresults</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>getpagination</servlet-name>
+  	<servlet-class>controller.news.Pagination</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>getpagination</servlet-name>
+  	<url-pattern>/getpagination</url-pattern>
   </servlet-mapping>
   
   <servlet>
