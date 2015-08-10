@@ -40,6 +40,7 @@
 
 <body>
 <c:set var="list" value="${requestScope.latestnews }"></c:set>
+<c:set var="user" value="${sessionScope.user }"></c:set>
 <c:if test="${list==null }">
 	<c:redirect url="home"></c:redirect>
 </c:if>
@@ -128,7 +129,8 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right">Save</button>
+	                                	
+	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
 	                                	</div>	
                                     </p>
                         		</li>
@@ -158,7 +160,7 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,70)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right">Save</button>
+	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
 	                                	</div>		
                                     </p>
                         		</li>
@@ -201,7 +203,7 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right">Save</button>
+	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
 	                                	</div>		
                                     </p>
                         		</li>
@@ -236,7 +238,7 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div style="position:relative;bottom:0px;width:100%">
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right">Save</button>
+	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
 	                                	</div>		
                                     </p>
                         		</li>
@@ -265,7 +267,10 @@
 	                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right">Save</button>
+	                                		
+	                                			<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+	                                		
+											<%--<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button> --%>
 	                                	</div>		
 	                                    </p>
 	                        		</li>
@@ -275,8 +280,6 @@
                         
                     </div>
                     <!-- /Hot News -->  
-                    
-                    
                     <div class="sidebar">
                     	<h5 class="line"><span>Facebook.</span></h5>
                         <div class="fb-page" data-href="https://www.facebook.com/KhmerAcademy.Org" data-width="300" data-height="298" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/KhmerAcademy.Org"><a href="https://www.facebook.com/KhmerAcademy.Org">Khmer Academy</a></blockquote></div></div>
@@ -314,6 +317,17 @@
 <script type="text/javascript" src="js/mypassion.js"></script>
 <script>
 	$("#index").addClass("current");
+	function save(news_id){
+		alert("asdbf")
+		/*$.post("savenews",{
+			news_id:news_id
+		},function(data){
+			if(data=='success'){
+				$("#"+news_id).css("background","#ccc");
+				alert("News already saved to your save list!");
+			}
+		});*/
+	}
 </script>
 </body>
 </html>

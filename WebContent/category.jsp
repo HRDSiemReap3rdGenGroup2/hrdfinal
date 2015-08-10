@@ -82,21 +82,43 @@
                     </div>
                     
                     <!--pager-->
-                    <div class="pager" style="float:right">
-                        <ul >
-                            <li><a href="#" class="first-page"></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a class="active" href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#" class="last-page"></a></li>
-                        </ul>
+                    <div id="pager" class="pager" style="float:right">
+                    	<ul>
+                    		<c:if test="${requestScope.current_page>1 }">
+	                    		<li><a href="${fn:substring(requestScope.title_id, 0 , requestScope.title_id.length()-1) }?page=">First</a></li>
+                    		</c:if>
+                    		<c:if test="${requestScope.current_page>1 }">
+	                    		<li><a href="${fn:substring(requestScope.title_id, 0 , requestScope.title_id.length()-1)}?page=${requestScope.current_page-1}">Prev</a></li>
+                    		</c:if>
+							<c:set value="${requestScope.page_number }" var="total_page"></c:set>
+							<c:choose>
+								<c:when test="${total_page-requestScope.current_page<4 }">
+									<c:set value="${total_page }" var="end"></c:set>
+								</c:when>
+								<c:otherwise>
+									<c:set value="${requestScope.current_page+4 }" var="end"></c:set>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${requestScope.current_page-4<=0 }">
+									<c:set value="${1}" var="begin"></c:set>
+								</c:when>
+								<c:otherwise>
+									<c:set value="${requestScope.current_page-4 }" var="begin"></c:set>
+								</c:otherwise>
+							</c:choose>
+                        	<c:forEach begin="${begin }" end="${end}" var="i">
+                        		<li><a id="${i }" href="${fn:substring(requestScope.title_id, 0 , requestScope.title_id.length()-1)}?page=${i}">${i }</a></li>
+                        	</c:forEach>  
+                        	<c:if test="${requestScope.current_page<total_page }">
+	                    		<li><a href="${fn:substring(requestScope.title_id, 0 , requestScope.title_id.length()-1)}?page=${requestScope.current_page+1}">Next</a></li>
+                    		</c:if>
+                    		<c:if test="${total_page!=requestScope.current_page }">
+	                    		<li><a href="${fn:substring(requestScope.title_id, 0 , requestScope.title_id.length()-1) }?page=${total_page}">Last</a></li>                  	
+                    		</c:if>
+                    	</ul>
                     </div>
                     <!--/pager-->
-                    
                     <!--/list news-->
                 </div>
                 <!-- /Main Content -->
@@ -164,6 +186,7 @@
 <script type="text/javascript" src="js/mypassion.js"></script>
 <script>
 	$("#${requestScope.title_id}").addClass("current"); 
+	$("#${requestScope.current_page}").addClass("active");
 </script>
 </body>
 </html>

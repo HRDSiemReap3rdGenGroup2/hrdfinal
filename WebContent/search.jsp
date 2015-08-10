@@ -56,15 +56,22 @@
             	<!-- Main Content -->
                 
                 <div class="breadcrumbs column">
-                	<h2>ស្វែងរកពត៌មាន...  <span>"${requestScope.s_query}"</span></h2>
+                	<h2>ស្វែងរកពត៌មាន...  <span>"${requestScope.s_query}"</span>
+                		<c:if test="${requestScope.filter!=null }">
+                			ប្រភេទ:
+                			<c:forEach items="${requestScope.filter }" var="i">
+								${i } &nbsp;	
+                			</c:forEach>
+                		</c:if>
+                	</h2>
                 </div>
                 
                 <div class="main-content">
                    
                     
                     <!--list news-->
-                    <div class="wrap-news">
-						<c:set var="result" value="${requestScope.result }"></c:set>
+                    <div class="wrap-news" id="news">
+												<c:set var="result" value="${requestScope.result }"></c:set>
 								<c:forEach items="${result}" var="row">
 									<div class="news-row column-two-third">
 			                            <div class="items">
@@ -78,17 +85,44 @@
 								</c:forEach>
                     </div>
                     
-                    <div class="pager" style="float:right">
-                        <ul >
-                            <li><a href="#" class="first-page"></a></li>
-                            <li><a class="pagelist" href="#">1</a></li>
-                            <li><a class="pagelist" href="#">2</a></li>
-                            <li><a class="pagelist active" href="#">3</a></li>
-                            <li><a class="pagelist" href="#">4</a></li>
-                            <li><a class="pagelist" href="#">5</a></li>
-                            <li><a href="#" class="last-page"></a></li>
-                        </ul>
+                    <!-- pager -->
+                    <div id="pager" class="pager" style="float:right">
+                    	<ul>
+                    		<c:if test="${requestScope.current_page>1 }">
+	                    		<li><a href="result?page=">First</a></li>
+                    		</c:if>
+                    		<c:if test="${requestScope.current_page>1 }">
+	                    		<li><a href="results?page=${requestScope.current_page-1}">Prev</a></li>
+                    		</c:if>
+							<c:set value="${requestScope.page_number }" var="total_page"></c:set>
+							<c:choose>
+								<c:when test="${total_page-requestScope.current_page<4 }">
+									<c:set value="${total_page }" var="end"></c:set>
+								</c:when>
+								<c:otherwise>
+									<c:set value="${requestScope.current_page+4 }" var="end"></c:set>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${requestScope.current_page-4<=0 }">
+									<c:set value="${1}" var="begin"></c:set>
+								</c:when>
+								<c:otherwise>
+									<c:set value="${requestScope.current_page-4 }" var="begin"></c:set>
+								</c:otherwise>
+							</c:choose>
+                        	<c:forEach begin="${begin }" end="${end}" var="i">
+                        		<li><a id="${i }" href="results?page=${i}">${i }</a></li>
+                        	</c:forEach>  
+                        	<c:if test="${requestScope.current_page<total_page }">
+	                    		<li><a href="results?page=${requestScope.current_page+1}">Next</a></li>
+                    		</c:if>
+                    		<c:if test="${total_page!=requestScope.current_page }">
+	                    		<li><a href="results?page=${total_page}">Last</a></li>                  	
+                    		</c:if>
+                    	</ul>
                     </div>
+                    <!-- /pager -->
                     <!--/list news-->
                 </div>
                 <!-- /Main Content -->
@@ -155,6 +189,9 @@
 
 <!--[if lt IE 9]> <script type="text/javascript" src="js/html5.js"></script> <![endif]-->
 <script type="text/javascript" src="js/mypassion.js"></script>
-
+<script>
+	$("#${requestScope.current_page}").addClass("active");
+	
+</script>
 </body>
 </html>
