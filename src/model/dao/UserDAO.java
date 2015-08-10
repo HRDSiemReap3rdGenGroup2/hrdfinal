@@ -55,4 +55,23 @@ public class UserDAO {
 		}
 		return false;
 	}
+	
+	public boolean addUser(User user) throws Exception{
+		try{
+			String sql="INSERT INTO tbuser() VALUES()";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+			
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		
+		
+		return false;
+	}
 }
