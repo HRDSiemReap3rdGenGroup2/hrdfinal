@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dto.User;
+
 public class LoginUser extends HttpServlet {
 
 	/**
@@ -27,16 +29,18 @@ public class LoginUser extends HttpServlet {
 	}
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try{
-		String username=req.getParameter("username");
+		String username=req.getParameter("email");
 		String password= req.getParameter("password");
 		if(username==null)username="";
 		if(password==null)password="";
-		if(new model.dao.UserDAO().login(username, password)){
+		User u;
+		if((u=new model.dao.UserDAO().login(username, password)) != null){
 			req.getSession().setAttribute("user", username);
+			req.getSession().setAttribute("user_id", u.getUser_id() );
 			resp.sendRedirect(req.getContextPath());
 		}
 		else{
-			req.getSession().setAttribute("logstatus", "failed");
+			req.setAttribute("logstatus", "failed");
 			resp.sendRedirect(req.getContextPath());
 		}
 		}catch(Exception e){
