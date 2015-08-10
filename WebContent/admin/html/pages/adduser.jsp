@@ -51,7 +51,8 @@
 						<!-- BEGIN INTRO -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
-								<form class="form">
+								<form class="form" action="adduser" method="post">
+								
 									<div class="card">
 										<div class="card-head style-primary">
 											<header>Create User Account</header>
@@ -59,56 +60,56 @@
 										<div class="card-body floating-label">
 											<div>
 												<label class="radio-inline radio-styled">
-													<input name="gendre" type="radio"><span>Male</span>
+													<input name="gender" value="male" checked="true" type="radio"><span>Male</span>
 												</label>
 												<label class="radio-inline radio-styled">
-													<input name="gendre" checked="" type="radio"><span>Female</span>
+													<input name="gender" value="female" type="radio"><span>Female</span>
 												</label>
 											</div><br>
 											<div class="form-group">
-												<input class="form-control" id="username" type="text">
+												<input class="form-control" id="username" name="username" type="text">
 												<label for="Username2">Username</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="password" type="password">
+												<input class="form-control" id="password" name="password" type="password">
 												<label for="Password2">Password</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="Password2" type="password">
+												<input class="form-control" id="password1" type="password">
 												<label for="Password2">Confirm Password</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="Password2" type="password">
+												<input class="form-control" id="email" name="email" type="email">
 												<label for="Password2">Email</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="Password2" type="password">
+												<input class="form-control" id="email1" name="email" type="email">
 												<label for="Password2">Confirm Email</label>
 											</div>
                                             <div class="form-group floating-label">
-												<select id="select2" name="usertype" class="form-control">
+												<select id="usertype" name="usertype" class="form-control">
 													<option value="">&nbsp;</option>
-													<option value="70">Visitor</option>
-                                                    <option value="70">Editor</option>
-                                                    <option value="70">Admin</option>
+													<option value="3">Visitor</option>
+                                                    <option value="2">Editor</option>
+                                                    <option value="1">Admin</option>
 												</select>
 												<label for="select2">User Type</label>
 											</div>
                                             
 											<div class="checkbox checkbox-styled">
 												<label>
-													<input value="" type="checkbox">
+													<input value="" id="subscribe" name="subscribe" type="checkbox">
 													<span>Subscribe</span>
 												</label>
 											</div>
 										</div><!--end .card-body -->
 										<div class="card-actionbar">
 											<div class="card-actionbar-row">
-												<button type="submit" class="btn btn-flat btn-primary ink-reaction">Create account</button>
+												<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create account</button>
 											</div>
 										</div>
 									</div><!--end .card -->
-								</form>
+								 </form>
 							</div>
 						</div><!--end .row -->
 						<!-- END INTRO -->
@@ -145,6 +146,36 @@
 		<script src="../../assets/js/core/source/AppVendor.js"></script>
 		<script src="../../assets/js/core/demo/Demo.js"></script>
 		<!-- END JAVASCRIPT -->
-
+		
+		<script>
+			$(document).ready(function(){
+				
+				
+				$('#btncreate').click(function(){
+					var username=$('#username').val();
+					var password=$('#password').val();
+					var usertype=$('#usertype').val();
+					var gender=$('input[type=radio]:checked').val();
+					if($('#subscribe').is(':checked')){
+						var subscribe=1;
+					}else
+						var subscribe=0;
+					
+					$.post('adduser',
+							{	gender:gender,
+								username:username,
+								password:password,
+								email:email,
+								usertype:usertype,
+								subscribe:subscribe
+							},function(data){
+								alert('success!');
+							}
+					);
+					
+				});
+			});
+		</script>
+		
 	</body>
 </html>
