@@ -38,8 +38,19 @@ public class PoliticPage extends HttpServlet{
 			resp.setIntHeader("Refresh", 60*5);
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
-			//list=new NewsDAO().getNewsList("B020503", 6);
-			list=new NewsDAO().getNewsList("B020103", 6);
+
+			int pagenumber=new NewsDAO().getTotalPage("B020103",6);
+			req.setAttribute("page_number", pagenumber);
+			int current_page=1;
+			if(req.getParameter("page")==null || req.getParameter("page")==""){
+				current_page=1;
+			}else{
+				current_page=Integer.parseInt(req.getParameter("page"));
+			}
+			if(current_page>pagenumber)current_page=pagenumber;
+			req.setAttribute("current_page", current_page);
+			
+			list=new NewsDAO().getNewsList("B020103", 6, current_page);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "នយោបាយ");
 			req.setAttribute("title_id", "politic1");
@@ -48,5 +59,4 @@ public class PoliticPage extends HttpServlet{
 			e.printStackTrace();
 		}
 	}
-	
 }

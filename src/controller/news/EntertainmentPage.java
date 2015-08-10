@@ -39,8 +39,18 @@ public class EntertainmentPage extends HttpServlet{
 			resp.setIntHeader("Refresh", 60*5);
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
+			
+			//paging
+			int pagenumber=new NewsDAO().getTotalPage("B030302",6);
+			req.setAttribute("page_number", pagenumber);
+			int current_page=1;
+			if(req.getParameter("page")==null || req.getParameter("page")==""){current_page=1;}
+			else{current_page=Integer.parseInt(req.getParameter("page"));}
+			if(current_page>pagenumber)current_page=pagenumber;
+			req.setAttribute("current_page", current_page);
+			
 			//list=new NewsDAO().getNewsList("B020503", 6);
-			list=new NewsDAO().getNewsList("B030302", 6);
+			list=new NewsDAO().getNewsList("B030302", 6, current_page);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "កម្សាន្ត");
 			req.setAttribute("title_id", "entertainment1");

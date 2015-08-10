@@ -38,9 +38,19 @@ public class TechPage extends HttpServlet{
 			resp.setIntHeader("Refresh", 60*5);
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
-			//list=new NewsDAO().getNewsList("B020503", 6);
-			list=new NewsDAO().getNewsList("B020105", 6);
+			
+			//paging
+			int pagenumber=new NewsDAO().getTotalPage("B020105",6);
+			req.setAttribute("page_number", pagenumber);
+			int current_page=1;
+			if(req.getParameter("page")==null || req.getParameter("page")==""){current_page=1;}
+			else{current_page=Integer.parseInt(req.getParameter("page"));}
+			if(current_page>pagenumber)current_page=pagenumber;
+			req.setAttribute("current_page", current_page);
+			
+			list=new NewsDAO().getNewsList("B020105", 6, current_page);
 			req.setAttribute("list", list);
+			req.setAttribute("news_code", "B020105");
 			req.setAttribute("title", "បច្ចេកវិទ្យា");
 			req.setAttribute("title_id", "tech1");
 			req.getRequestDispatcher("/category.jsp").forward(req, resp);

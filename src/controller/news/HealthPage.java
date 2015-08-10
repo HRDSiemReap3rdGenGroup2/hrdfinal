@@ -40,8 +40,17 @@ public class HealthPage extends HttpServlet {
 			resp.setIntHeader("Refresh", 60*5);
 			java.util.ArrayList<model.dto.News> list=new NewsDAO().getPopNews();
 			req.setAttribute("popularnews", list);
-			//list=new NewsDAO().getNewsList("B020503", 6);
-			list=new NewsDAO().getNewsList("B010201", 6);
+			
+			//paging
+			int pagenumber=new NewsDAO().getTotalPage("B020503",6);
+			req.setAttribute("page_number", pagenumber);
+			int current_page=1;
+			if(req.getParameter("page")==null || req.getParameter("page")==""){current_page=1;}
+			else{current_page=Integer.parseInt(req.getParameter("page"));}
+			if(current_page>pagenumber)current_page=pagenumber;
+			req.setAttribute("current_page", current_page);
+			
+			list=new NewsDAO().getNewsList("B020503", 6, current_page);
 			req.setAttribute("list", list);
 			req.setAttribute("title", "សុខភាព");
 			req.setAttribute("title_id", "health1");
