@@ -36,7 +36,7 @@ public class AddUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(1);
+		
 		String username=request.getParameter("username");
 		String gender = request.getParameter("gender");
 		String password = request.getParameter("password");
@@ -52,7 +52,14 @@ public class AddUser extends HttpServlet {
 		user.setUser_pass(password);
 		user.setGender(gender);
 		user.setUser_type(usertype);
-		System.out.println(user.getEmail());
+		
+		System.out.println(subscribe);
+		System.out.println(username);
+		System.out.println(email);
+		System.out.println(usertype);
+		System.out.println(gender);
+		System.out.println(password);
+		
 		try {
 			boolean status = new UserDAO().addUser(user);
 			if(status)
@@ -60,7 +67,6 @@ public class AddUser extends HttpServlet {
 			response.sendRedirect("formuser");
 			
 		} catch (Exception e) {
-			
 			e.printStackTrace();
 		}
 		
