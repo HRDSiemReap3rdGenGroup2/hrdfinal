@@ -75,7 +75,26 @@
 	                                <a href="${x.news_path}" target="_blank"><h5>${x.news_title }</h5></a>
 	                                <p class="publish-date">${x.news_date }</p>    
 	                                <p>${fn:substring(x.news_desc,0,120) }..</p>
-	                                <div><span style="color:#999">Viewed:${x.hit_count}</span><button style="float:right">Save</button></div>
+	                                <div><span style="color:#999">Viewed:${x.hit_count}</span>
+									<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==x.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${x.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${x.news_id})" id="${x.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${x.news_id})" id="${x.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
+									</div>
 	                            </div>  
 	                        </div>
                     	</c:forEach>
@@ -140,7 +159,24 @@
 		                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 			                                	<div>
 			                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-			                                		<button style="float:right">Save</button>
+			                                		<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==row.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
 			                                	</div>	
 		                                    </p>
 		                        		</li>
@@ -187,6 +223,21 @@
 <script>
 	$("#${requestScope.title_id}").addClass("current"); 
 	$("#${requestScope.current_page}").addClass("active");
+	function save(news_id){
+		if('${sessionScope.user_id}'==''){
+			alert("Login first");
+		}else{
+			$.post("savenews",{
+				news_id:news_id
+			},function(data){
+				if(data=='success'){
+					$("#"+news_id).css("background","#ccc");
+					$("#"+news_id).text("Saved");
+					alert("News already saved to your save list!");
+				}
+			});	
+		}
+	}
 </script>
 </body>
 </html>

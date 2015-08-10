@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -38,7 +40,9 @@
 </head>
 
 <body>
-
+<c:if test="${requestScope.logstatus!=null }">
+	Login Fail!
+</c:if>
 <!-- Body Wrapper -->
 <div class="body-wrapper">
 	<div class="controller">
@@ -65,19 +69,19 @@
 
                               <div class="tab-content">
 	                              <div id="login">   
-	                                  <h1>Welcome Back!</h1>
-	                                  <form action="/" method="post">
+	                                  <h1>Login</h1>
+	                                  <form action="user/login" method="post">
 	                                      <div class="field-wrap">
 	                                          <label>Email Address<span class="req">*</span></label>
-	                                          <input type="email"required autocomplete="off"/>
+	                                          <input type="text"required autocomplete="off" name="email"/>
 	                                      </div>
 	
 	                                      <div class="field-wrap">
 	                                         <label>Password<span class="req">*</span></label>
-	                                         <input type="password"required autocomplete="off"/>
+	                                         <input type="password"required autocomplete="off" name="password"/>
 	                                      </div>
 	                                      <p class="forgot"><a href="#">Forgot Password?</a></p>
-	                                      <button class="button button-block">Log In</button>
+	                                      <button type="submit" class="button button-block">Log In</button>
 	                                  </form>
 	                                </div>
 	                                <div id="signup">   

@@ -144,7 +144,23 @@
 		                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 			                                	<div>
 			                                		<span style="color:#aaa;display:inline;">Viewed:123</span>
-			                                		<button style="float:right">Save</button>
+				                                	<c:choose>
+			                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+			                                					<c:choose>
+			                                						<c:when test="${i.news_id==row.news_id }">
+							                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Save</button>
+			                                						</c:when>
+			                                						<c:otherwise>
+			                                							<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                						</c:otherwise>
+			                                					</c:choose>
+			                                				</c:forEach>
+			                                			</c:when>
+			                                			<c:otherwise>
+																<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                			</c:otherwise>
+			                                		</c:choose>
 			                                	</div>	
 		                                    </p>
 		                        		</li>

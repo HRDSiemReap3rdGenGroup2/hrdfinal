@@ -129,8 +129,24 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                	
-	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+                                	     	<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==row.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
 	                                	</div>	
                                     </p>
                         		</li>
@@ -160,7 +176,24 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,70)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+	                                		<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==row.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
 	                                	</div>		
                                     </p>
                         		</li>
@@ -203,7 +236,24 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div>
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+	                                		<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==row.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
 	                                	</div>		
                                     </p>
                         		</li>
@@ -238,7 +288,24 @@
                                         <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
 	                                	<div style="position:relative;bottom:0px;width:100%">
 	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+	                                		<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==row.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
 	                                	</div>		
                                     </p>
                         		</li>
@@ -265,13 +332,27 @@
 	                                    <p>
 	                                        <span title="${row.news_date }">${fn:substring(row.news_date,0,20)}</span>
 	                                        <a href="news?id=${row.news_id}" target="_blank">${fn:substring(row.news_title,0,60)}..</a>
-	                                	<div>
-	                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
-	                                		
-	                                			<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
-	                                		
-											<%--<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button> --%>
-	                                	</div>		
+		                                	<div>
+		                                		<span style="color:#aaa;display:inline;">Viewed:${row.hit_count}</span>
+	                                		<c:set value="${0}" var="have"></c:set>
+	                                		<c:choose>
+		                                			<c:when test="${user!=null || user!=''}">
+			                                				<c:forEach items="${requestScope.user_savedlist }" var="i">
+		                                						<c:if test="${i.news_id==row.news_id }">
+						                                			<c:set value="${1}" var="have"></c:set>
+						                                			<button style="float:right;background:#ccc" id="${row.news_id}" disabled>Saved</button>
+		                                						</c:if>
+		                                				</c:forEach>
+	                                					<c:if test="${have!=1}">
+			                                				<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+			                                				<c:set value="${0}" var="have"></c:set>
+	                                					</c:if>
+		                                			</c:when>
+		                                			<c:otherwise>
+															<button style="float:right" onclick="save(${row.news_id})" id="${row.news_id}">Save</button>
+		                                			</c:otherwise>
+		                                		</c:choose>
+		                                	</div>		
 	                                    </p>
 	                        		</li>
 	                        	</c:forEach>
@@ -318,15 +399,19 @@
 <script>
 	$("#index").addClass("current");
 	function save(news_id){
-		alert("asdbf")
-		/*$.post("savenews",{
-			news_id:news_id
-		},function(data){
-			if(data=='success'){
-				$("#"+news_id).css("background","#ccc");
-				alert("News already saved to your save list!");
-			}
-		});*/
+		if('${sessionScope.user_id}'==''){
+			alert("Login first");
+		}else{
+			$.post("savenews",{
+				news_id:news_id
+			},function(data){
+				if(data=='success'){
+					$("#"+news_id).css("background","#ccc");
+					$("#"+news_id).text("Saved");
+					alert("News already saved to your save list!");
+				}
+			});	
+		}
 	}
 </script>
 </body>
