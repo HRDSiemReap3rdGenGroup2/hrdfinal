@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -25,6 +26,13 @@
 		<script type="text/javascript" src="../../assets/js/libs/utils/html5shiv.js?1403934957"></script>
 		<script type="text/javascript" src="../../assets/js/libs/utils/respond.min.js?1403934956"></script>
 		<![endif]-->
+		
+		<style>
+			*{
+				font-family:'Khmer OS Siemreap';
+			}
+		</style>
+		
 	</head>
 	<body class="menubar-hoverable header-fixed menubar-first full-content ">
 
@@ -51,52 +59,54 @@
 						<!-- BEGIN INTRO -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
-								<form class="form">
+								<form class="form" action="updatemenu" method="post">
 									<div class="card">
 										<div class="card-head style-primary">
 											<header>Arrange Menu</header>
 										</div>
 										<div class="card-body floating-label">
+										
+											<c:set var="menu" value="${requestScope.menu }"></c:set>
 											
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu0" name="menu0" class="form-control">
+													<option value="${menu.index0 }">${menu.index0 }</option>
 											    </select>
 												<label for="Password2">1st Menu</label>
 											</div>
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu1" name="menu1" class="form-control">
+													<option value="${menu.index1 }">${menu.index1 }</option>
 											    </select>
 												<label for="Password2">2nd Menu</label>
 											</div>
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu2" name="menu2" class="form-control">
+												    <option value="${menu.index2 }">${menu.index2 }</option>
 											    </select>
 												<label for="Password2">3rd Menu</label>
 											</div>
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu3" name="menu3" class="form-control">
+												    <option value="${menu.index3 }">${menu.index3 }</option>
 											    </select>
 												<label for="Password2">4th Menu</label>
 											</div>
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu4" name="menu4" class="form-control">
+												    <option value="${menu.index4 }">${menu.index4 }</option>
 											    </select>
 												<label for="Password2">5th Menu</label>
 											</div>
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu5" name="menu5" class="form-control">
+												    <option value="${menu.index5 }">${menu.index5 }</option>
 											    </select>
 												<label for="Password2">6th Menu</label>
 											</div>
 											<div class="form-group">
-												<select id="select13" name="select13" class="form-control">
-												    <option value="70">Home</option>
+												<select id="menu6" name="menu6" class="form-control">
+												    <option value="${menu.index6 }">${menu.index6 }</option>
 											    </select>
 												<label for="Password2">7th Menu</label>
 											</div>
@@ -144,6 +154,77 @@
 		<script src="../../assets/js/core/source/AppVendor.js"></script>
 		<script src="../../assets/js/core/demo/Demo.js"></script>
 		<!-- END JAVASCRIPT -->
+
+		<script>
+			$(document).ready(function(){
+				$('#menu1').click(function(){
+					$.post("/Final_Project/getmoduletype",function(data){
+						var str="";
+						for(var i=0;i<data.length;i++){
+							str+="<option value='"+data[i].module_type+"'>"
+								+data[i].module_type
+								+"</option>";
+						}	
+						$('#menu1').append(str);
+					});
+				});
+				$('#menu2').click(function(){
+					$.post("/Final_Project/getmoduletype",function(data){
+						var str="";
+						for(var i=0;i<data.length;i++){
+							str+="<option value='"+data[i].module_type+"'>"
+								+data[i].module_type
+								+"</option>";
+						}	
+						$('#menu2').append(str);
+					});
+				});
+				$('#menu3').click(function(){
+					$.post("/Final_Project/getmoduletype",function(data){
+						var str="";
+						for(var i=0;i<data.length;i++){
+							str+="<option value='"+data[i].module_type+"'>"
+								+data[i].module_type
+								+"</option>";
+						}	
+						$('#menu3').append(str);
+					});
+				});
+				$('#menu4').click(function(){
+					$.post("/Final_Project/getmoduletype",function(data){
+						var str="";
+						for(var i=0;i<data.length;i++){
+							str+="<option value='"+data[i].module_type+"'>"
+								+data[i].module_type
+								+"</option>";
+						}	
+						$('#menu4').append(str);
+					});
+				});
+				$('#menu5').click(function(){
+					$.post("/Final_Project/getmoduletype",function(data){
+						var str="";
+						for(var i=0;i<data.length;i++){
+							str+="<option value='"+data[i].module_type+"'>"
+								+data[i].module_type
+								+"</option>";
+						}	
+						$('#menu5').append(str);
+					});
+				});
+				$('#menu6').click(function(){
+					$.post("/Final_Project/getmoduletype",function(data){
+						var str="";
+						for(var i=0;i<data.length;i++){
+							str+="<option value='"+data[i].module_type+"'>"
+								+data[i].module_type
+								+"</option>";
+						}	
+						$('#menu6').append(str);
+					});
+				});
+			});
+		</script>
 
 	</body>
 </html>
