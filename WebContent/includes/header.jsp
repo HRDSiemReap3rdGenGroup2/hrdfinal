@@ -4,8 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <header id="header">
 <script src="js/jquery.js"></script>
-<% session.setAttribute("user", "admin"); %>
-
    <div class="container">
                 <!--login|signup|languages-->
                 <div class="column" style="margin-bottom:0">
@@ -21,7 +19,7 @@
 	                        	</c:when>
 	                        	<c:otherwise>
 									<a href="user.jsp"><span>${user }</span></a><span> | </span>
-			                        <a href="#"><span>ចេញ</span></a>
+			                        <a href="user/signout"><span>ចេញ</span></a>
 	                        	</c:otherwise>
 	                        </c:choose>
 	                        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
