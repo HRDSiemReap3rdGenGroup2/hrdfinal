@@ -6,6 +6,13 @@ public class Module {
 	private String module_name;
 	private String module_type;
 	private String module_code;
+	private int status;
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public int getModule_id() {
 		return module_id;
 	}

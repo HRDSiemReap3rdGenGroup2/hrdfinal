@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -48,8 +49,6 @@
 			<div id="content">
 				<section class="style-default-bright">
 					
-					
-					
 					<div class="section-header">
 						<div class="col-lg-12" style="padding-left:0px">
 							<a href="addmodule.jsp"><button type="button" class="btn ink-reaction btn-raised btn-primary">New Module</button></a>
@@ -70,35 +69,24 @@
 										<thead>
 											<tr>
 												<th>Module ID</th>
-												<th>Category Name</th>
 												<th>Module Name</th>
-												<th class="sort-numeric">Module Type</th>
+												<th class="sort-numeric">Category</th>
 												<th class="sort-alpha">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="gradeX">
-												<td>Trident</td>
-												<td>Internet Explorer 4.0</td>
-												<td>Win 95+</td>
-												<td>4</td>
+											<c:set value="${requestScope.allmodule }" var="module"></c:set>
+											<c:forEach var="item" items="${module }">
+												<tr class="gradeX">
+												<td>${item.module_id }</td>
+												<td>${item.module_name }</td>
+												<td>${item.module_type }</td>
 												<td class="text-right">
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+													<a href="updatemodule?id=${item.module_id}"  class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></a>
+													<button type="button" id="delete${item.module_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
 												</td>
 											</tr>
-											<tr class="gradeX">
-												<td>Trident</td>
-												<td>Internet Explorer 4.0</td>
-												<td>Win 95+</td>
-												<td>4</td>
-												<td class="text-right">
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-											
-											
+											</c:forEach>
 										</tbody>
 									</table>
 								</div><!--end .table-responsive -->
@@ -140,7 +128,10 @@
 		<script src="../../assets/js/core/demo/Demo.js"></script>
 		<script src="../../assets/js/core/demo/DemoTableDynamic.js"></script>
 		<!-- END JAVASCRIPT -->
-
+		
+		
+		
+		
 	</body>
 </html>
 

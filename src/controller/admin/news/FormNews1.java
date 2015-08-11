@@ -1,11 +1,15 @@
 package controller.admin.news;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.NewsDAO;
+import model.dto.News;
 
 /**
  * Servlet implementation class FormNews1
@@ -38,11 +42,34 @@ public class FormNews1 extends HttpServlet {
 		String english = request.getParameter("english");
 		String category = request.getParameter("category");
 		String date = request.getParameter("mydate");
+		String khmercontent = request.getParameter("khmercontent");
+		String englishcontent = request.getParameter("englishcontent");
+	
 		System.out.println(path);
 		System.out.println(khmer);
 		System.out.println(english);
 		System.out.println(category);
 		System.out.println(date);
+		System.out.println(khmercontent);
+		System.out.println(englishcontent);
+		
+		News news = new News();
+		news.setNews_title(khmer);
+		news.setNews_desc(khmercontent);
+		news.setNews_img(path);
+		news.setNews_date(date);
+		news.setCat_code(category);
+		news.setNews_path(request.getContextPath()+"/");
+		news.setUser_info_code("B010000");
+		try {
+			boolean status = new NewsDAO().addNews(news);
+			if(status)
+				response.getWriter().write("success");
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
 	}
 
 }

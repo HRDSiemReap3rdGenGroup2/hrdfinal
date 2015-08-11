@@ -1,7 +1,6 @@
-package controller.admin.news;
+package controller.admin.module;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -11,19 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.ModuleDAO;
+import model.dao.NewsDAO;
 import model.dto.Module;
+import model.dto.News;
 
 /**
- * Servlet implementation class FormNews
+ * Servlet implementation class ListModule
  */
-@WebServlet("/FormNews")
-public class FormNews extends HttpServlet {
+@WebServlet("/ListModule")
+public class ListModule extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FormNews() {
+    public ListModule() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +33,19 @@ public class FormNews extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Module> list;
 		try {
 			response.setCharacterEncoding("utf-8");
-			list = new ModuleDAO().getAllModuleTypeCode();
-			request.setAttribute("typecode", list);
+			ArrayList<Module> list = new ModuleDAO().getAllModule();
+			request.setAttribute("allmodule", list);
+			request.getRequestDispatcher("listmodule.jsp").forward(request, response);
 			
-			request.getRequestDispatcher("addnews.jsp").forward(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
+		
 			e.printStackTrace();
 		}
+	
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

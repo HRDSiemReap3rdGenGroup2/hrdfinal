@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,10 +41,9 @@ public class AddNews extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String UPLOAD_DIRECTORY = "D:\\Me_Workspace\\Final Project\\WebContent\\img\\upload";
+		String UPLOAD_DIRECTORY = "D:\\Me_Workspace\\Final Project\\WebContent\\"+"img\\upload";
 		
-		
-		
+		System.out.println(UPLOAD_DIRECTORY);
 		if(ServletFileUpload.isMultipartContent(request)){
             try {
                 List<FileItem> multiparts = new ServletFileUpload(
@@ -58,7 +58,7 @@ public class AddNews extends HttpServlet {
                         //copy image to folder
                         item.write( new File(UPLOAD_DIRECTORY + File.separator + filename));
                         UPLOAD_DIRECTORY = UPLOAD_DIRECTORY + File.separator + filename;
-                        response.getWriter().write(UPLOAD_DIRECTORY);
+                        response.getWriter().write(request.getContextPath()+"/"+"img"+"/"+"upload"+"/"+filename);
                         
                     }
                 }

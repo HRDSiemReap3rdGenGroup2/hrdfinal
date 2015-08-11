@@ -44,9 +44,12 @@
 
 			<!-- BEGIN CONTENT-->
 			<div id="content">
-
+				
 				<!-- BEGIN BLANK SECTION -->
 				<section class="style-default-bright">
+					
+					<c:set value="${requestScope.module }" var="module"></c:set>
+					<c:set value="${requestScope.source }" var="source"></c:set>
 					
 					<div class="section-body">
 						<!-- BEGIN INTRO -->
@@ -55,10 +58,18 @@
 								<div class="form">
 									<div class="card">
 										<div class="card-head style-primary">
-											<header>Create Module</header>
+											<c:choose>
+												<c:when test="${module.status==1 }">
+													<header>Update Module</header>
+												</c:when>
+												<c:otherwise>
+													<header>Create Module</header>
+												</c:otherwise>
+											</c:choose>
+											
 										</div>
 										<div class="card-body floating-label">
-											<c:set value="${requestScope.source }" var="source"></c:set>
+											
 											<div class="form-group floating-label">
 												<select id="select2" name="select2" class="form-control">
 													<option value="">&nbsp;</option>
@@ -73,7 +84,7 @@
 														<option value='${item.module_name }'>${item.module_name}</option>
 													</c:forEach>
 												</select>
-												<label for="Username2">Mdeia</label>
+												<label for="Username2">Media</label>
 											</div>
                                             
 											<div class="form-group">
@@ -84,7 +95,14 @@
 										</div><!--end .card-body -->
 										<div class="card-actionbar">
 											<div class="card-actionbar-row">
-												<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create Module</button>
+												<c:choose>
+													<c:when test="${module.status==1 }">
+														<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Update Module</button>
+													</c:when>
+													<c:otherwise>
+														<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create Module</button>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</div>
 									</div><!--end .card -->

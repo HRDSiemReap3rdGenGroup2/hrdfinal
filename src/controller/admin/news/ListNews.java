@@ -1,7 +1,6 @@
 package controller.admin.news;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -10,20 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.ModuleDAO;
-import model.dto.Module;
+import com.google.gson.Gson;
+
+import model.dao.NewsDAO;
+import model.dto.News;
 
 /**
- * Servlet implementation class FormNews
+ * Servlet implementation class ListNews
  */
-@WebServlet("/FormNews")
-public class FormNews extends HttpServlet {
+@WebServlet("/ListNews")
+public class ListNews extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FormNews() {
+    public ListNews() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +33,25 @@ public class FormNews extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Module> list;
 		try {
 			response.setCharacterEncoding("utf-8");
-			list = new ModuleDAO().getAllModuleTypeCode();
-			request.setAttribute("typecode", list);
+			ArrayList<News> list = new NewsDAO().getAllNews();
+			request.setAttribute("allnews", list);
 			
-			request.getRequestDispatcher("addnews.jsp").forward(request, response);
-		} catch (SQLException e) {
+			/*response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			String buf=new Gson().toJson(list);
+			//buf="{'draw': 1,'recordsTotal': 57,'recordsFiltered': 57,'data':"+buf+"}";
+			
+			response.getWriter().write(buf);*/
+			
+			request.getRequestDispatcher("listnews.jsp").forward(request, response);
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

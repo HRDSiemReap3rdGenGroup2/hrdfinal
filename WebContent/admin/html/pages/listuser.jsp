@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -66,35 +67,35 @@
 									<table id="datatable1" class="table table-striped table-hover">
 										<thead>
 											<tr>
-												<th>User ID</th>
-												<th>Username Name</th>
-												<th>Email Name</th>
-												<th class="sort-numeric">School</th>
+												<th>ID</th>
+												<th>Username</th>
+												<th>Type</th>
+												<th>Email</th>
+												<th>Gender</th>
+												<th>Password</th>
 												<th class="sort-alpha">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="gradeX">
-												<td>Trident</td>
-												<td>Internet Explorer 4.0</td>
-												<td>Win 95+</td>
-												<td>4</td>
-												<td class="text-right">
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-											<tr class="gradeX">
-												<td>Trident</td>
-												<td>Internet Explorer 4.0</td>
-												<td>Win 95+</td>
-												<td>4</td>
-												<td class="text-right">
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-											
+											<c:set value="${requestScope.alluser }" var="user"></c:set>
+											<c:forEach items="${user }" var="item">
+												<tr class="gradeX">
+													<td>${item.user_id }</td>
+													<td>${item.user_name }</td>
+													<c:choose>
+													  <c:when test="${item.user_type==1 }"><td>Admin</td></c:when>
+													  <c:when test="${item.user_type==2 }"><td>Editor</td></c:when>
+													  <c:when test="${item.user_type==3 }"><td>Visitor</td></c:when>
+													</c:choose>
+													<td>${item.email }</td>
+													<td>${item.gender }</td>
+													<td>${item.user_pass }</td>
+													<td class="text-right">
+														<button type="button" id="edit${item.user_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
+														<button type="button" id="delete${item.user_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+													</td>
+												</tr>
+											</c:forEach>
 											
 										</tbody>
 									</table>

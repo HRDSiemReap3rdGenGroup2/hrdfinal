@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import model.dto.News;
 import utilities.DBUtility;
@@ -297,4 +300,64 @@ public class NewsDAO {
 		}
 		return list;
 	}
+	
+	public boolean addNews(News news) throws Exception{
+		try{
+			Statement s = con.createStatement();
+			ResultSet tmp=s.executeQuery("select nextval('seq_news_id')");
+			int i=0;
+			if(tmp.next())i=tmp.getInt(1);
+			else return false;
+			String sql="INSERT INTO tbnews(news_id,cat_code,news_title,news_desc,news_path,news_img,news_date,user_info_code) VALUES(?,?,?,?,?,?,?,?)";
+			
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, i);
+			pstmt.setString(2, news.getCat_code());
+			pstmt.setString(3, news.getNews_title());
+			pstmt.setString(4, news.getNews_desc());
+			pstmt.setString(5, news.getNews_path()+"news.jsp?id="+i);
+			pstmt.setString(6, news.getNews_img());
+			pstmt.setString(7, news.getNews_date());
+			pstmt.setString(8, news.getUser_info_code());
+			
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+			
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		
+		return false;
+	}
+	
+	public ArrayList<News> getAllNews()throws Exception{
+		ArrayList<News> list = new ArrayList<News>();
+		try{
+			String sql="SELECT news_id, module_type,news_title,news_date FROM tbnews n INNER JOIN tbmoduleinfo m ON m.module_code=n.cat_code";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				News news = new News();
+				news.setNews_id(rs.getInt(1));
+				news.setModule_type(rs.getString(2));
+				news.setNews_title(rs.getString(3));
+				news.setNews_date(rs.getString(4));
+				list.add(news);
+			}
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		return list;
+	}
+	
+	
 }

@@ -30,6 +30,14 @@ public class News implements Serializable{
 	private String news_date;
 	private Date date_insert;
 	private int hit_count;
+	private String module_type;
+	
+	public String getModule_type() {
+		return module_type;
+	}
+	public void setModule_type(String module_type) {
+		this.module_type = module_type;
+	}
 	/**
 	 * @return the news_id
 	 */

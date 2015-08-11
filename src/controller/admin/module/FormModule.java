@@ -38,7 +38,6 @@ public class FormModule extends HttpServlet {
 			request.setAttribute("source", list);
 			request.getRequestDispatcher("addmodule.jsp").forward(request, response);
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 		

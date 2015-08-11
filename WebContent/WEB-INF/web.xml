@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>Final Project</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
@@ -37,7 +37,6 @@
     <servlet-name>news</servlet-name>
     <url-pattern>/news</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>savenews</servlet-name>
     <servlet-class>controller.news.SaveNews</servlet-class>
@@ -46,7 +45,6 @@
     <servlet-name>savenews</servlet-name>
     <url-pattern>/savenews</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>health</servlet-name>
     <servlet-class>controller.news.HealthPage</servlet-class>
@@ -191,7 +189,6 @@
     <servlet-name>updatemenu</servlet-name>
     <url-pattern>/admin/html/pages/updatemenu</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>getresults</servlet-name>
     <servlet-class>controller.news.GetResult</servlet-class>
@@ -263,5 +260,45 @@
   <servlet-mapping>
     <servlet-name>formnews1</servlet-name>
     <url-pattern>/admin/html/pages/addnews1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>listnews</servlet-name>
+    <servlet-class>controller.admin.news.ListNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listnews</servlet-name>
+    <url-pattern>/admin/html/pages/listnews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>listnewsdata</servlet-name>
+    <servlet-class>controller.admin.news.ListNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listnewsdata</servlet-name>
+    <url-pattern>/admin/html/pages/listnewsdata</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>listmodule</servlet-name>
+    <servlet-class>controller.admin.module.ListModule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listmodule</servlet-name>
+    <url-pattern>/admin/html/pages/listmodule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>listuser</servlet-name>
+    <servlet-class>controller.admin.user.ListUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listuser</servlet-name>
+    <url-pattern>/admin/html/pages/listuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updatemodule</servlet-name>
+    <servlet-class>controller.admin.module.UpdateModule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatemodule</servlet-name>
+    <url-pattern>/admin/html/pages/updatemodule</url-pattern>
   </servlet-mapping>
 </web-app>

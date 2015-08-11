@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -68,33 +69,25 @@
 											<tr>
 												<th>ID</th>
 												<th>Title</th>
-												<th>Module</th>
-												<th class="sort-numeric">Date</th>
+												<th>Category</th>
+												<th class="sort-numeric">Published Date</th>
 												<th class="sort-alpha">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="gradeX">
-												<td>Trident</td>
-												<td>Internet Explorer 4.0</td>
-												<td>Win 95+</td>
-												<td>4</td>
-												<td class="text-right">
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-											<tr class="gradeX">
-												<td>Trident</td>
-												<td>Internet Explorer 4.0</td>
-												<td>Win 95+</td>
-												<td>4</td>
-												<td class="text-right">
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-													<button type="button" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
-												</td>
-											</tr>
-											
+											<c:set value="${requestScope.allnews }" var="news"></c:set>
+											<c:forEach items="${news }" var="item">
+												<tr class="gradeX">
+													<td>${item.news_id }</td>
+													<td>${item.news_title }</td>
+													<td>${item.module_type }</td>
+													<td>${item.news_date }</td>
+													<td class="text-right">
+														<button type="button" id="edit${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
+														<button type="button" id="delete${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+													</td>
+												</tr>
+											</c:forEach>
 											
 										</tbody>
 									</table>
@@ -137,7 +130,7 @@
 		<script src="../../assets/js/core/demo/Demo.js"></script>
 		<script src="../../assets/js/core/demo/DemoTableDynamic.js"></script>
 		<!-- END JAVASCRIPT -->
-
+		
 	</body>
 </html>
 

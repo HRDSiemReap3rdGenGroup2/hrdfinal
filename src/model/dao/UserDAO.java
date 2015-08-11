@@ -83,4 +83,29 @@ public class UserDAO {
 
 		return false;
 	}
+	public ArrayList<User> getAllUser1() throws SQLException{
+		ArrayList<User> list = new ArrayList<User>();
+		try{
+			String sql="select user_id, user_name, user_type, user_email, user_gender, user_pass From tbuser";
+			PreparedStatement p=con.prepareStatement(sql);
+			ResultSet rs=p.executeQuery();
+			while(rs.next()){
+				User user=new User();
+				user.setUser_id(rs.getInt("user_id"));
+				user.setUser_name(rs.getString("user_name"));
+				user.setUser_pass(rs.getString("user_pass"));
+				user.setUser_type(rs.getString("user_type"));
+				user.setGender(rs.getString("user_gender"));
+				user.setEmail(rs.getString("user_email"));
+				list.add(user);
+			}
+			return list; 
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return list;
+	}
+	
 }

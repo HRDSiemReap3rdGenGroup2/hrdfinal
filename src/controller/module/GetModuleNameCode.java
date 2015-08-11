@@ -1,4 +1,4 @@
-package controller.admin.news;
+package controller.module;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,17 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.ModuleDAO;
 import model.dto.Module;
 
+import com.google.gson.Gson;
+
 /**
- * Servlet implementation class FormNews
+ * Servlet implementation class GetModuleNameCode
  */
-@WebServlet("/FormNews")
-public class FormNews extends HttpServlet {
+@WebServlet("/GetModuleNameCode")
+public class GetModuleNameCode extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FormNews() {
+    public GetModuleNameCode() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,18 +34,16 @@ public class FormNews extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		ArrayList<Module> list;
 		try {
 			response.setCharacterEncoding("utf-8");
 			list = new ModuleDAO().getAllModuleTypeCode();
 			request.setAttribute("typecode", list);
-			
-			request.getRequestDispatcher("addnews.jsp").forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

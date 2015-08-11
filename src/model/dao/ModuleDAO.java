@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.dto.Module;
+import model.dto.News;
 import utilities.DBUtility;
 
 public class ModuleDAO {
@@ -115,4 +116,73 @@ public class ModuleDAO {
 		}
 		return list;
 	}
+	
+	public ArrayList<Module> getAllModuleTypeCode() throws SQLException{
+		ArrayList<Module> list=new ArrayList<>();
+		try{
+			String sql="select DISTINCT module_type, module_code from tbmoduleinfo";
+			PreparedStatement p =con.prepareStatement(sql);
+			ResultSet rs=p.executeQuery();
+			while(rs.next()){
+				Module m=new Module();
+				m.setModule_type(rs.getString("module_type"));
+				m.setModule_code(rs.getString("module_code"));
+				list.add(m);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return list;
+	}
+	public ArrayList<Module> getAllModule() throws Exception{
+		ArrayList<Module> list = new ArrayList<Module>();
+		try{
+			String sql ="select DISTINCT module_id, module_name, module_type FROM tbmoduleinfo";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				Module module = new Module();
+				module.setModule_id(rs.getInt(1));
+				module.setModule_name(rs.getString(2));
+				module.setModule_type(rs.getString(3));
+				list.add(module);
+			}
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		
+		return list;
+	}
+	public Module getModule(int id) throws Exception{
+		try{
+			String sql = "SELECT * FROM tbmoduleinfo WHERE module_id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				Module module = new Module();
+				module.setModule_id(Integer.parseInt(rs.getString("module_id")));
+				module.setModule_name(rs.getString("module_name"));
+				module.setModule_type(rs.getString("module_type"));
+				return module;
+			}
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		
+		return null;
+	}
+	
+	
 }

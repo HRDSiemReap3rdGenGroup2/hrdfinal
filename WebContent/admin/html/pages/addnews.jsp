@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+ 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -24,7 +25,6 @@
     	<!-- include summernote css/js-->
 		<link href="../../assets/js/summernote/summernote.css" rel="stylesheet">
 		
-    		
 		
 		<!-- END STYLESHEETS -->
 
@@ -52,7 +52,7 @@
 
 		<!-- BEGIN BASE-->
 		<div id="base">
-
+			<c:set value="${requestScope.typecode }" var="item"></c:set>
 			<!-- BEGIN OFFCANVAS LEFT -->
 			<div class="offcanvas">
 			
@@ -95,13 +95,12 @@
 												</div>
 											</div>
                                             <div class="form-group floating-label">
+                                            	
 												<select id="category" name="category" class="form-control">
 													<option value="">&nbsp;</option>
-													<option value="30">30</option>
-													<option value="40">40</option>
-													<option value="50">50</option>
-													<option value="60">60</option>
-													<option value="70">70</option>
+													<c:forEach var="v" items="${item }">
+														<option value="${v.module_code }">${v.module_type }</option>
+													</c:forEach>
 												</select>
 												<label for="select2">Category</label>
 											</div>
@@ -140,7 +139,7 @@
                                                             <div class="card">
                                                                 <div class="card-body no-padding">
                                                                     <div id="summernote1">
-
+																		hello2
                                                                     </div>
                                                                 </div><!--end .card-body -->
                                                             </div><!--end .card -->
@@ -151,7 +150,7 @@
                                                             <div class="card">
                                                                 <div class="card-body no-padding">
                                                                     <div id="summernote2">
-
+			
                                                                     </div>
                                                                 </div><!--end .card-body -->
                                                             </div><!--end .card -->
@@ -213,6 +212,8 @@
 		<script>
 			$(document).ready(function() {
 	  			$('#summernote').summernote();
+	  			$('#summernote1').summernote();
+	  			
 
 				$('#btnsave').click(function(){
 					var data1;
@@ -227,15 +228,18 @@
 						data: data1,
 						success:function(data){
 							var path=data;
-							alert(path);
+							var c = $('#summernote').code();
 							$.post('addnews1',
 									{ path:path,
 								      khmer:$('#khmertitle').val(),
 								 	  english:$('#khmertitle').val(),
 									  category:$('#category option:selected').val(),
-									  mydate:$("#publishdate").val()
+									  mydate:$("#publishdate").val(),
+									  khmercontent:c,
+									  englishcontent:$('#summernote1').code()
 									},
 									function(data){
+										alert(data);
 							});
 						}
 					});   

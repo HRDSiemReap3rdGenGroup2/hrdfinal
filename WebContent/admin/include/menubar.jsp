@@ -35,8 +35,8 @@
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="addnews.jsp" ><span class="title">Add News</span></a></li>
-								<li><a href="listnews.jsp" ><span class="title">List News</span></a></li>
+								<li><a href="formnews" ><span class="title">Add News</span></a></li>
+								<li><a href="listnews" ><span class="title">List News</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END NEWS -->
@@ -49,7 +49,7 @@
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="addmodule.jsp" ><span class="title">Add Category</span></a></li>
+								<li><a href="formmodule" ><span class="title">Add Category</span></a></li>
 								<li><a href="listmodule.jsp" ><span class="title">List Category</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
@@ -63,8 +63,8 @@
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="adduser.jsp" ><span class="title">Add User</span></a></li>
-								<li><a href="listuser.jsp" ><span class="title">List User</span></a></li>
+								<li><a href="formuser" ><span class="title">Add User</span></a></li>
+								<li><a href="listuser" ><span class="title">List User</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END USER -->
@@ -77,7 +77,7 @@
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="fixedmenu.jsp" ><span class="title">Fixed Menu</span></a></li>
+								<li><a href="fixedmenu" ><span class="title">Fixed Menu</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END MENU -->
