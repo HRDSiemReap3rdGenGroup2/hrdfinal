@@ -61,11 +61,10 @@ public class AddUser extends HttpServlet {
 		System.out.println(password);
 		
 		try {
-			boolean status = new UserDAO().addUser(user);
+			boolean status = new UserDAO().addAdminUser(user);
 			if(status)
 				System.out.println("success!");
 			response.sendRedirect("formuser");
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
