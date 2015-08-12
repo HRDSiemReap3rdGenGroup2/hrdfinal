@@ -41,7 +41,7 @@ public class AddNews extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String UPLOAD_DIRECTORY = "D:\\Me_Workspace\\Final Project\\WebContent\\"+"img\\upload";
+		String UPLOAD_DIRECTORY = request.getServletContext().getRealPath("img/upload/");
 		
 		System.out.println(UPLOAD_DIRECTORY);
 		if(ServletFileUpload.isMultipartContent(request)){
