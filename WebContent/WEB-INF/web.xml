@@ -326,4 +326,28 @@
     <servlet-name>updateuser</servlet-name>
     <url-pattern>/admin/html/pages/updateuser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>actionupdateuser</servlet-name>
+    <servlet-class>controller.admin.user.ActionUpdateUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>actionupdateuser</servlet-name>
+    <url-pattern>/admin/html/pages/actionupdateuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updatenews</servlet-name>
+    <servlet-class>controller.admin.news.UpdateNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatenews</servlet-name>
+    <url-pattern>/admin/html/pages/updatenews</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>actionupdatenews</servlet-name>
+    <servlet-class>controller.admin.news.ActionUpdateNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>actionupdatenews</servlet-name>
+    <url-pattern>/admin/html/pages/actionupdatenews</url-pattern>
+  </servlet-mapping>
 </web-app>
