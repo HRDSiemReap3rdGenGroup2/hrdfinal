@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.dto.Module;
-import model.dto.News;
 import utilities.DBUtility;
 
 public class ModuleDAO {
@@ -33,6 +32,11 @@ public class ModuleDAO {
 		}
 		return list;
 	}
+	/**
+	 * 
+	 * @return module name (website source name)
+	 * @throws SQLException
+	 */
 	public ArrayList<Module> getAllModuleCode() throws SQLException{
 		ArrayList<Module> list=new ArrayList<>();
 		try{
