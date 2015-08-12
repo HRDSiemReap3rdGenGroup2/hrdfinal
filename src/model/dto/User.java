@@ -21,7 +21,14 @@ public class User {
 	private String phone;
 	private String department;
 	private String school;
+	private int status;
 	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	public String getEmail() {
 		return email;
 	}
