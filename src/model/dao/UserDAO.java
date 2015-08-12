@@ -60,7 +60,8 @@ public class UserDAO {
 	
 	public boolean addUser(User user) throws Exception{
 		try{
-			String sql="INSERT INTO tbuser(user_id, user_type, user_name,user_pass, user_email, user_gender) VALUES(nextval('seq_user_id'),'2',?,?,?,?)";
+			String sql="INSERT INTO tbuser(user_id, user_type, user_name,user_pass, user_email, user_gender) VALUES(nextval('seq_user_id'),'3',?,?,?,?)";
+
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setString(1, user.getUser_name());
 			p.setString(2, user.getUser_pass());
@@ -99,6 +100,56 @@ public class UserDAO {
 			if(con!=null)con.close();
 		}
 		return list;
+	}
+	public User getUser(int user_id) throws Exception{
+		
+		try{
+			String sql="select user_id, user_name, user_type, user_email, user_gender, user_pass From tbuser WHERE user_id=?";
+			PreparedStatement p=con.prepareStatement(sql);
+			p.setInt(1, user_id);
+			ResultSet rs=p.executeQuery();
+			while(rs.next()){
+				User user = new User();
+				user.setUser_id(rs.getInt("user_id"));
+				user.setUser_name(rs.getString("user_name"));
+				user.setUser_pass(rs.getString("user_pass"));
+				user.setUser_type(rs.getString("user_type"));
+				user.setGender(rs.getString("user_gender"));
+				user.setEmail(rs.getString("user_email"));
+				return user;
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(con!=null)con.close();
+		}
+		return null;
+	}
+	public boolean addAdminUser(User user) throws Exception{
+		try{
+			
+			String sql="INSERT INTO tbuser(user_id,user_type,user_name,user_pass, user_email, user_gender) VALUES(nextval('seq_user_id'),?,?,?,?,?)";
+			PreparedStatement p = con.prepareStatement(sql);
+			User u=new User();
+			p.setString(1, u.getUser_type());
+			p.setString(2, u.getUser_name());
+			p.setString(3, u.getUser_pass());
+			p.setString(4, u.getEmail());
+			p.setString(5, u.getGender());
+	
+			if(p.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+			
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+
+		return false;
 	}
 	
 }
