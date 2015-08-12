@@ -301,4 +301,28 @@
     <servlet-name>updatemodule</servlet-name>
     <url-pattern>/admin/html/pages/updatemodule</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>actionupdatemodule</servlet-name>
+    <servlet-class>controller.admin.module.ActionUpdateModule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>actionupdatemodule</servlet-name>
+    <url-pattern>/admin/html/pages/actionupdatemodule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>actiondeletemodule</servlet-name>
+    <servlet-class>controller.admin.module.ActionDeleteModule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>actiondeletemodule</servlet-name>
+    <url-pattern>/admin/html/pages/actiondeletemodule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updateuser</servlet-name>
+    <servlet-class>controller.admin.user.UpdateUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateuser</servlet-name>
+    <url-pattern>/admin/html/pages/updateuser</url-pattern>
+  </servlet-mapping>
 </web-app>
