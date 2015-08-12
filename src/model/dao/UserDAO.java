@@ -39,7 +39,7 @@ public class UserDAO {
 	}
 	public User login(String username, String password) throws SQLException {
 		try{
-			String sql="select * from tbuser where email=? and user_pass=?";
+			String sql="select * from tbuser where user_email=? and user_pass=?";
 			PreparedStatement p = con.prepareStatement(sql);
 			p.setString(1, username);
 			p.setString(2, password);
@@ -60,27 +60,20 @@ public class UserDAO {
 	
 	public boolean addUser(User user) throws Exception{
 		try{
-			
-			String sql="INSERT INTO tbuser(user_id, user_type,  user_name,user_pass, email, gender,department, school) VALUES(nextval('seq_user_id'),'2',?,?,?,?,?,?)";
+			String sql="INSERT INTO tbuser(user_id, user_type, user_name,user_pass, user_email, user_gender) VALUES(nextval('seq_user_id'),'2',?,?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
-			User u=new User();
-			p.setString(1, u.getUser_name());
-			p.setString(2, u.getUser_pass());
-			p.setString(3, u.getEmail());
-			p.setString(4, u.getGender());
-			p.setString(5, u.getDepartment());
-			p.setString(6, u.getSchool());
+			p.setString(1, user.getUser_name());
+			p.setString(2, user.getUser_pass());
+			p.setString(3, user.getEmail());
+			p.setString(4, user.getGender());
 			if(p.executeUpdate()>0)
 				return true;
-			
 		}catch(Exception ex){
 			ex.printStackTrace();
-			
 		}finally{
 			if(con!=null)
 				con.close();
 		}
-
 		return false;
 	}
 	public ArrayList<User> getAllUser1() throws SQLException{

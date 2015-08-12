@@ -1,6 +1,15 @@
 package model.dto;
 
 public class User {
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", user_name=" + user_name
+				+ ", user_pass=" + user_pass + ", user_type=" + user_type
+				+ ", user_type_id=" + user_type_id + ", email=" + email
+				+ ", gender=" + gender + ", subscribe=" + subscribe
+				+ ", phone=" + phone + ", department=" + department
+				+ ", school=" + school + "]";
+	}
 	private int user_id;
 	private String user_name;
 	private String user_pass;

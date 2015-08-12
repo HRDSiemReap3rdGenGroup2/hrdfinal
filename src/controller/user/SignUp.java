@@ -35,12 +35,12 @@ public class SignUp extends HttpServlet {
 		doProcess(req,resp);
 	}
 
-	private void doProcess(HttpServletRequest req, HttpServletResponse resp) {
+	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		try{
 			String username=req.getParameter("username");
 			String email=req.getParameter("email");
 			String password=req.getParameter("password");
-			String confirmpassword=req.getParameter("confirmpassword");
+			String confirmpassword=req.getParameter("password_c");
 			if(!confirmpassword.equals(password))return;
 			String school=req.getParameter("school");
 			String department=req.getParameter("department");
@@ -58,8 +58,13 @@ public class SignUp extends HttpServlet {
 				req.getSession().setAttribute("user", username);
 				req.getSession().setAttribute("user_id", u2.getUser_id());
 				resp.sendRedirect(req.getContextPath());
+			}else{
+				req.setAttribute("signup_status", "failed");
+				resp.sendRedirect(req.getContextPath());
 			}
 		}catch(Exception e){
+			req.setAttribute("signup_status", "failed");
+			resp.sendRedirect(req.getContextPath());
 			e.printStackTrace();
 		}
 	}

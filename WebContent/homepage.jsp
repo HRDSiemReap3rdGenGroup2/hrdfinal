@@ -39,6 +39,12 @@
 </head>
 
 <body>
+<c:if test="${requestScope.signup_status!=null }">
+	<script type='text/javascript'>alert('Signup Error!');</script>
+</c:if>
+<c:if test="${requestScope.logstatus!=null }">
+	<script type="text/javascript">alert("Login Fail!");</script>
+</c:if>
 <c:set var="list" value="${requestScope.latestnews }"></c:set>
 <c:set var="user" value="${sessionScope.user }"></c:set>
 <c:if test="${list==null }">
@@ -49,7 +55,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+  js.src = "//connect.facebook.net/e	n_US/sdk.js#xfbml=1&version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <!-- Body Wrapper -->

@@ -40,6 +40,9 @@
 </head>
 
 <body>
+<c:if test="${requestScope.signup_status!=null }">
+	<script type="text/javascript">alert("Signup Error!");</script>
+</c:if>
 <c:if test="${requestScope.logstatus!=null }">
 	Login Fail!
 </c:if>
@@ -93,14 +96,6 @@
 												type="text" required autocomplete="off" name="username"/>
 										  </div>
 										  <div class="field-wrap">
-											<label>School<span class="req">*</span></label> <input
-												type="text" required autocomplete="off" name="school"/>
-										  </div>
-										  <div class="field-wrap">
-											<label>Department<span class="req">*</span></label> <input
-												type="text" required autocomplete="off" name="department"/>
-										  </div>
-										  <div class="field-wrap">
 	                                        <label>Email Address<span class="req">*</span></label>
 	                                        <input type="email"required autocomplete="off" name="email"/>
 	                                      </div>
@@ -108,17 +103,14 @@
 	                                      <div class="field-wrap" ng-class="{'has-error':formData.password.$invalid && !formData.password.$pristine}">
 	                                       <!--  <label>Password<span class="req">*</span></label> -->
 	                                        <input type="password" id="password" name="password" ng-model="formData.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" placeholder="password" required />
-	                                        <p ng-show="signupForm.password.$error.required" class="error">*</p>
 										        <p ng-show="signupForm.password.$error.minlength" class="error">
 										          Passwords must be between 8 and 20 characters.</p>
 										        <p ng-show="signupForm.password.$error.pattern" class="error">
 										          Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</p>
 	                                      </div>
 	                                      <div class="field-wrap" ng-class="{'has-error':formData.password_c.$invalid && !formData.password_c.$pristine}">
-	                                        <!-- <label>Confirm Password<span class="req">*</span></label> -->
 	                                        <input type="password" id="password_c" name="password_c" ng-model="formData.password_c" placeholder="confirm password" valid-password-c="formData.password" required />
 	                                        <p ng-show="signupForm.password_c.$error.noMatch" class="error">Passwords do not match.</span>
-										          <p ng-show="signupForm.password_c.$error.required" class="error">*</p>
 	                                      </div>
 	                                      <div class="field-wrap">
 											    <select name="gender">
@@ -127,7 +119,7 @@
 											        <option value="2">Female</option>
 											    </select>
 	                                      </div>
-	                                      <button onclick="signup()" class="button button-block">Sign Up</button>
+	                                      <button type="submit" class="button button-block">Sign Up</button>
 	                                  </form>
 	                                </div>
                               </div>
