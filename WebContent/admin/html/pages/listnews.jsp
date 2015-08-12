@@ -83,8 +83,8 @@
 													<td>${item.module_type }</td>
 													<td>${item.news_date }</td>
 													<td class="text-right">
-														<button type="button" id="edit${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-														<button type="button" id="delete${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+														<a href="updatenews?id=${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></a>
+														<a href="actiondeletenews?id=${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
 													</td>
 												</tr>
 											</c:forEach>

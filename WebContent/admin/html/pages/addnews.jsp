@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	
 		<title>Add News' Information</title>
 
 		<!-- BEGIN META -->
@@ -52,7 +53,10 @@
 
 		<!-- BEGIN BASE-->
 		<div id="base">
+			<c:set value="${requestScope.news }" var="news"></c:set>
 			<c:set value="${requestScope.typecode }" var="item"></c:set>
+			
+			<input type="hidden" id="news_id" value="${param.id }">
 			<!-- BEGIN OFFCANVAS LEFT -->
 			<div class="offcanvas">
 			
@@ -73,11 +77,25 @@
 								<div class="form">
 									<div class="card">
 										<div class="card-head style-primary">
-											<header>Add News</header>
+											<c:choose>
+												<c:when test="${news.status==1 }">
+													<header>Update News</header>
+												</c:when>
+												<c:otherwise>
+													<header>Add News</header>
+												</c:otherwise>
+											</c:choose>
 										</div>
 										<div class="card-body floating-label">
 											<div class="form-group">
-												<input class="form-control" id="khmertitle" type="text">
+												<c:choose>
+													<c:when test="${news.status==1 }">
+														<input class="form-control" id="khmertitle" type="text" value="${news.news_title }">
+													</c:when>
+													<c:otherwise>
+														<input class="form-control" id="khmertitle" type="text">
+													</c:otherwise>
+												</c:choose>
 												<label for="khmertitle">Khmer Title</label>
 											</div>
                                             
@@ -90,24 +108,48 @@
                                             	<label for="thumnail">Thumnail (285x170)</label>
 												<div class="input-group">
 													<div class="input-group-btn" style="margin-right:0px">
-														<input id="fileUpload" type="file" style="padding-left:0px" class="btn" value="Browse" accept="image/*"/>
+														<!-- <input id="fileUpload" type="file" style="padding-left:0px" class="btn" value="Browse" accept="image/*"/> -->
+														<c:choose>
+															<c:when test="${news.status==1 }">
+																<input type="file" value="${news.news_img }" accept="image/*" id="fileUpload" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Choose Thumnail ">
+															</c:when>
+															<c:otherwise>
+																<input type="file" accept="image/*" id="fileUpload" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Choose Thumnail ">
+															</c:otherwise>
+														</c:choose>
 													</div>
 												</div>
 											</div>
                                             <div class="form-group floating-label">
-                                            	
 												<select id="category" name="category" class="form-control">
-													<option value="">&nbsp;</option>
-													<c:forEach var="v" items="${item }">
-														<option value="${v.module_code }">${v.module_type }</option>
-													</c:forEach>
+													<c:choose>
+														<c:when test="${news.status==1 }">
+															<option value="${news.module_code }">${news.module_type }</option>
+															<c:forEach var="v" items="${item }">
+																<option value="${v.module_code }">${v.module_type }</option>
+															</c:forEach>
+														</c:when>
+														<c:otherwise>
+															<option value="">&nbsp;</option>
+															<c:forEach var="v" items="${item }">
+																<option value="${v.module_code }">${v.module_type }</option>
+															</c:forEach>
+														</c:otherwise>
+													</c:choose>
 												</select>
 												<label for="select2">Category</label>
 											</div>
                                             <div class="form-group">
 												<div class="input-group date" id="demo-date">
 													<div class="input-group-content">
-														<input class="form-control" name="publishdate" id="publishdate" type="text">
+														<c:choose>
+															<c:when test="${news.status==1 }">
+																<input class="form-control" name="publishdate" id="publishdate" type="text" value="${news.news_date }">
+															</c:when>
+															<c:otherwise>
+																<input class="form-control" name="publishdate" id="publishdate" type="text">
+															</c:otherwise>
+														</c:choose>
 														<label>Publish Date</label>
 													</div>
 													<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
@@ -120,7 +162,6 @@
                                                     <ul class="card-head nav nav-tabs" data-toggle="tabs">
                                                         <li class="active"><a href="#first5">KHMER CONTENTS</a></li>
                                                         <li class=""><a href="#second5">ENGLISH CONTENTS</a></li>
-                                                        <li class=""><a href="#third5">VIDEOS</a></li>
                                                     </ul>
                                                     <div class="card-body tab-content style-default-bright">
                                                         <div class="tab-pane active" id="first5">
@@ -128,7 +169,14 @@
                                                             <div class="card">
                                                                 <div class="card-body no-padding">
                                                                     <div id="summernote" class="summernote">
-																		<p>Hello</p>
+																		<c:choose>
+																			<c:when test="${news.status==1 }">
+																				${news.news_desc }												
+																			</c:when>
+																			<c:otherwise>
+																				<p>Khmer</p>
+																			</c:otherwise>
+																		</c:choose>
                                                                     </div>
                                                                 </div><!--end .card-body -->
                                                             </div><!--end .card -->
@@ -139,18 +187,7 @@
                                                             <div class="card">
                                                                 <div class="card-body no-padding">
                                                                     <div id="summernote1">
-																		hello2
-                                                                    </div>
-                                                                </div><!--end .card-body -->
-                                                            </div><!--end .card -->
-                                                            <!-- END SUMMERNOTE -->
-                                                        </div>
-                                                        <div class="tab-pane" id="third5">
-                                                            <!--BEGIN SUMMERNOTE  -->
-                                                            <div class="card">
-                                                                <div class="card-body no-padding">
-                                                                    <div id="summernote2">
-			
+																		<p>English</p>
                                                                     </div>
                                                                 </div><!--end .card-body -->
                                                             </div><!--end .card -->
@@ -164,7 +201,15 @@
                                         
 										<div class="card-actionbar">
 											<div class="card-actionbar-row">
-												<button id="btnsave" class="btn btn-flat btn-primary ink-reaction">SAVE</button>
+												<c:choose>
+													<c:when test="${news.status==1 }">
+														<button id="btnupdate" class="btn btn-flat btn-primary ink-reaction">Update News</button>
+														
+													</c:when>
+													<c:otherwise>
+														<button id="btnsave" class="btn btn-flat btn-primary ink-reaction">Save News</button>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</div>
 									</div><!--end .card -->
@@ -209,12 +254,13 @@
 		<script src="../../assets/js/summernote/summernote.min.js"></script>
 		<!-- END JAVASCRIPT -->
 		
+		<script type="text/javascript" src="../../assets/js/bootstrap-filestyle.min.js"> </script>
+		
 		<script>
 			$(document).ready(function() {
 	  			$('#summernote').summernote();
 	  			$('#summernote1').summernote();
 	  			
-
 				$('#btnsave').click(function(){
 					var data1;
 				    data1 = new FormData();
@@ -230,7 +276,38 @@
 							var path=data;
 							var c = $('#summernote').code();
 							$.post('addnews1',
+									{ path:$('#fileUpload').val(),
+								      khmer:$('#khmertitle').val(),
+								 	  english:$('#khmertitle').val(),
+									  category:$('#category option:selected').val(),
+									  mydate:$("#publishdate").val(),
+									  khmercontent:c,
+									  englishcontent:$('#summernote1').code()
+									},
+									function(data){
+										alert(data);
+							});
+						}
+					});   
+				});
+				
+				$('#btnupdate').click(function(){
+					var data2;
+				    data2 = new FormData();
+				    data2.append('file', $('#fileUpload')[0].files[0]);
+				    $.ajax({
+						url : "addnews",
+						type : "POST",
+						cache: false,
+						contentType: false,
+						processData: false,
+						data: data2,
+						success:function(data){
+							var path=data;
+							var c = $('#summernote').code();
+							$.post('actionupdatenews',
 									{ path:path,
+									  id:$('#news_id').val(),
 								      khmer:$('#khmertitle').val(),
 								 	  english:$('#khmertitle').val(),
 									  category:$('#category option:selected').val(),

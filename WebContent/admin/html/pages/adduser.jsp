@@ -100,7 +100,7 @@
 											<div class="form-group">
 												<c:choose>
 													<c:when test="${user.status==1 }">
-														<input class="form-control" id="password" name="password" type="password" value="*************">
+														<input class="form-control" id="password" name="password" type="password" value="${user.user_pass }">
 													</c:when>
 													<c:otherwise>
 														<input class="form-control" id="password" name="password" type="password">
@@ -225,6 +225,7 @@
 				$('#btncreate').click(function(){
 					
 					var username=$('#username').val();
+					alert(username);
 					var password=$('#password').val();
 					var usertype=$('#usertype').val();
 					var gender=$('input[type=radio]:checked').val();
@@ -246,6 +247,7 @@
 				
 				$('#btnupdate').click(function(){
 					
+					var user_id=$('#user_id').val();
 					var username=$('#username').val();
 					var password=$('#password').val();
 					var usertype=$('#usertype').val();
@@ -258,8 +260,8 @@
 					}else
 						subscribe=0;
 					
-					$.post('adduser',{
-							email:email,username:username,password:password,usertype:usertype,gender:gender,subscribe:subscribe
+					$.post('actionupdateuser',{
+							user_id:user_id,email:email,username:username,password:password,usertype:usertype,gender:gender,subscribe:subscribe
 						},function(data){
 						alert('success');
 					});
