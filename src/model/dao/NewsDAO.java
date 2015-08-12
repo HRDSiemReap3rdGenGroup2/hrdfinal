@@ -316,11 +316,8 @@ public class NewsDAO {
 			pstmt.setString(6, news.getNews_img());
 			pstmt.setString(7, news.getNews_date());
 			pstmt.setString(8, news.getUser_info_code());
-			
 			if(pstmt.executeUpdate()>0)
 				return true;
-			
-			
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -354,6 +351,54 @@ public class NewsDAO {
 				con.close();
 		}
 		return list;
+	}
+	public News getNews(int news_id) throws Exception{
+		try{
+			String sql="SELECT news_img, news_id, module_code,module_type,news_title,news_desc,news_date FROM tbnews n INNER JOIN tbmoduleinfo m ON m.module_code=n.cat_code WHERE news_id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, news_id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				News news = new News();
+				news.setNews_id(rs.getInt("news_id"));
+				news.setNews_title(rs.getString("news_title"));
+				news.setNews_desc(rs.getString("news_desc"));
+				news.setNews_date(rs.getString("news_date"));
+				news.setModule_type(rs.getString("module_type"));
+				news.setModule_code(rs.getString("module_code"));
+				news.setNews_img(rs.getString("news_img"));
+				return news;
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		return null;
+	}
+	public boolean updateNews(News news) throws Exception{
+		try{
+			String sql = "UPDATE tbnews SET news_title=?, news_desc=?, news_img=?, news_date=?, cat_code=? WHERE news_id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, news.getNews_title());
+			pstmt.setString(2, news.getNews_desc());
+			pstmt.setString(3, news.getNews_img());
+			pstmt.setString(4, news.getNews_date());
+			pstmt.setString(5, news.getCat_code());
+			pstmt.setInt(6, news.getNews_id());
+			
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		
+		return false;
 	}
 	
 	

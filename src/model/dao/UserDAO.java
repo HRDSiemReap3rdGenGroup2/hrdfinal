@@ -126,12 +126,11 @@ public class UserDAO {
 		}
 		return null;
 	}
-	public boolean addAdminUser(User user) throws Exception{
+	public boolean addAdminUser(User u) throws Exception{
 		try{
-			
 			String sql="INSERT INTO tbuser(user_id,user_type,user_name,user_pass, user_email, user_gender) VALUES(nextval('seq_user_id'),?,?,?,?,?)";
 			PreparedStatement p = con.prepareStatement(sql);
-			User u=new User();
+			
 			p.setString(1, u.getUser_type());
 			p.setString(2, u.getUser_name());
 			p.setString(3, u.getUser_pass());
@@ -149,6 +148,27 @@ public class UserDAO {
 				con.close();
 		}
 
+		return false;
+	}
+	public boolean updateUser(User user) throws Exception {
+		try{
+			String sql ="UPDATE tbuser SET user_name=?,user_pass=?, user_email=?, user_gender=?,user_type=? WHERE user_id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user.getUser_name());
+			pstmt.setString(2, user.getUser_pass());
+			pstmt.setString(3, user.getEmail());
+			pstmt.setString(4, user.getGender());
+			pstmt.setString(5, user.getUser_type());
+			pstmt.setInt(6, user.getUser_id());
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
 		return false;
 	}
 	

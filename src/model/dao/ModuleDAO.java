@@ -94,9 +94,9 @@ public class ModuleDAO {
 		return false;
 	}
 	private String getModuleCode() {
-	
+		
 		// B040 + 102
-		return "B040103";
+		return "B040105";
 	}
 	public boolean validateType(String module_type) {
 		
