@@ -36,16 +36,14 @@ public class LoginUser extends HttpServlet {
 		User u;
 		if((u=new model.dao.UserDAO().login(username, password)) != null){
 			req.getSession().setAttribute("user", u.getUser_name());
-			req.getSession().setAttribute("user_id", u.getUser_id() );
-			resp.sendRedirect(req.getContextPath());
+			req.getSession().setAttribute("user_id", u.getUser_id());
 		}
 		else{
-			req.setAttribute("logstatus", "failed");
-			resp.sendRedirect(req.getContextPath());
+			resp.getWriter().write("failed");
 		}
 		}catch(Exception e){
 			e.printStackTrace();
-			resp.sendRedirect(req.getContextPath());
+			resp.getWriter().write("failed");
 		}
 	}
 }

@@ -33,7 +33,8 @@
 <link rel="stylesheet" type="text/css" href="css/devices/1000.css" media="only screen and (min-width: 768px) and (max-width: 1000px)" />
 <link rel="stylesheet" type="text/css" href="css/devices/767.css" media="only screen and (min-width: 480px) and (max-width: 767px)" />
 <link rel="stylesheet" type="text/css" href="css/devices/479.css" media="only screen and (min-width: 200px) and (max-width: 479px)" />
-<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,800' rel='stylesheet' type='text/css'><link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+        <script src="dist/sweetalert.min.js"></script>
 <!--[if lt IE 9]> <script type="text/javascript" src="js/customM.js"></script> <![endif]-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 
@@ -73,18 +74,18 @@
                               <div class="tab-content">
 	                              <div id="login">   
 	                                  <h1>Login</h1>
-	                                  <form action="user/login" method="post">
+	                                  <div>
 	                                      <div class="field-wrap">
 	                                          <label>Email Address<span class="req">*</span></label>
-	                                          <input type="email"required autocomplete="off" name="email"/>
+	                                          <input type="email"required autocomplete="off" id="email"/>
 	                                      </div>
 	                                      <div class="field-wrap">
 	                                         <label>Password<span class="req">*</span></label>
-	                                         <input type="password"required autocomplete="off" name="password"/>
+	                                         <input type="password"required autocomplete="off" id="password"/>
 	                                      </div>
 	                                      <p class="forgot"><a href="#">Forgot Password?</a></p>
-	                                      <button type="submit" class="button button-block">Log In</button>
-	                                  </form>
+	                                      <button onclick="login()" class="button button-block">Log In</button>
+	                                  </div>
 	                                </div>
                                 <div id="signup">   
                                   <h1>Sign Up for Free</h1>
@@ -185,12 +186,20 @@ app.directive('validPasswordC', function() {
   }
 });
 
-app.controller('homeCtrl', function($scope) {
+app.controller('homeCtrl', function($scope) {});
 
-
-
-
+function login(){
+$.post("user/login",{
+	email:$("#email").val(),
+	password:$("#password").val()
+},function(data){
+	if(data=="failed"){
+		swal("Invalid", "Either email or password invalid", "error");   
+	}else{
+		window.location.href = "home";
+	}
 });
+}
 </script>
 </body>
 </html>
