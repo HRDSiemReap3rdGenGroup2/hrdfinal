@@ -187,6 +187,41 @@ public class ModuleDAO {
 		
 		return null;
 	}
+	public boolean updateModule(Module module) throws Exception{
+		try{
+			String sql = "UPDATE tbmoduleinfo SET module_name=?, module_type=? WHERE module_id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, module.getModule_name());
+			pstmt.setString(2, module.getModule_type());
+			pstmt.setInt(3, module.getModule_id());
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		
+		return false;
+	}
+	public boolean deleteModule(int module_id)throws Exception {
+		try{
+			String sql = "DELETE FROM tbmoduleinfo WHERE module_id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, module_id);
+			if(pstmt.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
+		return false;
+	}
 	
 	
 }
