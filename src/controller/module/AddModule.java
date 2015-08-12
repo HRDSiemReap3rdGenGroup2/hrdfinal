@@ -55,9 +55,7 @@ public class AddModule extends HttpServlet {
 		
 		try {
 			if(new ModuleDAO().addModule(module)){
-				System.out.println("Added Successfully..!");;
-				
-			
+				System.out.println("Added Successfully..!");
 			}
 			
 		} catch (SQLException e) {
