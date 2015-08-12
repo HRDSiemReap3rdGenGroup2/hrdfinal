@@ -83,7 +83,7 @@
 												<td>${item.module_type }</td>
 												<td class="text-right">
 													<a href="updatemodule?id=${item.module_id}"  class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></a>
-													<button type="button" id="delete${item.module_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+													<a href="actiondeletemodule?id=${item.module_id}"  class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
 												</td>
 											</tr>
 											</c:forEach>

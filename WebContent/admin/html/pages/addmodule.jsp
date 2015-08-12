@@ -35,7 +35,7 @@
 
 		<!-- BEGIN BASE-->
 		<div id="base">
-
+			<input id="module_id" type="hidden" value="${param.id }">
 			<!-- BEGIN OFFCANVAS LEFT -->
 			<div class="offcanvas">
 			
@@ -72,14 +72,28 @@
 											
 											<div class="form-group floating-label">
 												<select id="select2" name="select2" class="form-control">
-													<option value="">&nbsp;</option>
-													<option value="70">ពត៌មាន</option>
+													<c:choose>
+														<c:when test="${module.status==1 }">
+															<option value="70">ពត៌មាន</option>
+														</c:when>
+														<c:otherwise>
+															<option value="">&nbsp;</option>
+															<option value="70">ពត៌មាន</option>
+														</c:otherwise>
+													</c:choose>
 												</select>
 												<label for="select2">Type</label>
 											</div>
                                             <div class="form-group floating-label">
 												<select id="module_name" name="select2" class="form-control">
-													<option value="">&nbsp;</option>
+													<c:choose>
+														<c:when test="${module.status==1 }">
+															<option value="${module.module_name }">${module.module_name }</option>
+														</c:when>
+														<c:otherwise>
+															<option value="">&nbsp;</option>
+														</c:otherwise>
+													</c:choose>
 													<c:forEach var="item" items="${source }">
 														<option value='${item.module_name }'>${item.module_name}</option>
 													</c:forEach>
@@ -88,7 +102,14 @@
 											</div>
                                             
 											<div class="form-group">
-												<input class="form-control" id="module_type" type="text">
+												<c:choose>
+														<c:when test="${module.status==1 }">
+															<input required="required" class="form-control" id="module_type" type="text" value="${module.module_type }">
+														</c:when>
+														<c:otherwise>
+															<input class="form-control" id="module_type" type="text">
+														</c:otherwise>
+													</c:choose>
 												<label for="Username2">Category</label>
 											</div>
 											
@@ -97,10 +118,10 @@
 											<div class="card-actionbar-row">
 												<c:choose>
 													<c:when test="${module.status==1 }">
-														<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Update Module</button>
+														<button id="btnupdate" type="button" class="btn btn-flat btn-primary ink-reaction">Update Module</button>
 													</c:when>
 													<c:otherwise>
-														<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create Module</button>
+														<button id="btncreate"  class="btn btn-flat btn-primary ink-reaction">Create Module</button>
 													</c:otherwise>
 												</c:choose>
 											</div>
@@ -155,6 +176,16 @@
 							alert('success');
 						}
 					);
+				});
+				
+				$('#btnupdate').click(function(){
+					$.post('actionupdatemodule',{
+						module_id:$('#module_id').val(),module_name:$('#module_name option:selected').val(),module_type:$('#module_type').val()
+						},
+						function(data){
+							alert('success');
+						}
+					); 
 				});
 			});
 		

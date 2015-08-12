@@ -91,8 +91,8 @@
 													<td>${item.gender }</td>
 													<td>${item.user_pass }</td>
 													<td class="text-right">
-														<button type="button" id="edit${item.user_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></button>
-														<button type="button" id="delete${item.user_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
+														<a href="updateuser?id=${item.user_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></a>
+														<a href="actiondeleteuser${item.user_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
 													</td>
 												</tr>
 											</c:forEach>

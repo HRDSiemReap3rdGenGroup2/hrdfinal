@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -34,7 +35,7 @@
 
 		<!-- BEGIN BASE-->
 		<div id="base">
-
+			<input type="hidden" value="${param.id }" id="user_id">		
 			<!-- BEGIN OFFCANVAS LEFT -->
 			<div class="offcanvas">
 			
@@ -52,46 +53,109 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
 								<div class="form">
-								
+									<c:set value="${requestScope.user }" var="user"></c:set>
 									<div class="card">
 										<div class="card-head style-primary">
-											<header>Create User Account</header>
+											<c:choose>
+												<c:when test="${user.status==1 }">
+													<header>Update Account</header>
+												</c:when>
+												<c:otherwise>
+													<header>Create Account</header>
+												</c:otherwise>
+											</c:choose>
 										</div>
 										<div class="card-body floating-label">
 											<div>
-												<label class="radio-inline radio-styled">
-													<input name="gender" value="male" checked="true" type="radio"><span>Male</span>
-												</label>
-												<label class="radio-inline radio-styled">
-													<input name="gender" value="female" type="radio"><span>Female</span>
-												</label>
+												<c:choose>
+													<c:when test="${user.gender=='male' }">
+														<label class="radio-inline radio-styled">
+															<input name="gender" value="male" checked="true" type="radio"><span>Male</span>
+														</label>
+														<label class="radio-inline radio-styled">
+															<input name="gender" value="female" type="radio"><span>Female</span>
+														</label>
+													</c:when>
+													<c:otherwise>
+														<label class="radio-inline radio-styled">
+															<input name="gender" value="male" type="radio"><span>Male</span>
+														</label>
+														<label class="radio-inline radio-styled">
+															<input name="gender" value="female" checked="true" type="radio"><span>Female</span>
+														</label>
+													</c:otherwise>
+												</c:choose>
 											</div><br>
 											<div class="form-group">
-												<input class="form-control" id="username" name="username" type="text">
+												<c:choose>
+													<c:when test="${user.status==1 }">
+														<input class="form-control" id="username" name="username" type="text" value="${user.user_name }">
+													</c:when>
+													<c:otherwise>
+														<input class="form-control" id="username" name="username" type="text">
+													</c:otherwise>
+												</c:choose>
 												<label for="Username2">Username</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="password" name="password" type="password">
+												<c:choose>
+													<c:when test="${user.status==1 }">
+														<input class="form-control" id="password" name="password" type="password" value="*************">
+													</c:when>
+													<c:otherwise>
+														<input class="form-control" id="password" name="password" type="password">
+													</c:otherwise>
+												</c:choose>
 												<label for="Password2">Password</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="password1" type="password">
+												<c:choose>
+													<c:when test="${user.status==1 }">
+														<input class="form-control" id="password1" type="password" value="*************">
+													</c:when>
+													<c:otherwise>
+														<input class="form-control" id="password1" type="password">
+													</c:otherwise>
+												</c:choose>
 												<label for="Password2">Confirm Password</label>
 											</div>
 											<div class="form-group">
-												<input class="form-control" id="email" name="email" type="email">
+												<c:choose>
+													<c:when test="${user.status==1 }">
+														<input class="form-control" id="email" name="email" type="email" value="${user.email }">
+													</c:when>
+													<c:otherwise>
+														<input class="form-control" id="email" name="email" type="email">
+													</c:otherwise>
+												</c:choose>
 												<label for="Password2">Email</label>
-											</div>
-											<div class="form-group">
-												<input class="form-control" id="email1" name="email" type="email">
-												<label for="Password2">Confirm Email</label>
 											</div>
                                             <div class="form-group floating-label">
 												<select id="usertype" name="usertype" class="form-control">
-													<option value="">&nbsp;</option>
-													<option value="3">Visitor</option>
-                                                    <option value="2">Editor</option>
-                                                    <option value="1">Admin</option>
+													<c:choose>
+														<c:when test="${user.user_type==1 }">
+															<option value="1">Admin</option>
+															<option value="3">Visitor</option>
+                                                   			<option value="2">Editor</option>
+														</c:when>
+														<c:when test="${user.user_type==2 }">
+															<option value="2">Editor</option>
+															<option value="3">Visitor</option>
+															<option value="1">Admin</option>
+														</c:when>
+														<c:when test="${user.user_type==3 }">
+															<option value="3">Visitor</option>
+		                                                    <option value="2">Editor</option>
+		                                                    <option value="1">Admin</option>
+														</c:when>
+														<c:otherwise>
+															<option value="">&nbsp;</option>
+															<option value="3">Visitor</option>
+		                                                    <option value="2">Editor</option>
+		                                                    <option value="1">Admin</option>
+														</c:otherwise>
+													</c:choose>
+													
 												</select>
 												<label for="select2">User Type</label>
 											</div>
@@ -105,7 +169,15 @@
 										</div><!--end .card-body -->
 										<div class="card-actionbar">
 											<div class="card-actionbar-row">
-												<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create account</button>
+												<c:choose>
+													<c:when test="${user.status==1 }">
+														<button id="btnupdate" class="btn btn-flat btn-primary ink-reaction">Update account</button>
+													</c:when>
+													<c:otherwise>
+														<button id="btncreate" class="btn btn-flat btn-primary ink-reaction">Create account</button>
+													</c:otherwise>
+												</c:choose>
+												
 											</div>
 										</div>
 									</div><!--end .card -->
@@ -150,7 +222,6 @@
 		<script>
 			$(document).ready(function(){
 				
-				
 				$('#btncreate').click(function(){
 					
 					var username=$('#username').val();
@@ -172,6 +243,29 @@
 					});
 					
 				});
+				
+				$('#btnupdate').click(function(){
+					
+					var username=$('#username').val();
+					var password=$('#password').val();
+					var usertype=$('#usertype').val();
+					var gender=$('input[type=radio]:checked').val();
+					var subscribe = 0;
+					var email = $('#email').val();
+					
+					if($('#subscribe').is(':checked')){
+						subscribe=1;
+					}else
+						subscribe=0;
+					
+					$.post('adduser',{
+							email:email,username:username,password:password,usertype:usertype,gender:gender,subscribe:subscribe
+						},function(data){
+						alert('success');
+					});
+					
+				});
+				
 			});
 		</script>
 		
