@@ -59,14 +59,11 @@ public class AddNews extends HttpServlet {
                         item.write( new File(UPLOAD_DIRECTORY + File.separator + filename));
                         UPLOAD_DIRECTORY = UPLOAD_DIRECTORY + File.separator + filename;
                         response.getWriter().write(request.getContextPath()+"/"+"img"+"/"+"upload"+"/"+filename);
-                        
-                    }
+                     }
                 }
-           
             } catch (Exception ex) {
                request.setAttribute("message", "File Upload Failed due to " + ex);
             }          
-         
         }else{
             request.setAttribute("message",
                                  "Sorry this Servlet only handles file upload request");

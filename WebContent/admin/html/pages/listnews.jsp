@@ -84,7 +84,8 @@
 													<td>${item.news_date }</td>
 													<td class="text-right">
 														<a href="updatenews?id=${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Edit row"><i class="fa fa-pencil"></i></a>
-														<a href="actiondeletenews?id=${item.news_id }" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></a>
+														
+														<button onclick="mydelete(${item.news_id})" id="btndelete" class="btn btn-icon-toggle" data-toggle="tooltip" data-placement="top" data-original-title="Delete row"><i class="fa fa-trash-o"></i></button>
 													</td>
 												</tr>
 											</c:forEach>
@@ -130,6 +131,15 @@
 		<script src="../../assets/js/core/demo/Demo.js"></script>
 		<script src="../../assets/js/core/demo/DemoTableDynamic.js"></script>
 		<!-- END JAVASCRIPT -->
+		
+		<script>
+			
+			function mydelete(news_id){
+				$.post('actiondeletenews',{id:news_id},function(data){
+					
+				});
+			};
+		</script>
 		
 	</body>
 </html>

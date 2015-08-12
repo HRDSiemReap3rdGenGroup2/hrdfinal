@@ -379,14 +379,16 @@ public class NewsDAO {
 	}
 	public boolean updateNews(News news) throws Exception{
 		try{
-			String sql = "UPDATE tbnews SET news_title=?, news_desc=?, news_img=?, news_date=?, cat_code=? WHERE news_id=?";
+			/*String sql = "UPDATE tbnews SET news_title=?, news_desc=?, news_img=?, news_date=?, cat_code=? WHERE news_id=?";
+			*/
+			String sql = "UPDATE tbnews SET news_title=?, news_desc=?, news_date=?, cat_code=? WHERE news_id=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, news.getNews_title());
 			pstmt.setString(2, news.getNews_desc());
-			pstmt.setString(3, news.getNews_img());
-			pstmt.setString(4, news.getNews_date());
-			pstmt.setString(5, news.getCat_code());
-			pstmt.setInt(6, news.getNews_id());
+			//pstmt.setString(3, news.getNews_img());
+			pstmt.setString(3, news.getNews_date());
+			pstmt.setString(4, news.getCat_code());
+			pstmt.setInt(5, news.getNews_id());
 			
 			if(pstmt.executeUpdate()>0)
 				return true;
@@ -398,6 +400,22 @@ public class NewsDAO {
 				con.close();
 		}
 		
+		return false;
+	}
+	public boolean deleteNews(int news_id) throws Exception {
+		try{
+			String sql = "DELETE FROM tbnews WHERE news_id=?";
+			PreparedStatement p = con.prepareStatement(sql);
+			p.setInt(1, news_id);
+			if(p.executeUpdate()>0)
+				return true;
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			if(con!=null)
+				con.close();
+		}
 		return false;
 	}
 	

@@ -276,7 +276,7 @@
 							var path=data;
 							var c = $('#summernote').code();
 							$.post('addnews1',
-									{ path:$('#fileUpload').val(),
+									{ path:path,
 								      khmer:$('#khmertitle').val(),
 								 	  english:$('#khmertitle').val(),
 									  category:$('#category option:selected').val(),
